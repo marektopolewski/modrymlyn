@@ -1,0 +1,13 @@
+.header {
+    margin-top: 2rem;
+}
+
+.subtitle {
+    margin-top: 1rem;
+    opacity: 0.75;
+}
+
+.subsubtitle {
+    font-size: medium;
+    opacity: 0.5;
+}
