@@ -1,4 +1,5 @@
 import React from 'react';
+import { SocialIcon } from 'react-social-icons';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
@@ -7,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
 import logo from "../assets/mlyn_logo.jpg";
+import Map from './MapContainer';
 
 import './Home.css';
 
@@ -27,6 +29,22 @@ const Home = () => (
                 </Row>
             </Container>
         </Jumbotron>
+    </Container>
+
+    <Container>
+        <Row className="justify-content-md-center">
+            <Col><Map/></Col>
+            <Col>
+                    {/* <Col style={{ whiteSpace:'nowrap', marginTop: '1rem' }}>
+                        Poznaj nas lepiej:
+                    </Col> */}
+                    <Row style={{ marginTop: '1rem' }}>
+                        <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
+                        <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
+                        <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
+                    </Row>
+            </Col>
+        </Row>
     </Container>
     </>
 );
