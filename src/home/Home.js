@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
 import logo from "../assets/mlyn_logo.jpg";
-import Map from './MapContainer';
+import PigeonMap from './MapContainer';
 
 import './Home.css';
 
@@ -33,7 +33,7 @@ const Home = () => (
 
     <Container>
         <Row className="justify-content-md-center">
-            <Col><Map/></Col>
+            <Col><PigeonMap /></Col>
             <Col>
                 <Row style={{ marginTop: '1rem' }}>
                     <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
