@@ -35,14 +35,11 @@ const Home = () => (
         <Row className="justify-content-md-center">
             <Col><Map/></Col>
             <Col>
-                    {/* <Col style={{ whiteSpace:'nowrap', marginTop: '1rem' }}>
-                        Poznaj nas lepiej:
-                    </Col> */}
-                    <Row style={{ marginTop: '1rem' }}>
-                        <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
-                        <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
-                        <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
-                    </Row>
+                <Row style={{ marginTop: '1rem' }}>
+                    <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
+                    <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
+                    <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
+                </Row>
             </Col>
         </Row>
     </Container>

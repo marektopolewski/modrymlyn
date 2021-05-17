@@ -18,7 +18,7 @@ export default class Navbar extends React.Component {
                         <Nav.Link href="/menu" eventKey="/menu">Menu</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
-                        <Nav.Link href="/photo" eventKey="/photo">Zdjęcia</Nav.Link>
+                        <Nav.Link href="/photos" eventKey="/photos">Zdjęcia</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Container>
