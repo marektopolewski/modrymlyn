@@ -35,7 +35,7 @@ const Home = () => (
         <Row className="justify-content-md-center">
             <Col><PigeonMap /></Col>
             <Col>
-                <Row style={{ marginTop: '1rem' }}>
+                <Row style={{ marginTop:'1rem', textAlign:'center' }}>
                     <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
                     <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
                     <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
