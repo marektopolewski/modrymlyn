@@ -23,7 +23,7 @@ const Home = () => (
                         <h5 className="subtitle">Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
                         <h5 className="subsubtitle">ul. Mickewicza 19A, Rumia</h5>
                     </Col>
-                    <Col md="auto">
+                    <Col md="auto" style={{ textAlign:'center' }}>
                         <Image src={logo} style={{ height: '10rem' }} fluid />
                     </Col>
                 </Row>
