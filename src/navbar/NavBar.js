@@ -11,11 +11,14 @@ export default class Navbar extends React.Component {
         return (
             <Container>
             <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
-                    <Nav.Item as="li">
+                    <Nav.Item as="li" style={{ backgroundColor:'aliceblue' }}>
                         <Nav.Link href="/" eventKey="/">Strona główna</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Nav.Link href="/menu" eventKey="/menu">Menu</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li">
+                        <Nav.Link href="/reserve" eventKey="/reserve">Rezerwacja</Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li">
                         <Nav.Link href="/photos" eventKey="/photos">Zdjęcia</Nav.Link>
