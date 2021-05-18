@@ -11,11 +11,6 @@ function matchExact(r, str) {
     return match && str === match[0];
 }
 
-Date.prototype.addHours = function(h) {
-    this.setTime(this.getTime() + (h*60*60*1000));
-    return this;
-}
-
 function intToTime(val) {
     const hrs = Math.floor(val / (60 * 60));
     const min = (val - hrs * 60 * 60) / 60;
