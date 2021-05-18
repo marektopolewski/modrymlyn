@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
@@ -13,20 +13,13 @@ import './Photos.css'
 export default class Photos extends React.Component {
     render() {
         return (
-            <Container style={{ marginTop:'2rem', height:'100%' }}>
-            <Carousel
+            <Container className="wrapper">
+            <Carousel className="carousel"
                 nextIcon={<ArrowRightCircle color="black" size={50} className="svgShadow" />}
                 prevIcon={<ArrowLeftCircleFill color="black" size={50} className="svgShadow" />}
-                style={{ height:'100%' }}
             >
                 <Carousel.Item>
-                    <Image
-                        className="d-block"
-                        style={{ height:'60vh', margin:'auto' }}
-                        src={photo2}
-                        alt="First slide"
-                        fluid
-                    />
+                    <Image className="d-block image" src={photo2} alt="Zdjęcie 2" fluid />
                     <Carousel.Caption style={{ color:'black' }}>
                         <h3>Sledze z pùlkama</h3>
                         <p>Nasza narodowa specjalność - śledzie 🐟🐟🐟</p>
@@ -35,14 +28,7 @@ export default class Photos extends React.Component {
                 </Carousel.Item>
 
                 <Carousel.Item>
-                    <Image
-                        className="d-block"
-                        style={{ height:'60vh', margin:'auto' }}
-                        src={photo1}
-                        alt="First slide"
-                        fluid
-                    />
-                    
+                    <Image className="d-block image" src={photo1} alt="Zdjęcie 1" fluid />
                     <Carousel.Caption style={{ color:'black' }}>
                         <h3>W przeddzień otwarcia...</h3>
                         <p>Czy macie ochotę skosztować dań kuchni kaszubskiej w nowoczesnej odsłonie? 🌼</p>

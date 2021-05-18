@@ -2,3 +2,8 @@
     margin: auto;
     margin-top: 2rem;
 }
+
+.header-row {
+    width: 100%;
+    text-align: center;
+}

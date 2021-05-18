@@ -1,3 +1,13 @@
+.wrapper {
+    margin-top: 2rem;
+    height: 100vh;
+}
+
+.carousel {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .carousel-caption {
     position: relative !important;
     left: auto !important;
@@ -16,4 +26,9 @@
 .svgShadow {
     -webkit-filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1.0));
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1.0));
+}
+
+.image {
+    max-height: 60vh;
+    margin: auto;
 }

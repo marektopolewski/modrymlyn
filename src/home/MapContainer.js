@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Map, Marker } from "pigeon-maps"
 
 export default class PigeonMap extends React.Component {

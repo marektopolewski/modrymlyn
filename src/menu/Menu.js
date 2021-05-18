@@ -20,8 +20,8 @@ import './Menu.css';
 const Menu = () => (
     <Container className="menu">
         <Row className="justify-content-md-center">
-            <Col md="auto">
-                <Image src={logo2} fluid />
+            <Col className="header-row">
+                <Image src={logo2} width="50%" />
             </Col>
         </Row>
         <Row>
