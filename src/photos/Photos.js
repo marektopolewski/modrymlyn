@@ -52,11 +52,13 @@ export default class Photos extends React.Component {
             >
                 { this.state.headers.map((_, i) => {
                     return (
-                        <Carousel.Item>
+                        <Carousel.Item key={i}>
                             <Image className="d-block image" src={this.state.images[i]} alt={`Zdjęcie ${i}`} fluid />
                             <Carousel.Caption style={{ color:'black' }}>
                                 <h3 dangerouslySetInnerHTML={{__html: this.state.headers[i]}}></h3>
-                                { this.state.descriptions[i].map(desc => { return <p>{desc}</p> }) }
+                                { this.state.descriptions[i].map((desc,j) => {
+                                    return <p key={j}>{desc}</p>
+                                }) }
                             </Carousel.Caption>
                         </Carousel.Item>
                     )
