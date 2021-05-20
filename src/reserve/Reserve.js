@@ -154,17 +154,6 @@ export default class Reserve extends React.Component {
                                 </InputGroup>
                             </Col>
                             <Col md>
-                                <InputGroup>
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text className="prep">Godzina</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <TimePicker format={24} start={this.startTime} end={this.endTime}
-                                        isInvalid={!!this.state.errors.time} value={this.state.time}
-                                        onChange={e => this.update('time', intToTime(e))} />
-                                    <Form.Control.Feedback type="invalid">{this.state.errors.time}</Form.Control.Feedback>
-                                </InputGroup>
-                            </Col>
-                            <Col md>
                                 <Row>
                                     <Col>
                                         <RangeSlider min={1} max={this.maxPeople} value={this.state.ppl}
@@ -175,6 +164,17 @@ export default class Reserve extends React.Component {
                                         { this.state.ppl === "1" ? <PersonFill size={25}/> : <PeopleFill size={25}/> }
                                     </Col>
                                 </Row>
+                            </Col>
+                            <Col md>
+                                <InputGroup>
+                                    <InputGroup.Prepend>
+                                        <InputGroup.Text className="prep">Godzina</InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <TimePicker format={24} start={this.startTime} end={this.endTime}
+                                        isInvalid={!!this.state.errors.time} value={this.state.time}
+                                        onChange={e => this.update('time', intToTime(e))} />
+                                    <Form.Control.Feedback type="invalid">{this.state.errors.time}</Form.Control.Feedback>
+                                </InputGroup>
                             </Col>
                         </Row>
                         <Form.Text className="text-muted">
