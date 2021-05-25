@@ -1,6 +1,7 @@
 {
   "name": "modrymlyn",
   "version": "0.1.0",
+  "proxy": "http://localhost:3000/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -13,7 +14,6 @@
     "react-bootstrap": "^1.6.0",
     "react-bootstrap-icons": "^1.5.0",
     "react-bootstrap-range-slider": "^2.0.2",
-    "react-bootstrap-time-picker": "^2.0.1",
     "react-dom": "^17.0.2",
     "react-messenger-customer-chat": "^0.8.0",
     "react-router-dom": "^5.2.0",

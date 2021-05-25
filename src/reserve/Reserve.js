@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Form, Button, Row, Col, InputGroup } from 'react-bootstrap';
-import TimePicker from 'react-bootstrap-time-picker';
 import RangeSlider from 'react-bootstrap-range-slider';
 import { PersonFill, PeopleFill } from 'react-bootstrap-icons';
 
@@ -11,12 +10,6 @@ function matchExact(r, str) {
     return match && str === match[0];
 }
 
-function intToTime(val) {
-    const hrs = Math.floor(val / (60 * 60));
-    const min = (val - hrs * 60 * 60) / 60;
-    return hrs + ":" + (min < 10 ? "0" + min : min)
-}
-
 export default class Reserve extends React.Component {
 
     constructor(props) {
@@ -24,25 +17,24 @@ export default class Reserve extends React.Component {
         this.maxDays = 14;
         let temp = new Date();
         temp.setDate(temp.getDate() + this.maxDays)
-        this.startDate = new Date().toISOString().split("T")[0];
-        this.endDate = temp.toISOString().split("T")[0];
-        this.startTime = "12:00";
-        this.endTime = "20:00";
         this.maxPeople = 6;
         this.state = {
-            validated: false,
-            errors: {},
-            fname: '', lname: '',
-            tel: '',
-            date: '', time: this.startTime,
-            ppl: '2',
-            note: ''
+            validated: false, errors: {}, hourOptions: [],
+            startDate: '', endDate: '',
+
+            fname: '', lname: '', tel: '',
+            date: '', time: '', ppl: '2', note: ''
         }
+        this.getDays();
     }
 
     update = (key, value) => {
         this.setState({ [key]: value });
-        this.setState({ 
+        this.error(key, undefined);
+    }
+
+    error = (key, msg) => {
+        this.setState({
             errors: {
                 ...this.state.errors,
                 [key]: undefined
@@ -54,8 +46,32 @@ export default class Reserve extends React.Component {
         event.preventDefault();
         event.stopPropagation();
         const errors = this.validate();
-        if ( Object.keys(errors).length === 0 )
-            alert('Sent')
+        if ( Object.keys(errors).length === 0 ) {
+            const opts = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fname: this.state.fname,
+                    lname: this.state.lname,
+                    tel: this.state.tel,
+                    datetime: this.state.date,
+                    ppl: this.state.ppl,
+                    note: this.state.note
+                })
+            };
+            fetch('http://localhost:3000/reserve/confirm', opts)
+                .then(async response => {
+                    alert('OK, TODO');
+                    this.clear();
+                })
+                .catch(err => {
+                    alert(`
+                        Ups! Coś poszło nie tak:/\n
+                        Błąd: "${err}"\n\n
+                        Skontaktuj się z restauracją żeby potwierdzić rezerwację
+                    `)
+                })
+        }
         else {
             this.setState({ errors: errors });
         }
@@ -66,15 +82,15 @@ export default class Reserve extends React.Component {
 
         if (!this.state.fname || this.state.fname.length === 0)
             errors.fname = "Pole wymagane";
-        else if (this.state.fname.length > 50)
-            errors.fname = "Max dlugość to 50 znaków";
+        else if (this.state.fname.length > 100)
+            errors.fname = "Max dlugość to 100 znaków";
         else if (!matchExact(/^[A-Za-z]*$/, this.state.fname))
             errors.fname = "Dozowolone tylko litery A-Z";
 
         if (!this.state.lname || this.state.lname.length === 0)
             errors.lname = "Pole wymagane";
-        else if (this.state.lname.length > 50)
-            errors.lname = "Max dlugość to 50 znaków";
+        else if (this.state.lname.length > 100)
+            errors.lname = "Max dlugość to 100 znaków";
         else if (!matchExact(/^[A-Za-z]*$/, this.state.lname))
             errors.lname = "Dozowolone tylko litery A-Z";
 
@@ -85,24 +101,88 @@ export default class Reserve extends React.Component {
             errors.tel = "Pole wymagane";
         else if (!matchExact(/^[0-9]{9}$/, tel))
             errors.tel = "Poprawny format: 123 456 789";
-        
+
         if (!this.state.date || this.state.date.length === 0)
             errors.date = "Pole wymagane";
         else if (!this.state.time || this.state.time.length === 0)
             errors.time = "Pole wymagane";
         else {
             let selDate = new Date(this.state.date + 'T' + this.state.time + ':00')
-            let curDate = new Date(this.startDate + 'T' + this.startTime + ':00')
             if (selDate < new Date())
                 errors.time = "Wybrany termin minął";
-            else if (selDate < curDate)
-                errors.time = "Rezerwacja musi być złożona przed " + this.startTime + " bieżącego dnia";
         }
 
-        if (this.state.note && this.state.note.length > 300)
-            errors.note = "Maksymalnie 300 znaków";
+        if (this.state.note && this.state.note.length > 500)
+            errors.note = "Maksymalnie 500 znaków";
 
         return errors;
+    }
+
+    clear() {
+        this.setState({ validated: false, errors: {}, hourOptions: [],
+                        fname: '', lname: '', tel: '',
+                        datetime: '', ppl: '2', note: '' });
+    }
+
+    getHours(dateInput, pplInput) {
+        this.setState({ hourOptions: [] });
+        let dateStr = dateInput ? dateInput : this.state.date;
+        let pplStr = pplInput ? pplInput : this.state.ppl;
+        if (!dateStr || dateStr.length === 0)
+            return;
+        let date = new Date(dateStr).toISOString();
+        const opts = { method: 'GET' };
+        fetch(`http://localhost:3000/reserve/hours?date=${date}&ppl=${pplStr}`, opts)
+            .then(async response => {
+                const isJson = response.headers.get('content-type')?.includes('application/json');
+                const data = isJson && await response.json();
+                if (!response.ok) {
+                    const error = await response.text();
+                    return Promise.reject(error);
+                }
+                if (!data || data.length === 0) {
+                    this.error('date', 'Brak wystarczającej ilości miejsc w podanym terminie');
+                    return;
+                }
+                this.setState({ hourOptions: data.map(i => {
+                    return {
+                        val: new Date(i.time),
+                        str: new Date(i.time).toLocaleString(
+                            navigator.language,
+                            { hour: '2-digit', minute:'2-digit' }
+                        )
+                    }
+                })});
+            })
+            .catch(err => {
+                alert("Ups! Coś poszło nie tak:/\nBłąd: " + err + "\n\n" +
+                    "Skontaktuj się z restauracją żeby potwierdzić rezerwację")
+            })
+    }
+
+    getDays() {
+        const opts = { method: 'GET' };
+        fetch(`http://localhost:3000/reserve/days`, opts)
+            .then(async response => {
+                const isJson = response.headers.get('content-type')?.includes('application/json');
+                const data = isJson && await response.json();
+                if (!response.ok) {
+                    const error = await response.text();
+                    return Promise.reject(error);
+                }
+                if (!data || data.length === 0) {
+                    return Promise.reject("Brak wolnych terminów w najbliższym czasie.");
+                }
+                this.setState({
+                    startDate: new Date(data[0]).toISOString().split("T")[0],
+                    endDate: new Date(data[data.length - 1]).toISOString().split("T")[0]
+                })
+
+            })
+            .catch(err => {
+                alert("Ups! Coś poszło nie tak:/\nBłąd: " + err + "\n\n" +
+                    "Skontaktuj się z restauracją aby dokonać rezerwacji")
+            })
     }
 
     render() {
@@ -147,9 +227,13 @@ export default class Reserve extends React.Component {
                                     <InputGroup.Prepend>
                                         <InputGroup.Text className="prep">Data</InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <Form.Control type="date" min={this.startDate} max={this.endDate}
+                                    <Form.Control type="date" min={this.state.startDate} max={this.state.endDate}
                                         isInvalid={!!this.state.errors.date} value={this.state.date}
-                                        onChange={e => this.update('date', e.target.value)} />
+                                        onChange={e => {
+                                            let d = e.target.value;
+                                            this.update('date', d);
+                                            this.getHours(d, undefined);
+                                        }}/>
                                     <Form.Control.Feedback type="invalid">{this.state.errors.date}</Form.Control.Feedback>
                                 </InputGroup>
                             </Col>
@@ -157,7 +241,11 @@ export default class Reserve extends React.Component {
                                 <Row>
                                     <Col>
                                         <RangeSlider min={1} max={this.maxPeople} value={this.state.ppl}
-                                            onChange={e => this.update('ppl', e.target.value)} />
+                                            onChange={e => {
+                                                let p = e.target.value;
+                                                this.update('ppl', p);
+                                                this.getHours(undefined, p);
+                                        }}/>
                                     </Col>
                                     <Col>
                                         <span className="pplCnt">{ this.state.ppl }</span>
@@ -170,9 +258,17 @@ export default class Reserve extends React.Component {
                                     <InputGroup.Prepend>
                                         <InputGroup.Text className="prep">Godzina</InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <TimePicker format={24} start={this.startTime} end={this.endTime}
-                                        isInvalid={!!this.state.errors.time} value={this.state.time}
-                                        onChange={e => this.update('time', intToTime(e))} />
+                                    <Form.Control as="select" custom disabled={this.state.hourOptions.length === 0}
+                                        value={this.state.time} onChange={e => this.update('time', e)}
+                                    >
+                                        {this.state.hourOptions.map((h, idx) => {
+                                            return (
+                                                <option key={idx} value={h.val}>
+                                                    {h.str}
+                                                </option>
+                                            );
+                                        })}
+                                    </Form.Control>
                                     <Form.Control.Feedback type="invalid">{this.state.errors.time}</Form.Control.Feedback>
                                 </InputGroup>
                             </Col>

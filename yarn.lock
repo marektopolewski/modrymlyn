@@ -9335,15 +9335,7 @@
     "classnames" "^2.2.6"
     "prop-types" "^15.7.2"
 
-"react-bootstrap-time-picker@^2.0.1":
-  "integrity" "sha512-hbZyoLWav9P6UPTQPQRoC7rQT5UYb0a4Cs/8Wiszs1Rda/cH3Ar1B2uM78GKJjXMK0VYGR9XKyza2BCnLJ+ZSA=="
-  "resolved" "https://registry.npmjs.org/react-bootstrap-time-picker/-/react-bootstrap-time-picker-2.0.1.tgz"
-  "version" "2.0.1"
-  dependencies:
-    "prop-types" "^15.7.2"
-    "time-number" "^1.1.0"
-
-"react-bootstrap@^1.0.0", "react-bootstrap@^1.6.0", "react-bootstrap@>=1.0.0-alpha":
+"react-bootstrap@^1.0.0", "react-bootstrap@^1.6.0":
   "integrity" "sha512-PaeOGeRC2+JH9Uf1PukJgXcIpfGlrKKHEBZIArymjenYzSJ/RhO2UdNX+e7nalsCFFZLRRgQ0/FKkscW2LmmRg=="
   "resolved" "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-1.6.0.tgz"
   "version" "1.6.0"
@@ -11039,11 +11031,6 @@
 "thunky@^1.0.2":
   "integrity" "sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA=="
   "resolved" "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz"
-  "version" "1.1.0"
-
-"time-number@^1.1.0":
-  "integrity" "sha1-k6ABk6Lk+EG/uodROYf02+PAmk4="
-  "resolved" "https://registry.npmjs.org/time-number/-/time-number-1.1.0.tgz"
   "version" "1.1.0"
 
 "timers-browserify@^2.0.4":
