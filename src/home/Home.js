@@ -35,14 +35,30 @@ const Home = () => (
         <Row className="justify-content-md-center">
             <Col><PigeonMap /></Col>
             <Col>
-                <Row style={{ marginTop:'1rem', textAlign:'center' }}>
-                    <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
-                    <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
-                    <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
-                </Row>
+
             </Col>
         </Row>
     </Container>
+
+    <div className="footer">
+        <Container>
+            <Jumbotron>
+                <Row>
+                    <Col style={{ textAlign:'center' }}>
+                        <Row><Col className="phone-header">Zadzwoń do nas:</Col></Row>
+                        <Row><Col className="phone-number">(+48) 733 314 441</Col></Row>
+                    </Col>
+                    <Col sm>
+                        <Row style={{ textAlign:'center' }}>
+                            <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
+                            <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
+                            <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Jumbotron>
+        </Container>
+    </div>
     </>
 );
 

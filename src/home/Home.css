@@ -11,3 +11,19 @@
     font-size: medium;
     opacity: 0.5;
 }
+
+.phone-header {
+    font-variant-caps: small-caps;
+    text-align: center;
+}
+
+.phone-number {
+    font-size: larger;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
