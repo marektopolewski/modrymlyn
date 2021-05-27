@@ -8,6 +8,8 @@ import { ArrowRightCircle, ArrowLeftCircleFill } from 'react-bootstrap-icons';
 import photo1 from '../assets/photo-1.jpeg'
 import photo2 from '../assets/photo-2.jpeg'
 import photo3 from '../assets/photo-3.jpeg'
+import photo4 from '../assets/photo-4.jpeg'
+import photo5 from '../assets/photo-5.jpeg'
 
 import './Photos.css'
 
@@ -17,11 +19,23 @@ export default class Photos extends React.Component {
         super(props);
         this.state = {
             headers: [
+                "Bąbelwòda 🥤",
+                "Szmórowóné krowié miãso",
                 "Kaszubskie a <i style=\"color:green\" }}>Wege</i>",
                 "Sledze z pùlkama",
                 "W przeddzień otwarcia...",
             ],
             descriptions: [
+                [
+                    "Czytaj: bombel łeda = 🍋 + 🧊  + 🍓",
+                    "Cudownie orzeźwiająca. Naturalna. Pyszna",
+                    "Nie tylko na kaszubskie podniebienie 😋"
+                ],
+                [
+                    "Kaszubska pieczeń wołowa, która została wpisana na prestiżową listę produktów tradycyjnych 🏆",
+                    "Jej przygotowanie wymaga: tuzin składników najwyższej jakości, kopę czasu, dużą garść miłości kucharza 👨‍🍳",
+                    "Czy warto? Gwarantujemy, że warto! ❤️‍🔥"
+                ],
                 [
                     "Czy w kuchni kaszubskiej znajdzie się coś dla wegetarian? U nas - tak! 🥗",
                     "Chrupiące kuleczki z kaszy gryczanej i boczniaka wypełnione kozim serem prosto z gospodarstwa \"Kaszubska Koza\" 🐐🐐🐐"
@@ -36,6 +50,8 @@ export default class Photos extends React.Component {
                 ]
             ],
             images: [
+                photo5,
+                photo4,
                 photo3,
                 photo2,
                 photo1
