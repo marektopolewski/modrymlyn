@@ -31,7 +31,7 @@ export default class Photos extends React.Component {
             ],
             descriptions: [
                 [
-                    "Kiedy pogoda dopisuje, to nawet najbardziej pracowici kaszubi chetnię odpoczną nad stawem w parku Starowiejskim.",
+                    "Kiedy pogoda dopisuje, to nawet najbardziej pracowici Kaszëbi chetnię odpoczną nad stawem w parku Starowiejskim.",
                     "🌳 📵 🏝"
                 ],
                 [
