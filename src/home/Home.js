@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 
 import PigeonMap from './MapContainer';
 import logo from "../assets/mlyn_logo.jpg";
-import exterior from "../assets/photo-6.jpeg";
+import exterior from "../assets/photo-7.jpeg";
 import interior from "../assets/photo-6.jpeg";
 import './Home.css';
 

@@ -11,6 +11,7 @@ import photo3 from '../assets/photo-3.jpeg'
 import photo4 from '../assets/photo-4.jpeg'
 import photo5 from '../assets/photo-5.jpeg'
 import photo6 from '../assets/photo-6.jpeg'
+import photo7 from '../assets/photo-7.jpeg'
 
 import './Photos.css'
 
@@ -20,6 +21,7 @@ export default class Photos extends React.Component {
         super(props);
         this.state = {
             headers: [
+                "Tym czasem nad stawem... 🌤",
                 "Witómë! 😍",
                 "Bąbelwòda 🥤",
                 "Szmórowóné krowié miãso",
@@ -28,6 +30,10 @@ export default class Photos extends React.Component {
                 "W przeddzień otwarcia...",
             ],
             descriptions: [
+                [
+                    "Kiedy pogoda dopisuje, to nawet najbardziej pracowici kaszubi chetnię odpoczną nad stawem w parku Starowiejskim.",
+                    "🌳 📵 🏝"
+                ],
                 [
                     "I nadszedł nareszcie ten dzień, kiedy możemy Was zaprosić do środka!",
                     "I pochwalić się wnętrzem, które powstało dzięki wspaniałej Oli Gago Home i niezastąpionej Uli Ulubione studio "
@@ -59,6 +65,7 @@ export default class Photos extends React.Component {
                 ]
             ],
             images: [
+                photo7,
                 photo6,
                 photo5,
                 photo4,
