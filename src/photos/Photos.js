@@ -10,6 +10,7 @@ import photo2 from '../assets/photo-2.jpeg'
 import photo3 from '../assets/photo-3.jpeg'
 import photo4 from '../assets/photo-4.jpeg'
 import photo5 from '../assets/photo-5.jpeg'
+import photo6 from '../assets/photo-6.jpeg'
 
 import './Photos.css'
 
@@ -19,6 +20,7 @@ export default class Photos extends React.Component {
         super(props);
         this.state = {
             headers: [
+                "Witómë! 😍",
                 "Bąbelwòda 🥤",
                 "Szmórowóné krowié miãso",
                 "Kaszubskie a <i style=\"color:green\" }}>Wege</i>",
@@ -26,6 +28,13 @@ export default class Photos extends React.Component {
                 "W przeddzień otwarcia...",
             ],
             descriptions: [
+                [
+                    "I nadszedł nareszcie ten dzień, kiedy możemy Was zaprosić do środka!",
+                    "I pochwalić się wnętrzem, które powstało dzięki wspaniałej Oli Gago Home i niezastąpionej Uli Ulubione studio "
+                    + "oraz całej ekipie naszych cudownych pomocników, którzy włożyli mnóstwo pracy i serca, "
+                    + "aby pomóc nam zrealizować nasze marzenie o rodzinnej, klimatycznej restauracji.",
+                    "Dziękujemy ❤️❤️❤️"
+                ],
                 [
                     "Czytaj: bombel łeda = 🍋 + 🧊  + 🍓",
                     "Cudownie orzeźwiająca. Naturalna. Pyszna",
@@ -50,6 +59,7 @@ export default class Photos extends React.Component {
                 ]
             ],
             images: [
+                photo6,
                 photo5,
                 photo4,
                 photo3,
