@@ -5,6 +5,8 @@ import { PersonFill, PeopleFill } from 'react-bootstrap-icons';
 
 import './Reserve.css';
 
+const BACKEND_URL = "http://192.168.2.24:3003/reserve";
+
 function matchExact(r, str) {
     let match = str.match(r);
     return match && str === match[0];
@@ -14,9 +16,6 @@ export default class Reserve extends React.Component {
 
     constructor(props) {
         super(props);
-        this.maxDays = 14;
-        let temp = new Date();
-        temp.setDate(temp.getDate() + this.maxDays)
         this.maxPeople = 6;
         this.state = {
             validated: false, errors: {}, hourOptions: [],
@@ -59,7 +58,7 @@ export default class Reserve extends React.Component {
                     note: this.state.note
                 })
             };
-            fetch('http://localhost:3000/reserve/confirm', opts)
+            fetch(`${BACKEND_URL}/confirm`, opts)
                 .then(async response => {
                     alert('OK, TODO');
                     this.clear();
@@ -132,7 +131,7 @@ export default class Reserve extends React.Component {
             return;
         let date = new Date(dateStr).toISOString();
         const opts = { method: 'GET' };
-        fetch(`http://localhost:3000/reserve/hours?date=${date}&ppl=${pplStr}`, opts)
+        fetch(`${BACKEND_URL}/hours?date=${date}&ppl=${pplStr}`, opts)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json');
                 const data = isJson && await response.json();
@@ -162,7 +161,7 @@ export default class Reserve extends React.Component {
 
     getDays() {
         const opts = { method: 'GET' };
-        fetch(`http://localhost:3000/reserve/days`, opts)
+        fetch(`${BACKEND_URL}/days`, opts)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json');
                 const data = isJson && await response.json();
@@ -229,6 +228,7 @@ export default class Reserve extends React.Component {
                                     </InputGroup.Prepend>
                                     <Form.Control type="date" min={this.state.startDate} max={this.state.endDate}
                                         isInvalid={!!this.state.errors.date} value={this.state.date}
+                                        disabled={!this.state.startDate || !this.state.endDate}
                                         onChange={e => {
                                             let d = e.target.value;
                                             this.update('date', d);
