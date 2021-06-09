@@ -12,6 +12,7 @@ import photo4 from '../assets/photo-4.jpeg'
 import photo5 from '../assets/photo-5.jpeg'
 import photo6 from '../assets/photo-6.jpeg'
 import photo7 from '../assets/photo-7.jpeg'
+import photo8 from '../assets/photo-8.jpeg'
 
 import './Photos.css'
 
@@ -21,6 +22,7 @@ export default class Photos extends React.Component {
         super(props);
         this.state = {
             headers: [
+                "Łakocie dla każdego! 😋",
                 "Tym czasem nad stawem... 🌤",
                 "Witómë! 😍",
                 "Bąbelwòda 🥤",
@@ -30,6 +32,11 @@ export default class Photos extends React.Component {
                 "W przeddzień otwarcia...",
             ],
             descriptions: [
+                [
+                    "Większość łasuchów zapewne już miała okazję spróbować naszych pysznych ciast 😋🍰",
+                    "Ale czy wiedzieliście, że nasza niesamowita Karolina może przygotować taaaki tort na Wasze zamówienie!",
+                    "Pyszny, czekoladowy, mocno alkoholowy - na specjalną okazję 🎂💐🎁"
+                ],
                 [
                     "Kiedy pogoda dopisuje, to nawet najbardziej pracowici Kaszëbi chetnię odpoczną nad stawem w parku Starowiejskim.",
                     "🌳 📵 🏝"
@@ -65,6 +72,7 @@ export default class Photos extends React.Component {
                 ]
             ],
             images: [
+                photo8,
                 photo7,
                 photo6,
                 photo5,
