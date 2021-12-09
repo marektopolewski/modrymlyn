@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router';
 
 import Home from './home/Home';
 import Menu from './menu/Menu';
-import Photos from './photos/Photos'
-import Reserve from './reserve/Reserve'
+import Photos from './photos/Photos';
+import Reserve from './reserve/Reserve';
+import Christmas from './christmas/Christmas';
 
 import './App.css';
 
@@ -14,6 +15,7 @@ const App = () => (
         <Route path='/menu' component={Menu} />
         <Route path='/photos' component={Photos} />
         <Route path='/reserve' component={Reserve} />
+        <Route path='/christmas' component={Christmas} />
         <Route path='/*' component={Home} />
     </Switch>
 );

@@ -2,29 +2,35 @@ import React from 'react';
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import useWindowDimensions from '../WindowSize';
 
 import "./NavBar.css"
 
-export default class Navbar extends React.Component {
+const paths = [
+    { lgLabel: "Strona główna", smLabel: "🏠", path: "/" },
+    { lgLabel: "Święta", smLabel: "🎄", path: "/christmas" },
+    { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
+    // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
+    { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
+];
 
-    render() {
-        return (
-            <Container>
+export default function Navbar() {
+    const { width } = useWindowDimensions();
+    return (
+        <Container>
             <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
-                    <Nav.Item as="li" style={{ backgroundColor:'aliceblue' }}>
-                        <Nav.Link href="/" eventKey="/">Strona główna</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                        <Nav.Link href="/menu" eventKey="/menu">Menu</Nav.Link>
-                    </Nav.Item>
-                    {/* <Nav.Item as="li">
-                        <Nav.Link href="/reserve" eventKey="/reserve">Rezerwacja</Nav.Link>
-                    </Nav.Item> */}
-                    <Nav.Item as="li">
-                        <Nav.Link href="/photos" eventKey="/photos">Zdjęcia</Nav.Link>
-                    </Nav.Item>
-                </Nav>
-            </Container>
-        );
-    }
-}
+            {
+                paths.map(({lgLabel, smLabel, path}) => {
+                    return (
+                        <Nav.Item as="li" style={{ backgroundColor:'aliceblue' }}>
+                            <Nav.Link href={path} eventKey={path}>
+                                {width < 500 ? smLabel : lgLabel}
+                            </Nav.Link>
+                        </Nav.Item>
+                    );
+                })
+            }
+            </Nav>
+        </Container>
+    );
+};
