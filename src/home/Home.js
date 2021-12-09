@@ -11,6 +11,7 @@ import PigeonMap from './MapContainer';
 import logo from "../assets/mlyn_logo.jpg";
 import exterior from "../assets/photo-7.jpeg";
 import interior from "../assets/photo-6.jpeg";
+import pfr from "../assets/pfr.jpg";
 import './Home.css';
 
 const contentHeight = 300;
@@ -44,6 +45,14 @@ const Home = () => (
             </Col>
             <Col className="content-col" sm={12} md={8} lg={4}>
                 <PigeonMap height={contentHeight} />
+            </Col>
+        </Row>
+    </Container>
+
+    <Container>
+        <Row className="justify-content-center">
+            <Col className="content-col" xs="auto" sm="auto" md="auto" lg="auto">
+                <Image src={pfr} style={{ height: 200 }} fluid />
             </Col>
         </Row>
     </Container>
