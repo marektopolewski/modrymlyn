@@ -9,7 +9,8 @@ import "./NavBar.css"
 const paths = [
     { lgLabel: "Strona główna", smLabel: "🏠", path: "/" },
     // { lgLabel: "Święta", smLabel: "🎄", path: "/christmas" },
-    { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
+    // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
+    { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },

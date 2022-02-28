@@ -6,7 +6,8 @@ import Menu from './menu/Menu';
 import Photos from './photos/Photos';
 import Reserve from './reserve/Reserve';
 // import Christmas from './christmas/Christmas';
-import Valentines from './valentines/Valentines';
+// import Valentines from './valentines/Valentines';
+import Ukraine from './ukraine/Ukraine';
 
 import './App.css';
 
@@ -17,7 +18,8 @@ const App = () => (
         <Route path='/photos' component={Photos} />
         <Route path='/reserve' component={Reserve} />
         {/* <Route path='/christmas' component={Christmas} /> */}
-        <Route path='/valentines' component={Valentines} />
+        {/* <Route path='/valentines' component={Valentines} /> */}
+        <Route path='/ukraine' component={Ukraine} />
         <Route path='/*' component={Home} />
     </Switch>
 );
