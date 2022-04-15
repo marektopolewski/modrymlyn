@@ -7,7 +7,8 @@ import Photos from './photos/Photos';
 import Reserve from './reserve/Reserve';
 // import Christmas from './christmas/Christmas';
 // import Valentines from './valentines/Valentines';
-import Ukraine from './ukraine/Ukraine';
+// import Ukraine from './ukraine/Ukraine';
+import Easter from './easter/Easter';
 
 import './App.css';
 
@@ -19,7 +20,8 @@ const App = () => (
         <Route path='/reserve' component={Reserve} />
         {/* <Route path='/christmas' component={Christmas} /> */}
         {/* <Route path='/valentines' component={Valentines} /> */}
-        <Route path='/ukraine' component={Ukraine} />
+        {/* <Route path='/ukraine' component={Ukraine} /> */}
+        <Route path='/easter' component={Easter} />
         <Route path='/*' component={Home} />
     </Switch>
 );
