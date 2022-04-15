@@ -5,6 +5,7 @@ import Home from './home/Home';
 import Menu from './menu/Menu';
 import Photos from './photos/Photos';
 import Reserve from './reserve/Reserve';
+import ReserveAdmin from './reserve/ReserveAdmin';
 // import Christmas from './christmas/Christmas';
 // import Valentines from './valentines/Valentines';
 // import Ukraine from './ukraine/Ukraine';
@@ -18,6 +19,7 @@ const App = () => (
         <Route path='/menu' component={Menu} />
         <Route path='/photos' component={Photos} />
         <Route path='/reserve' component={Reserve} />
+        <Route path='/reserveAdmin' component={ReserveAdmin} />
         {/* <Route path='/christmas' component={Christmas} /> */}
         {/* <Route path='/valentines' component={Valentines} /> */}
         {/* <Route path='/ukraine' component={Ukraine} /> */}

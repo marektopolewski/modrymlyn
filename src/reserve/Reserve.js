@@ -5,7 +5,8 @@ import { PersonFill, PeopleFill } from 'react-bootstrap-icons';
 
 import './Reserve.css';
 
-const BACKEND_URL = "http://192.168.2.24:3003/reserve";
+// const BACKEND_URL = "http://192.168.2.24:3003/reserve";
+const BACKEND_URL = "http://localhost:3000/reserve";
 
 function matchExact(r, str) {
     let match = str.match(r);
@@ -28,6 +29,7 @@ export default class Reserve extends React.Component {
     }
 
     update = (key, value) => {
+        console.log("update", key, value)
         this.setState({ [key]: value });
         this.error(key, undefined);
     }
@@ -53,11 +55,12 @@ export default class Reserve extends React.Component {
                     fname: this.state.fname,
                     lname: this.state.lname,
                     tel: this.state.tel,
-                    datetime: this.state.date,
+                    datetime: this.state.time,
                     ppl: this.state.ppl,
                     note: this.state.note
                 })
             };
+            console.log(opts)
             fetch(`${BACKEND_URL}/confirm`, opts)
                 .then(async response => {
                     alert('OK, TODO');
@@ -105,11 +108,8 @@ export default class Reserve extends React.Component {
             errors.date = "Pole wymagane";
         else if (!this.state.time || this.state.time.length === 0)
             errors.time = "Pole wymagane";
-        else {
-            let selDate = new Date(this.state.date + 'T' + this.state.time + ':00')
-            if (selDate < new Date())
-                errors.time = "Wybrany termin minął";
-        }
+        else if (this.state.time < new Date())
+            errors.time = "Wybrany termin minął";
 
         if (this.state.note && this.state.note.length > 500)
             errors.note = "Maksymalnie 500 znaków";
@@ -120,7 +120,7 @@ export default class Reserve extends React.Component {
     clear() {
         this.setState({ validated: false, errors: {}, hourOptions: [],
                         fname: '', lname: '', tel: '',
-                        datetime: '', ppl: '2', note: '' });
+                        date: '', time: '', ppl: '2', note: '' });
     }
 
     getHours(dateInput, pplInput) {
@@ -259,7 +259,7 @@ export default class Reserve extends React.Component {
                                         <InputGroup.Text className="prep">Godzina</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <Form.Control as="select" custom disabled={this.state.hourOptions.length === 0}
-                                        value={this.state.time} onChange={e => this.update('time', e)}
+                                        value={this.state.time} onChange={e => this.update('time', e.target.value)}
                                     >
                                         {this.state.hourOptions.map((h, idx) => {
                                             return (
@@ -274,15 +274,16 @@ export default class Reserve extends React.Component {
                             </Col>
                         </Row>
                         <Form.Text className="text-muted">
-                            Rezerwacje na termin późniejszy niż {this.maxDays} dni, poza godzinami pracy
+                            Rezerwacje na termin późniejszy niż {this.state.endDate}, poza godzinami pracy
                             lub powyżej {this.maxPeople} osób muszą być dokonane telefonicznie.
                         </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="group">
-                        <Form.Control type="text" placeholder="Wiadomość do restauracji (opcjonalne)"
+                        <Form.Control type="text" as="textarea" rows={3}
+                            placeholder="Wiadomość do restauracji (opcjonalne)"
                             isInvalid={!!this.state.errors.note}
-                            value={this.state.note} onChange={e => this.udpate('note', e.target.value)} />
+                            value={this.state.note} onChange={e => this.update('note', e.target.value)} />
                         <Form.Control.Feedback type="invalid">{this.state.errors.note}</Form.Control.Feedback>
                     </Form.Group>
 
