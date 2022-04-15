@@ -13,6 +13,21 @@ export default class Photos extends React.Component {
         super(props);
         this.state = {
             headers: [
+                "🐟 Sandacz 🐟",
+                "🎅🎄🎁 WIGILIA FIRMOWA 🎅🎄🎁",
+                "Gęsina na Świętego Marcina",
+                "Rogaliki Świętomarcińskie 🥐",
+                "🍎 Zupa brzadowa i pierś kurczaka w warzywami 🥕",
+                "Słodka promocja 🍰",
+                "Dolna sala w Modrym Młynie",
+                "🦆 Udko z kaczki z pieczoną gruszką 🍐",
+                "Kapuśniak na żeberkach 🍲",
+                "Zraz wołowy na niedzielny obiad 😋",
+                "Krem z pieczonego czosnku 🧄",
+                "Rëbë z Kaszëb 🐟🐟🐟",
+                "Dorsz w jesiennej odsłonie 🐟🍂",
+                "Polędwiczka w płynnym miodzie 🍯",
+                "👩‍🍳 Będą z nich Szefowie Kuchni! 👨‍🍳",
                 "Pierogi z dynią 🎃",
                 "Krem z pieczonych buraków i malin",
                 "Nasze torty 🎂",
@@ -37,6 +52,76 @@ export default class Photos extends React.Component {
                 "W przeddzień otwarcia...",
             ],
             descriptions: [
+                [
+                    "Uważany jest przez wielu wędkarzy za najszlachetniejszą polską rybę.",
+                    "Przez kucharzy ceniony za wyborny maślany smak.",
+                    "W Modrym Młynie w ten weekend",
+                    "🎣 sandacz w towarzystwie chrupiących warzyw na kaszy pęczak",
+                    "🌳 pachnąca lasem zupa z borowików z kluseczkami"
+                ],
+                [
+                    "Jeśli zastanawiacie się nad zorganizowaniem firmowego spotkania świątecznego, to zapraszamy do nas!",
+                    "Dysponujemy kameralną, oddzielną salką, gdzie zapewniamy niepowtarzalną atmosferę, no i pyszne jedzenie 😋",
+                    "Możemy tu organizować niezapomniane imprezy od 2 do 34 osób 🧑‍🤝‍🧑👩‍❤️‍👨👨‍👩‍👧‍👦 ZAPRASZAMY!"
+                ],
+                [
+                    "🌹 Przystawka: pasztet z gęsi z sosem z żurawiny i dzikiej róży, podany z naszych chlebkiem żytnio-orkiszowym",
+                    "🥣 Zupa: brukwiowa z szarpaną gęsiną",
+                    "🍴 Drugie danie: udko z gęsi z czerwoną, kiszoną u nas kapustą, podane z puree z białych warzyw",
+                    "🥐 Deser: rogaliki świętomarcińskie"
+                ],
+                [
+                    "Dzisiaj wypiekamy dla Was tradycyjne rogaliki świętomarcińskie",
+                    "Z ciasta półfrancuskiego z nadzieniem z białym makiem i bakaliami"
+                ],
+                [
+                    "W tym tygodniu dla poszukiwaczy nowych smaków przygotowaliśmy:",
+                    "🍒 pyszną, pachnącą owocami, kaszubską zupę brzadową",
+                    "🍯 soczystą pierś kurczaka kukurydzianego z warzywami glazurowanymi w miodzie i konfitowanymi ziemniaczkami"
+                ],
+                [
+                    "Od poniedziałku do czwartku",
+                    "🍰 do wszystkich wypieków naszej Karolina Lademann",
+                    "☕ kawusia czarna lub biała GRATIS"
+                ],
+                [
+                    "Dzisiaj zapraszamy także na naszą dolną salę.",
+                    "Kameralnie, swobodnie, inaczej... ale tak samo smacznie 😋🧡"
+                ],
+                [
+                    "Na długi weekend mamy dla Was:",
+                    "🥣 Kapuśniak z pieczonym żeberkiem",
+                    "🦆 Udko z kaczki w towarzystwie pieczonej gruszki podane na modrej kapuście"
+                ],
+                [
+                    "Kapuśniak na żeberkach - taki, jak babcia gotowała ❤"
+                ],
+                [
+                    "Na niedzielny obiad polecamy",
+                    "🍽️ Zraz wołowy z pęczakiem i białą kiełbaską podany z kopytkami i buraczkami 😋"
+                ],
+                [
+                    "Na jesienne słoty...",
+                    "🍂Krem z pieczonego czosnku z lubczykiem🌿"
+                ],
+                [
+                    "Rëbë z Kaszëb 🐟🐟🐟",
+                    "Zacna zupa z leszczy poleca się do spróbowania 😋"
+                ],
+                [
+                    "🍂 Cudowne smaki jesieni z Maciej Merchel 👨‍🍳",
+                    "Soczysty dorsz pieczony z chrupiącymi warzywami podany z musem dyniowym i makowym puree 🐟😋"
+                ],
+                [
+                    "Propozycja na ten weekend od: 👨‍🍳 Mikołaj Toporek ‍💪",
+                    "Delikatna polędwiczka wolno gotowana w niskiej temperaturze...",
+                    "z wybornym sosem na pitnym miodzie... i do tego chrupiące kopytka...",
+                    "🏃 Żałujcie, kto nie zdąży!"
+                ],
+                [
+                    "Nasi uczniowie z Hipolit Rumia szlifują umiejętności pod okiem Executive Chef Rafał Marcin Zaręba",
+                    "Szkoleniu \"Nowoczesna kuchnia polska\" w Akademia Inspiracji MAKRO"
+                ],
                 [
                     "Dzisiaj polecają się do spróbowania:",
                     "Pierogi z dynią podawane z tymiankową śmietanką 🌿 🎃"
