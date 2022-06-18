@@ -16,6 +16,12 @@ import './Home.css';
 
 const contentHeight = 300;
 
+const SocialLink = ({ url, network }) => (
+    <Col style={{ marginBottom:'1rem' }}>
+        <SocialIcon url={url} network={network}/>
+    </Col>
+);
+
 const Home = () => (
     <>
     <Container className="header">
@@ -59,16 +65,17 @@ const Home = () => (
 
     <Container style={{ marginTop:'2rem' }}>
         <Jumbotron>
-            <Row>
-                <Col style={{ textAlign:'center' }}>
+            <Row style={{ marginBottom:'-1rem' }}>
+                <Col style={{ textAlign:'center', marginBottom:'1rem' }}>
                     <Row><Col className="phone-header">Zadzwoń do nas:</Col></Row>
                     <Row><Col className="phone-number">(+48) 733 314 441</Col></Row>
                 </Col>
                 <Col sm>
                     <Row style={{ textAlign:'center' }}>
-                        <Col><SocialIcon url="https://www.facebook.com/modrymlyn.rumia"/></Col>
-                        <Col><SocialIcon url="https://www.instagram.com/modrymlyn.rumia"/></Col>
-                        <Col><SocialIcon url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/></Col>
+                        <SocialLink url="https://www.facebook.com/modrymlyn.rumia"/>
+                        <SocialLink url="https://www.instagram.com/modrymlyn.rumia"/>
+                        <SocialLink url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/>
+                        <SocialLink url="mailto:biuro@mlynmodry.pl"/>
                     </Row>
                 </Col>
             </Row>
