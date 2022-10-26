@@ -12,6 +12,7 @@ import logo from "../assets/mlyn_logo.jpg";
 import exterior from "../assets/photo-7.jpeg";
 import interior from "../assets/photo-6.jpeg";
 import pfr from "../assets/pfr.jpg";
+import arp from "../assets/arp.jpg";
 import './Home.css';
 
 const contentHeight = 300;
@@ -55,10 +56,13 @@ const Home = () => (
         </Row>
     </Container>
 
-    <Container>
-        <Row className="justify-content-center">
+    <Container style={{ marginTop: "40px" }}>
+        <Row className="justify-content-center" style={{ gap: "20px" }}>
             <Col className="content-col" xs="auto" sm="auto" md="auto" lg="auto">
                 <Image src={pfr} style={{ height: 200 }} fluid />
+            </Col>
+            <Col xs="auto" sm="auto" md="auto" lg="auto">
+                <Image src={arp} style={{ height: 200 }} fluid />
             </Col>
         </Row>
     </Container>
