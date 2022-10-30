@@ -11,7 +11,7 @@ const paths = [
     // { lgLabel: "Święta", smLabel: "🎄", path: "/christmas" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
-    { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
+    // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
