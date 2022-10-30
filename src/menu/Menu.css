@@ -7,3 +7,9 @@
     width: 100%;
     text-align: center;
 }
+
+.lang-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

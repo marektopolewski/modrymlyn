@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useWindowDimensions from '../WindowSize';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -30,14 +31,18 @@ const MENU_POL = [ [menuPol1, menuPol2], [menuPol3, menuPol4], [menuPol5, menuPo
 const MENU_ENG = [ [menuEng1, menuEng2], [menuEng3, menuEng4], [menuEng5, menuEng6], [menuEng7]];
 
 const Menu = () => {
+    const { width } = useWindowDimensions();
     const [engMenu, setEngMenu] = useState(false);
+
+    const text = engMenu ? (width > 500 ? "Zmień język 🇵🇱" : "🇵🇱") : (width > 500 ? "Change language 🇬🇧" : "🇬🇧");
+
     return (
         <Container className="menu">
-            <Button variant="outline-secondary" style={{ position: 'absolute' }}
-                onClick={() => setEngMenu(eng => !eng)}
-            >
-                {engMenu ? "Zmień język 🇵🇱" : "Change language 🇬🇧" }
-            </Button>
+            <div className="lang-button">
+                <Button variant="outline-secondary" onClick={() => setEngMenu(eng => !eng)}>
+                    {text}
+                </Button>
+            </div>
             <Row className="justify-content-md-center">
                 <Col className="header-row">
                     <Image src={logo2} width="50%" />
