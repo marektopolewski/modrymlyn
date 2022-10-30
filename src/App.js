@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router';
 import Home from './home/Home';
 import Menu from './menu/Menu';
 import Photos from './photos/Photos';
+import PhotoDetails from './photos/PhotoDetails';
 import Reserve from './reserve/Reserve';
 import ReserveAdmin from './reserve/ReserveAdmin';
 // import Christmas from './christmas/Christmas';
@@ -18,6 +19,7 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route path='/menu' component={Menu} />
         <Route path='/photos' component={Photos} />
+        <Route path='/photo/:id' component={PhotoDetails} />
         <Route path='/reserve' component={Reserve} />
         <Route path='/reserveAdmin' component={ReserveAdmin} />
         {/* <Route path='/christmas' component={Christmas} /> */}

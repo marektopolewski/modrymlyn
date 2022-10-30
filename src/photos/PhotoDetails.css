@@ -1,0 +1,28 @@
+.details-wrapper {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.details-image {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-image img {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: x-large !important;
+}
+
+.card-text {
+    text-align: center;
+}
