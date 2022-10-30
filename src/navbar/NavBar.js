@@ -25,7 +25,7 @@ export default function Navbar() {
             {
                 paths.map(({lgLabel, smLabel, path}) => {
                     return (
-                        <Nav.Item as="li" style={{ backgroundColor:'aliceblue' }}>
+                        <Nav.Item key={path} as="li" style={{ backgroundColor:'aliceblue' }}>
                             <Nav.Link href={path} eventKey={path}>
                                 {width < 500 ? smLabel : lgLabel}
                             </Nav.Link>
