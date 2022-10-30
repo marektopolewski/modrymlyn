@@ -32,3 +32,29 @@
     transition-duration: 0.3s;
 }
 
+@media only screen and (max-width:760px)
+{
+    .photo-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .image {
+        max-width: 190px;
+        max-height: 190px;
+    }
+}
+
+@media only screen and (max-width:450px)
+{
+    .photo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .image {
+        max-width: 140px;
+        max-height: 140px;
+    }
+}
+
