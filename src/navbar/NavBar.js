@@ -2,6 +2,8 @@ import React from 'react';
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+
 import useWindowDimensions from '../WindowSize';
 
 import "./NavBar.css"
@@ -15,6 +17,7 @@ const paths = [
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
+    // { lgLabel: "🇪🇺", smLabel: "🇪🇺", path: "/arp" }
 ];
 
 export default function Navbar() {
@@ -33,6 +36,9 @@ export default function Navbar() {
                     );
                 })
             }
+            <Button href="/arp" style={{ backgroundColor:'aliceblue', borderColor:'white' }}>
+                🇪🇺
+            </Button>
             </Nav>
         </Container>
     );

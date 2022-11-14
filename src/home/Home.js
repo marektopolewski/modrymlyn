@@ -1,5 +1,6 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
+import { useHistory } from 'react-router-dom';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
@@ -23,8 +24,9 @@ const SocialLink = ({ url, network }) => (
     </Col>
 );
 
-const Home = () => (
-    <>
+const Home = () => {
+    const history = useHistory();
+    return (<>
     <Container className="header">
         <Jumbotron>
             <Container>
@@ -62,7 +64,7 @@ const Home = () => (
                 <Image src={pfr} style={{ height: 200 }} fluid />
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
-                <Image src={arp} style={{ height: 200 }} fluid />
+                <Image src={arp} style={{ height: 200 }} fluid onClick={() => history.push("/arp")} />
             </Col>
         </Row>
     </Container>
@@ -85,7 +87,7 @@ const Home = () => (
             </Row>
         </Jumbotron>
     </Container>
-    </>
-);
+    </>)
+};
 
 export default Home;
