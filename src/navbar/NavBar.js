@@ -2,10 +2,11 @@ import React from 'react';
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
 
 import useWindowDimensions from '../WindowSize';
 
+import euIcon from '../assets/icons/eu.png'
 import "./NavBar.css"
 
 const paths = [
@@ -17,28 +18,27 @@ const paths = [
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
-    // { lgLabel: "🇪🇺", smLabel: "🇪🇺", path: "/arp" }
 ];
+
+const CustomNavItem = ({ href, className, children }) => (
+    <Nav.Item as='li' className={className} style={{ backgroundColor:'aliceblue' }}>
+        <Nav.Link href={href} eventKey={href}>{children}</Nav.Link>
+    </Nav.Item>
+);
 
 export default function Navbar() {
     const { width } = useWindowDimensions();
     return (
         <Container>
             <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
-            {
-                paths.map(({lgLabel, smLabel, path}) => {
-                    return (
-                        <Nav.Item key={path} as="li" style={{ backgroundColor:'aliceblue' }}>
-                            <Nav.Link href={path} eventKey={path}>
-                                {width < 500 ? smLabel : lgLabel}
-                            </Nav.Link>
-                        </Nav.Item>
-                    );
-                })
-            }
-            <Button href="/arp" style={{ backgroundColor:'aliceblue', borderColor:'white' }}>
-                🇪🇺
-            </Button>
+                {paths.map(({lgLabel, smLabel, path}) => (
+                    <CustomNavItem key={path} href={path}>
+                        {width < 500 ? smLabel : lgLabel}
+                    </CustomNavItem>
+                ))}
+                <CustomNavItem href='/arp' className='arp-link'>
+                    <Image src={euIcon} className='arp-icon' title='EU funds'/>
+                </CustomNavItem>
             </Nav>
         </Container>
     );
