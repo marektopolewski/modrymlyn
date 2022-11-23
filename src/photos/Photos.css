@@ -19,6 +19,11 @@
     border: 5px aliceblue solid;
 }
 
+span.lazy-load-image-background {
+    width: 100%;
+    height: 100%;
+}
+
 .image {
     margin: auto;
     width: auto;

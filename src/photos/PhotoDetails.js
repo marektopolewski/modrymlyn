@@ -27,7 +27,7 @@ const PhotoDetails = () => {
         <Container className="details-wrapper">
         <Card border="light">
             <div className="details-image">
-                <Image className="details-image" src={require(`../assets/photo-${details.id}.jpeg`)?.default} fluid />
+                <Image className="details-image" src={require(`../assets/photos/photo-${details.id}.jpeg`)?.default} fluid />
             </div>
             <Card.Body>
                 <Card.Title dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>

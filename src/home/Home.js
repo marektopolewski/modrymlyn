@@ -10,8 +10,8 @@ import Image from 'react-bootstrap/Image';
 
 import PigeonMap from './MapContainer';
 import logo from "../assets/mlyn_logo.jpg";
-import exterior from "../assets/photo-7.jpeg";
-import interior from "../assets/photo-6.jpeg";
+import exterior from "../assets/photos/photo-7.jpeg";
+import interior from "../assets/photos/photo-6.jpeg";
 import pfr from "../assets/pfr.jpg";
 import arp from "../assets/arp.jpg";
 import './Home.css';
