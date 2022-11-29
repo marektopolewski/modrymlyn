@@ -8,7 +8,7 @@ import PhotoDetails from './photos/PhotoDetails';
 import Reserve from './reserve/Reserve';
 import ReserveAdmin from './reserve/ReserveAdmin';
 import Arp from './arp/Arp';
-// import Christmas from './christmas/Christmas';
+import Christmas from './christmas/Christmas';
 // import Valentines from './valentines/Valentines';
 // import Ukraine from './ukraine/Ukraine';
 // import Easter from './easter/Easter';
@@ -24,7 +24,7 @@ const App = () => (
         <Route path='/reserve' component={Reserve} />
         <Route path='/reserveAdmin' component={ReserveAdmin} />
         <Route path='/arp' component={Arp} />
-        {/* <Route path='/christmas' component={Christmas} /> */}
+        <Route path='/christmas' component={Christmas} />
         {/* <Route path='/valentines' component={Valentines} /> */}
         {/* <Route path='/ukraine' component={Ukraine} /> */}
         {/* <Route path='/easter' component={Easter} /> */}

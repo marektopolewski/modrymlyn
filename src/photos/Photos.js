@@ -1,21 +1,17 @@
 import { useCallback, useState } from 'react';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
+import LazyImage from '../components/LazyImage'
 import './Photos.css'
-
-import placeholder from '../assets/icons/placeholder.jpg'
 
 import PHOTO_DATA from './photo-data.json'
 const PHOTO_BATCH_SIZE = 8;
 
 const Photo = ({ idx, text }) => (
-    <LazyLoadImage
-        className="d-block image"
-        placeholderSrc={placeholder}
-        alt={`Zdjęcie ${idx} - ${text}`}
+    <LazyImage
+        text={`Zdjęcie ${idx} - ${text}`}
         src={require(`../assets/photos/photo-${idx}.jpeg`)?.default}
     />
 );
