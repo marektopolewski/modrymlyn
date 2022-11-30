@@ -11,6 +11,7 @@ const PHOTO_BATCH_SIZE = 8;
 
 const Photo = ({ idx, text }) => (
     <LazyImage
+        className="photo-image"
         text={`Zdjęcie ${idx} - ${text}`}
         src={require(`../assets/photos/photo-${idx}.jpeg`)?.default}
     />

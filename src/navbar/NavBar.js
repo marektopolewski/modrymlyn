@@ -16,7 +16,7 @@ const paths = [
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
-    // { lgLabel: "Rezerwacja", smLabel: "📆", path: "/reserve" },
+    { lgLabel: "Rezerwacje", smLabel: "📆", path: "/reservations" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
 ];
 
@@ -28,12 +28,13 @@ const CustomNavItem = ({ href, className, children }) => (
 
 export default function Navbar() {
     const { width } = useWindowDimensions();
+    const swapWidth = paths.length * 160;
     return (
         <Container>
             <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
                 {paths.map(({lgLabel, smLabel, path}) => (
                     <CustomNavItem key={path} href={path}>
-                        {width < 500 ? smLabel : lgLabel}
+                        {width < swapWidth ? smLabel : lgLabel}
                     </CustomNavItem>
                 ))}
                 <CustomNavItem href='/arp' className='arp-link'>

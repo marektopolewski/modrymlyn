@@ -1,0 +1,12 @@
+.venue-image {
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.venue-image:hover {
+    transform: scale(1.03);
+    transition-duration: 0.3s;
+}

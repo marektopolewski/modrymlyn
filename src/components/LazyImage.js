@@ -2,9 +2,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import placeholder from '../assets/icons/placeholder.jpg'
 
-const LazyImage = ({ text, src }) => (
+const LazyImage = ({ text, src, className }) => (
     <LazyLoadImage
-        className="d-block image"
+        className={`d-block ${className}`}
         placeholderSrc={placeholder}
         alt={text}
         src={src}

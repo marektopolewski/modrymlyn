@@ -64,7 +64,9 @@ const Home = () => {
                 <Image src={pfr} style={{ height: 200 }} fluid />
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
-                <Image src={arp} style={{ height: 200 }} fluid onClick={() => history.push("/arp")} />
+                <a href="/arp">
+                    <Image src={arp} style={{ height: 200 }} fluid />
+                </a>
             </Col>
         </Row>
     </Container>

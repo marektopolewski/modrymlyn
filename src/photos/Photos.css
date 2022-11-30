@@ -25,7 +25,7 @@ span.lazy-load-image-background {
     height: 100%;
 }
 
-.image {
+.photo-image {
     margin: auto;
     width: auto;
     height: auto;
@@ -33,7 +33,7 @@ span.lazy-load-image-background {
     max-height: 290px;
 }
 
-.image:hover {
+.photo-image:hover {
     transform: scale(1.03);
     transition-duration: 0.3s;
 }
@@ -45,7 +45,7 @@ span.lazy-load-image-background {
         height: 200px;
     }
 
-    .image {
+    .photo-image {
         max-width: 190px;
         max-height: 190px;
     }
@@ -58,7 +58,7 @@ span.lazy-load-image-background {
         height: 150px;
     }
 
-    .image {
+    .photo-image {
         max-width: 140px;
         max-height: 140px;
     }
