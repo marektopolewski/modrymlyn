@@ -1,6 +1,5 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import { useHistory } from 'react-router-dom';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
@@ -25,7 +24,6 @@ const SocialLink = ({ url, network }) => (
 );
 
 const Home = () => {
-    const history = useHistory();
     return (<>
     <Container className="header">
         <Jumbotron>

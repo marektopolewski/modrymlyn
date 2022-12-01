@@ -16,7 +16,7 @@ const paths = [
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
-    { lgLabel: "Rezerwacje", smLabel: "📆", path: "/reservations" },
+    { lgLabel: "Imprezy", smLabel: "📆", path: "/reservations" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
 ];
 

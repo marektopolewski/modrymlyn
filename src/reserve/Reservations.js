@@ -7,7 +7,7 @@ import Wiata from '../assets/venues/wiata.jpeg'
 import './Reservations.css'
 
 const VenueImage = ({ src, text, href }) => (
-    <a href={href} target="_blank">
+    <a href={href} target="_blank" rel="noreferrer" >
         <LazyImage className="venue-image" src={src} text={text} />
     </a>
 );
@@ -22,7 +22,7 @@ const Reservations = () => (
         📆 Organizacja imprez okolicznościowych 🍽
     </h3>
     <p>
-        Wesele, urodziny, I Komunia święta czy Wigilia firmowa.. w Modrym Młynie
+        Wesele, urodziny, I Komunia święta czy Wigilia firmowa... w Modrym Młynie
         zorganizujemy dla Ciebie wymarzoną imprezę okolicznościową. Sprawdź
         dostępność dat i sal telefonicznie: <b>(+48) 733 314 441</b>
     </p>
