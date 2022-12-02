@@ -23,6 +23,12 @@
     font-size: x-large !important;
 }
 
+.card-subtitle {
+    text-align: center;
+    color: grey;
+    font-size: smaller !important;
+}
+
 .card-text {
     text-align: center;
 }

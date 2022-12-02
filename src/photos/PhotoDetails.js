@@ -6,6 +6,13 @@ import { Container, Image } from "react-bootstrap";
 
 import './PhotoDetails.css'
 
+const formatDate = (str) => {
+    if (!str || str.length === 0)
+        return "";
+    const opts = { day: 'numeric', month: 'long', year: 'numeric' };
+    return (new Date(str)).toLocaleDateString('pl-PL', opts);
+};
+
 const PhotoDetails = () => {
     let { id } = useParams();
 
@@ -31,6 +38,7 @@ const PhotoDetails = () => {
             </div>
             <Card.Body>
                 <Card.Title dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>
+                <Card.Subtitle>{formatDate(details.date)}</Card.Subtitle>
                 <br/>
                 {
                     details.paragraphs.map((para, paraIdx) => (
