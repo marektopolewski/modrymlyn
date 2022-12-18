@@ -3,9 +3,11 @@ import Image from 'react-bootstrap/Image';
 
 import arp from "../assets/arp_large.jpg";
 
+import styles from "./Arp.module.css"
+
 const Arp = () => (
-    <Container className="header">
-        <Image src={arp} style={{ maxHeight: '100%', maxWidth: '100%' }} fluid />
+    <Container className={styles.header}>
+        <Image src={arp} className={styles.image} />
     </Container>
 );
 
