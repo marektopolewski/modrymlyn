@@ -13,7 +13,7 @@ import exterior from "../assets/photos/photo-7.jpeg";
 import interior from "../assets/photos/photo-6.jpeg";
 import pfr from "../assets/pfr.jpg";
 import arp from "../assets/arp.jpg";
-import './Home.css';
+import styles from './Home.module.css';
 
 const contentHeight = 300;
 
@@ -25,14 +25,14 @@ const SocialLink = ({ url, network }) => (
 
 const Home = () => {
     return (<>
-    <Container className="header">
+    <Container className={styles.header}>
         <Jumbotron>
             <Container>
                 <Row>
                     <Col>
                         <h1>Modry Młyn</h1>
-                        <h5 className="subtitle">Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
-                        <h5 className="subsubtitle">ul. Mickewicza 19A, Rumia</h5>
+                        <h5 className={styles.subtitle}>Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
+                        <h5 className={styles.subsubtitle}>ul. Mickewicza 19A, Rumia</h5>
                     </Col>
                     <Col md="auto" style={{ textAlign:'center' }}>
                         <Image src={logo} style={{ height: '10rem' }} fluid />
@@ -44,13 +44,13 @@ const Home = () => {
 
     <Container>
         <Row className="justify-content-center">
-            <Col className="content-col" xs="auto" sm="auto" md="auto" lg={4}>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
                 <Image src={exterior} style={{ height: contentHeight }} fluid />
             </Col>
-            <Col className="content-col" xs="auto" sm="auto" md="auto" lg={4}>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
                 <Image src={interior} style={{ height: contentHeight }} fluid />
             </Col>
-            <Col className="content-col" sm={12} md={8} lg={4}>
+            <Col className={styles["content-col"]} sm={12} md={8} lg={4}>
                 <PigeonMap height={contentHeight} />
             </Col>
         </Row>
@@ -58,7 +58,7 @@ const Home = () => {
 
     <Container style={{ marginTop: "40px" }}>
         <Row className="justify-content-center" style={{ gap: "20px" }}>
-            <Col className="content-col" xs="auto" sm="auto" md="auto" lg="auto">
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
                 <Image src={pfr} style={{ height: 200 }} fluid />
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
@@ -73,8 +73,8 @@ const Home = () => {
         <Jumbotron>
             <Row style={{ marginBottom:'-1rem' }}>
                 <Col style={{ textAlign:'center', marginBottom:'1rem' }}>
-                    <Row><Col className="phone-header">Zadzwoń do nas:</Col></Row>
-                    <Row><Col className="phone-number">(+48) 733 314 441</Col></Row>
+                    <Row><Col className={styles["phone-header"]}>Zadzwoń do nas:</Col></Row>
+                    <Row><Col className={styles["phone-number"]}>(+48) 733 314 441</Col></Row>
                 </Col>
                 <Col sm>
                     <Row style={{ textAlign:'center' }}>
