@@ -35,7 +35,7 @@ const Photos = () => {
         }
         </Container>
         {hasMore && <Container className="wrapper">
-            <Button onClick={loadMore}>Load more</Button>
+            <Button onClick={loadMore}>Pokaż więcej</Button>
         </Container>}
     </>);
 }
