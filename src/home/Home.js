@@ -1,11 +1,12 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+
+import TextWithBackground from '../components/TextWithBackground';
 
 import PigeonMap from './MapContainer';
 import logo from "../assets/mlyn_logo.jpg";
@@ -26,11 +27,11 @@ const SocialLink = ({ url, network }) => (
 const Home = () => {
     return (<>
     <Container className={styles.header}>
-        <Jumbotron>
+        <TextWithBackground>
             <Container>
                 <Row>
                     <Col>
-                        <h1>Modry Młyn</h1>
+                        <h1 className="mt-3">Modry Młyn</h1>
                         <h5 className={styles.subtitle}>Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
                         <h5 className={styles.subsubtitle}>ul. Mickewicza 19A, Rumia</h5>
                     </Col>
@@ -39,7 +40,7 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-        </Jumbotron>
+        </TextWithBackground>
     </Container>
 
     <Container>
@@ -70,7 +71,7 @@ const Home = () => {
     </Container>
 
     <Container style={{ marginTop:'2rem' }}>
-        <Jumbotron>
+        <TextWithBackground>
             <Row style={{ marginBottom:'-1rem' }}>
                 <Col style={{ textAlign:'center', marginBottom:'1rem' }}>
                     <Row><Col className={styles["phone-header"]}>Zadzwoń do nas:</Col></Row>
@@ -85,7 +86,7 @@ const Home = () => {
                     </Row>
                 </Col>
             </Row>
-        </Jumbotron>
+        </TextWithBackground>
     </Container>
     </>)
 };

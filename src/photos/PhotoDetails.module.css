@@ -1,6 +1,12 @@
 .details-wrapper {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+.details-card {
+    background-color: transparent !important;
+    border: none !important;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
 .details-image {
@@ -18,17 +24,11 @@
     max-height: 500px;
 }
 
-.card-title {
-    text-align: center;
+.title {
     font-size: x-large !important;
 }
 
-.card-subtitle {
-    text-align: center;
+.subtitle {
     color: grey;
     font-size: smaller !important;
-}
-
-.card-text {
-    text-align: center;
 }

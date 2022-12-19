@@ -3,39 +3,42 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 
+import TextWithBackground from '../components/TextWithBackground'
 import christmasMenu from "../assets/christmas.jpg";
+
+import styles from './Christmas.module.css'
 
 export default function Christmas() {
     return (
-        <Container style={{ maxWidth: '750px', width: '90%', textAlign: 'center'  }}>
-            <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>
-                🎄 Święta z Modrym Młynem 🎄
-            </h3>
-            <p>
-                Z racji tego, że grudzień zbliża się wielkimi krokami, a do
-                Świąt Bożego Narodzeniapozostało już niewiele czasu,
-                przygotowaliśmy dla Was ofertę cateringu świątecznego 🎅
-            </p>
-            <p>
-                Zapraszamy do wyboru potraw na Wasz świąteczny stół!
-            </p>
-            <p>
-                Zamówienia przyjmujemy do 18 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
-            </p>
-            <p>
-                Zachęcamy do składania zamówień na miejscu, ewentualnie telefonicznie 😊
-            </p>
+        <Container className={styles.wrapper}>
+            <TextWithBackground>
+                <h3>
+                    🎄 Święta z Modrym Młynem 🎄
+                </h3>
+                <br/>
+                <p>
+                    Z racji tego, że grudzień zbliża się wielkimi krokami, a do
+                    Świąt Bożego Narodzeniapozostało już niewiele czasu,
+                    przygotowaliśmy dla Was ofertę cateringu świątecznego 🎅
+                </p>
+                <p>
+                    Zapraszamy do wyboru potraw na Wasz świąteczny stół!
+                </p>
+                <p>
+                    Zamówienia przyjmujemy do 18 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
+                </p>
+                <p>
+                    Zachęcamy do składania zamówień na miejscu, ewentualnie telefonicznie 😊
+                </p>
+            </TextWithBackground>
 
             <Image src={christmasMenu} fluid />
 
-            <p style={{
-                marginTop: '2rem', marginBottom: '3rem',
-                color: 'blue', textDecoration: 'underline', cursor: 'default'
-            }}>
+            <TextWithBackground className={[styles.text, styles.hashtags]}>
                 #kaszuby #kuchniakaszubska #restrauracjakaszubska #modrymłyn
                 #rumia #święta #wigilia #catering #cateringświąteczny
                 #ofertaświąteczna #menuświąteczne #świątecznystół
-            </p>
+            </TextWithBackground>
 
         </Container>
     );

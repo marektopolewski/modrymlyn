@@ -17,6 +17,7 @@
     align-items: center;
     justify-content: center;
     border: 5px aliceblue solid;
+    background-color: #d8d8d6;
 }
 
 span.lazy-load-image-background {

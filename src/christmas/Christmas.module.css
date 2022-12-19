@@ -1,0 +1,15 @@
+.wrapper {
+    max-width: 750px !important;
+    width: 90% !important;
+}
+
+.text {
+    margin-top: 2rem;
+    background-color: #d8d8d6;
+}
+
+.hashtags {
+    color: blue;
+    text-decoration: underline;
+    cursor: default;
+}

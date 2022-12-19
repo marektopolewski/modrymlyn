@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Container, Image } from "react-bootstrap";
 
-import './PhotoDetails.css'
+import styles from './PhotoDetails.module.css'
+import TextWithBackground from "../components/TextWithBackground";
 
 const formatDate = (str) => {
     if (!str || str.length === 0)
@@ -31,21 +32,21 @@ const PhotoDetails = () => {
         return <p>Loading...</p>;
 
     return (
-        <Container className="details-wrapper">
-        <Card border="light">
-            <div className="details-image">
-                <Image className="details-image" src={require(`../assets/photos/photo-${details.id}.jpeg`)?.default} fluid />
+        <Container className={styles["details-wrapper"]}>
+        <Card className={styles["details-card"]}>
+            <div className={styles["details-image"]}>
+                <Image src={require(`../assets/photos/photo-${details.id}.jpeg`)?.default} fluid />
             </div>
-            <Card.Body>
-                <Card.Title dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>
-                <Card.Subtitle>{formatDate(details.date)}</Card.Subtitle>
+            <TextWithBackground>
+                <Card.Title className={styles.title} dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>
+                <Card.Subtitle className={styles.subtitle}>{formatDate(details.date)}</Card.Subtitle>
                 <br/>
                 {
                     details.paragraphs.map((para, paraIdx) => (
                         <Card.Text key={paraIdx}>{para}</Card.Text>
                     ))
                 }
-            </Card.Body>
+            </TextWithBackground>
         </Card>
         </Container>
     );
