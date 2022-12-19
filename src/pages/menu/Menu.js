@@ -11,35 +11,17 @@ import './Menu.css';
 
 import logo2 from "assets/mlyn_logo2.jpg";
 
-import menuPol1 from "assets/menu-pol/menu-modry-mlin-pol_Page_2.jpg";
-import menuPol2 from "assets/menu-pol/menu-modry-mlin-pol_Page_3.jpg";
-import menuPol3 from "assets/menu-pol/menu-modry-mlin-pol_Page_4.jpg";
-import menuPol4 from "assets/menu-pol/menu-modry-mlin-pol_Page_5.jpg";
-import menuPol5 from "assets/menu-pol/menu-modry-mlin-pol_Page_6.jpg";
-import menuPol6 from "assets/menu-pol/menu-modry-mlin-pol_Page_7.jpg";
-import menuPol7 from "assets/menu-pol/menu-modry-mlin-pol_Page_8.jpg";
-
-import menuEng1 from "assets/menu-ang/menu-modry-mlin-ang_Page_2.jpg";
-import menuEng2 from "assets/menu-ang/menu-modry-mlin-ang_Page_3.jpg";
-import menuEng3 from "assets/menu-ang/menu-modry-mlin-ang_Page_4.jpg";
-import menuEng4 from "assets/menu-ang/menu-modry-mlin-ang_Page_5.jpg";
-import menuEng5 from "assets/menu-ang/menu-modry-mlin-ang_Page_6.jpg";
-import menuEng6 from "assets/menu-ang/menu-modry-mlin-ang_Page_7.jpg";
-import menuEng7 from "assets/menu-ang/menu-modry-mlin-ang_Page_8.jpg";
-
-const MENU_POL = [ [menuPol1, menuPol2], [menuPol3, menuPol4], [menuPol5, menuPol6], [menuPol7]];
-const MENU_ENG = [ [menuEng1, menuEng2], [menuEng3, menuEng4], [menuEng5, menuEng6], [menuEng7]];
-
 const Menu = () => {
     const { width } = useWindowDimensions();
-    const [engMenu, setEngMenu] = useState(false);
+    const [isEng, setIsEng] = useState(false);
 
-    const text = engMenu ? (width > 500 ? "Zmień język 🇵🇱" : "🇵🇱") : (width > 500 ? "Change language 🇬🇧" : "🇬🇧");
+    const text = isEng ? (width > 500 ? "Zmień język 🇵🇱" : "🇵🇱") : (width > 500 ? "Change language 🇬🇧" : "🇬🇧");
+    const lang = isEng ? "ang" : "pol";
 
     return (
         <Container className="menu">
             <div className="lang-button">
-                <Button variant="outline-secondary" onClick={() => setEngMenu(eng => !eng)}>
+                <Button variant="outline-secondary" onClick={() => setIsEng(eng => !eng)}>
                     {text}
                 </Button>
             </div>
@@ -48,14 +30,14 @@ const Menu = () => {
                     <Image src={logo2} width="50%" />
                 </Col>
             </Row>
-            {
-                (engMenu ? MENU_ENG : MENU_POL).map(it => (
-                    <Row key={it.toString()}>
-                        <Col sm><Image src={it[0]} fluid /></Col>
-                        <Col sm><Image src={it[1]} fluid /></Col>
-                    </Row>
-                ))
-            }
+            <Row lg="2" md="2" sm="1">
+                {[...Array(7).keys()].map(idx => (
+                    <Col sm key={idx}>
+                        <Image fluid
+                            src={require(`assets/menu-${lang}/menu-modry-mlin-${lang}_Page_${idx + 2}.jpg`)?.default}/>
+                    </Col>
+                ))}
+            </Row>
         </Container>
     );
 };
