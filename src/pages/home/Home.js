@@ -6,14 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
-import TextWithBackground from '../components/TextWithBackground';
+import TextWithBackground from '../../components/TextWithBackground';
 
 import PigeonMap from './MapContainer';
-import logo from "../assets/mlyn_logo.jpg";
-import exterior from "../assets/photos/photo-7.jpeg";
-import interior from "../assets/photos/photo-6.jpeg";
-import pfr from "../assets/pfr.jpg";
-import arp from "../assets/arp.jpg";
+import logo from "assets/mlyn_logo.jpg";
+import exterior from "assets/photos/photo-7.jpeg";
+import interior from "assets/photos/photo-6.jpeg";
+import pfr from "assets/pfr.jpg";
+import arp from "assets/arp.jpg";
+
 import styles from './Home.module.css';
 
 const contentHeight = 300;

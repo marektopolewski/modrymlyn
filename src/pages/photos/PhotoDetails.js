@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import { Container, Image } from "react-bootstrap";
 
 import styles from './PhotoDetails.module.css'
-import TextWithBackground from "../components/TextWithBackground";
+import TextWithBackground from "../../components/TextWithBackground";
 
 const formatDate = (str) => {
     if (!str || str.length === 0)
@@ -35,7 +35,7 @@ const PhotoDetails = () => {
         <Container className={styles["details-wrapper"]}>
         <Card className={styles["details-card"]}>
             <div className={styles["details-image"]}>
-                <Image src={require(`../assets/photos/photo-${details.id}.jpeg`)?.default} fluid />
+                <Image src={require(`assets/photos/photo-${details.id}.jpeg`)?.default} fluid />
             </div>
             <TextWithBackground>
                 <Card.Title className={styles.title} dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>

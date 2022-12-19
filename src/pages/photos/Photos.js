@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
-import LazyImage from '../components/LazyImage'
+import LazyImage from '../../components/LazyImage'
 import './Photos.css'
 
 import PHOTO_DATA from './photo-data.json'
@@ -13,7 +13,7 @@ const Photo = ({ idx, text }) => (
     <LazyImage
         className="photo-image"
         text={`Zdjęcie ${idx} - ${text}`}
-        src={require(`../assets/photos/photo-${idx}.jpeg`)?.default}
+        src={require(`assets/photos/photo-${idx}.jpeg`)?.default}
     />
 );
 

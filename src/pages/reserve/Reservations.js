@@ -1,10 +1,10 @@
 import { Container } from "react-bootstrap";
 
-import TextWithBackground from "../components/TextWithBackground";
-import LazyImage from "../components/LazyImage";
+import TextWithBackground from "../../components/TextWithBackground";
+import LazyImage from "../../components/LazyImage";
 
-import DolnaSala from '../assets/venues/dolna_sala.jpeg';
-import Wiata from '../assets/venues/wiata.jpeg';
+import DolnaSala from 'assets/venues/dolna_sala.jpeg';
+import Wiata from 'assets/venues/wiata.jpeg';
 
 import styles from './Reservations.module.css';
 

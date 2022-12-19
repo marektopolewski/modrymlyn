@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-import Home from './home/Home';
-import Menu from './menu/Menu';
-import Photos from './photos/Photos';
-import PhotoDetails from './photos/PhotoDetails';
-import Reservations from './reserve/Reservations';
-// import Reserve from './reserve/Reserve';
-// import ReserveAdmin from './reserve/ReserveAdmin';
-import Arp from './arp/Arp';
-import Christmas from './christmas/Christmas';
-// import Valentines from './valentines/Valentines';
-// import Ukraine from './ukraine/Ukraine';
-// import Easter from './easter/Easter';
+import Home from './pages/home/Home';
+import Menu from './pages/menu/Menu';
+import Photos from './pages/photos/Photos';
+import PhotoDetails from './pages/photos/PhotoDetails';
+import Reservations from './pages/reserve/Reservations';
+// import Reserve from './pages/reserve/Reserve';
+// import ReserveAdmin from './pages/reserve/ReserveAdmin';
+import Arp from './pages/arp/Arp';
+import Christmas from './pages/christmas/Christmas';
+// import Valentines from './pages/valentines/Valentines';
+// import Ukraine from './pages/ukraine/Ukraine';
+// import Easter from './pages/easter/Easter';
 
 import './App.css';
 

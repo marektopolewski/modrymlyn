@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
-import easterMenu from "../assets/easter.jpg";
+import easterMenu from "assets/easter.jpg";
 
 export default function Easter() {
     return (

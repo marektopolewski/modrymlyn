@@ -3,8 +3,8 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 
-import TextWithBackground from '../components/TextWithBackground'
-import christmasMenu from "../assets/christmas.jpg";
+import TextWithBackground from '../../components/TextWithBackground'
+import christmasMenu from "assets/christmas.jpg";
 
 import styles from './Christmas.module.css'
 

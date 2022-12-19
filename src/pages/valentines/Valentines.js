@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 
-import valentinesMenu from "../assets/valentines.jpg";
+import valentinesMenu from "assets/valentines.jpg";
 
 export default function Valentines() {
     return (

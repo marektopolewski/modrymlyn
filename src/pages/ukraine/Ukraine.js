@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
-import ukraineHeader from "../assets/ukraine.jpg";
+import ukraineHeader from "assets/ukraine.jpg";
 
 const LinkLikeText = (props) => {
     return (
