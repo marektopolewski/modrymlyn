@@ -12,7 +12,7 @@ import Reservations from './pages/reserve/Reservations';
 // import Reserve from './pages/reserve/Reserve';
 // import ReserveAdmin from './pages/reserve/ReserveAdmin';
 import Arp from './pages/arp/Arp';
-import Christmas from './pages/christmas/Christmas';
+// import Christmas from './pages/christmas/Christmas';
 // import Valentines from './pages/valentines/Valentines';
 // import Ukraine from './pages/ukraine/Ukraine';
 // import Easter from './pages/easter/Easter';
@@ -31,7 +31,7 @@ const App = () => (
             {/* <Route path='/reserve' component={Reserve} /> */}
             {/* <Route path='/reserveAdmin' component={ReserveAdmin} /> */}
             <Route path='/arp' component={Arp} />
-            <Route path='/christmas' component={Christmas} />
+            {/* <Route path='/christmas' component={Christmas} /> */}
             {/* <Route path='/valentines' component={Valentines} /> */}
             {/* <Route path='/ukraine' component={Ukraine} /> */}
             {/* <Route path='/easter' component={Easter} /> */}
