@@ -1,20 +1,24 @@
 import React from "react"
 import { Map, Marker } from "pigeon-maps"
 
-export default class PigeonMap extends React.Component {
+const PigeonMap = ({ height }) => {
+    const lat = 54.57370106361447;
+    const lng = 18.394757456212833;
 
-    constructor(props) {
-        super(props);
-        this.state = { height: props.height };
-    }
+    const onClick = () => {
+        window.open("https://goo.gl/maps/Te9WZqxWGadQH34N7", "_blank").focus();
+    };
 
-    render() {
-        const lat = 54.57370106361447;
-        const lng = 18.394757456212833;
-        return (
-            <Map height={this.state.height} defaultCenter={[lat, lng]} defaultZoom={15}>
-                <Marker width={50} anchor={[lat, lng]} />
-            </Map>
-        );
-    }
+    return (
+        <Map
+            height={height}
+            defaultCenter={[lat, lng]}
+            defaultZoom={15} maxZoom={6}
+            onClick={onClick}
+        >
+            <Marker width={50} anchor={[lat, lng]} onClick={onClick}/>
+        </Map>
+    );
 }
+
+export default PigeonMap;

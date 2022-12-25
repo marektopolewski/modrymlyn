@@ -1,16 +1,10 @@
 .menu {
-    margin: auto;
-    margin-top: 2rem;
     background-color: white;
-}
-
-.header-row {
-    width: 100%;
-    text-align: center;
 }
 
 .lang-button {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-top: 1rem;
 }

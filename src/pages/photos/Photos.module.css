@@ -1,5 +1,4 @@
 .wrapper {
-    margin: auto;
     margin-top: 2rem;
     margin-bottom: 3rem;
     display: flex;
@@ -8,6 +7,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    max-width: unset !important;
 }
 
 .photo-wrapper {
@@ -39,8 +39,12 @@ span.lazy-load-image-background {
     transition-duration: 0.3s;
 }
 
-@media only screen and (max-width:760px)
+@media only screen and (max-width:900px)
 {
+    .wrapper {
+        gap: 0.9rem;
+    }
+
     .photo-wrapper {
         width: 200px;
         height: 200px;
@@ -52,8 +56,12 @@ span.lazy-load-image-background {
     }
 }
 
-@media only screen and (max-width:450px)
+@media only screen and (max-width:500px)
 {
+    .wrapper {
+        gap: 0.7rem;
+    }
+
     .photo-wrapper {
         width: 150px;
         height: 150px;
@@ -62,6 +70,23 @@ span.lazy-load-image-background {
     .photo-image {
         max-width: 140px;
         max-height: 140px;
+    }
+}
+
+@media only screen and (max-width:380px)
+{
+    .wrapper {
+        gap: 0.5rem;
+    }
+
+    .photo-wrapper {
+        width: 110px;
+        height: 110px;
+    }
+
+    .photo-image {
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 

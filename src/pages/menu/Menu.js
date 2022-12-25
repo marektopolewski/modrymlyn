@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import useWindowDimensions from '../../WindowSize';
+import useWindowDimensions from 'WindowSize';
 
-import Container from 'react-bootstrap/Container';
+import Container from 'components/Container';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
-import './Menu.css';
+import styles from './Menu.module.css';
 
 import logo2 from "assets/mlyn_logo2.jpg";
 
@@ -19,15 +20,15 @@ const Menu = () => {
     const lang = isEng ? "ang" : "pol";
 
     return (
-        <Container className="menu">
-            <div className="lang-button">
+        <Container className={styles.menu}>
+            <div className={styles["lang-button"]}>
                 <Button variant="outline-secondary" onClick={() => setIsEng(eng => !eng)}>
                     {text}
                 </Button>
             </div>
             <Row className="justify-content-md-center">
-                <Col className="header-row">
-                    <Image src={logo2} width="50%" />
+                <Col>
+                    <Image className="w-50" src={logo2} />
                 </Col>
             </Row>
             <Row lg="2" md="2" sm="1">

@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Card } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
 
+import Container from 'components/Container';
 import ukraineHeader from "assets/ukraine.jpg";
 
 const LinkLikeText = (props) => {
@@ -15,7 +14,7 @@ const LinkLikeText = (props) => {
 
 export default function Ukraine() {
     return (
-        <Container style={{ maxWidth: '750px', width: '90%' }}>
+        <Container>
             <Card>
                 <Card.Img variant="top" src={ukraineHeader} />
                 <Card.Body>

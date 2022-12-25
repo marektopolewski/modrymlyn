@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 
-import Card from 'react-bootstrap/Card';
-import { Container, Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
+
+import TextWithBackground from "components/TextWithBackground";
+import Container from "components/Container";
 
 import styles from './PhotoDetails.module.css'
-import TextWithBackground from "../../components/TextWithBackground";
 
 const formatDate = (str) => {
     if (!str || str.length === 0)

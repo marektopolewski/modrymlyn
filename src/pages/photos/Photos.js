@@ -1,17 +1,18 @@
 import { useCallback, useState } from 'react';
 
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
-import LazyImage from '../../components/LazyImage'
-import './Photos.css'
+import LazyImage from 'components/LazyImage'
+import Container from 'components/Container'
+
+import styles from './Photos.module.css'
 
 import PHOTO_DATA from './photo-data.json'
 const PHOTO_BATCH_SIZE = 8;
 
 const Photo = ({ idx, text }) => (
     <LazyImage
-        className="photo-image"
+        className={styles["photo-image"]}
         text={`Zdjęcie ${idx} - ${text}`}
         src={require(`assets/photos/photo-${idx}.jpeg`)?.default}
     />
@@ -26,15 +27,15 @@ const Photos = () => {
     }, []);
 
     return (<>
-        <Container className="wrapper">
+        <Container className={styles.wrapper}>
         { photos.map((photo, idx) => (
-                <a key={idx} href={`./photo/${idx}`} className="photo-wrapper">
+                <a key={idx} href={`./photo/${idx}`} className={styles["photo-wrapper"]}>
                     <Photo idx={PHOTO_DATA.length - idx} text={photo.header} />
                 </a>
             ))
         }
         </Container>
-        {hasMore && <Container className="wrapper">
+        {hasMore && <Container className={styles.wrapper}>
             <Button onClick={loadMore}>Pokaż więcej</Button>
         </Container>}
     </>);

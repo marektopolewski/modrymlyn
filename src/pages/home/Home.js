@@ -1,12 +1,12 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
 import TextWithBackground from '../../components/TextWithBackground';
+import Container from '../../components/Container';
 
 import PigeonMap from './MapContainer';
 import logo from "assets/mlyn_logo.jpg";
@@ -17,17 +17,14 @@ import arp from "assets/arp.jpg";
 
 import styles from './Home.module.css';
 
-const contentHeight = 300;
-
 const SocialLink = ({ url, network }) => (
     <Col style={{ marginBottom:'1rem' }}>
         <SocialIcon url={url} network={network}/>
     </Col>
 );
 
-const Home = () => {
-    return (<>
-    <Container className={styles.header}>
+const Home = () => (
+    <Container>
         <TextWithBackground>
             <Container>
                 <Row>
@@ -36,50 +33,44 @@ const Home = () => {
                         <h5 className={styles.subtitle}>Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
                         <h5 className={styles.subsubtitle}>ul. Mickewicza 19A, Rumia</h5>
                     </Col>
-                    <Col md="auto" style={{ textAlign:'center' }}>
-                        <Image src={logo} style={{ height: '10rem' }} fluid />
+                    <Col md="auto">
+                        <Image src={logo} className={styles.logo} />
                     </Col>
                 </Row>
             </Container>
         </TextWithBackground>
-    </Container>
 
-    <Container>
-        <Row className="justify-content-center">
+        <Row className={`justify-content-center ${styles["content-row"]}`}>
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
-                <Image src={exterior} style={{ height: contentHeight }} fluid />
+                <Image src={exterior} className={styles["content-image"]} />
             </Col>
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
-                <Image src={interior} style={{ height: contentHeight }} fluid />
+                <Image src={interior} className={styles["content-image"]} />
             </Col>
             <Col className={styles["content-col"]} sm={12} md={8} lg={4}>
-                <PigeonMap height={contentHeight} />
+                <PigeonMap height={300} />
             </Col>
         </Row>
-    </Container>
 
-    <Container style={{ marginTop: "40px" }}>
-        <Row className="justify-content-center" style={{ gap: "20px" }}>
+        <Row className="justify-content-center">
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
-                <Image src={pfr} style={{ height: 200 }} fluid />
+                <Image src={pfr} className={styles["funding-image"]} />
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
                 <a href="/arp">
-                    <Image src={arp} style={{ height: 200 }} fluid />
+                    <Image src={arp} className={styles["funding-image"]} />
                 </a>
             </Col>
         </Row>
-    </Container>
 
-    <Container style={{ marginTop:'2rem' }}>
         <TextWithBackground>
-            <Row style={{ marginBottom:'-1rem' }}>
-                <Col style={{ textAlign:'center', marginBottom:'1rem' }}>
+            <Row>
+                <Col className={styles["content-col"]}>
                     <Row><Col className={styles["phone-header"]}>Zadzwoń do nas:</Col></Row>
                     <Row><Col className={styles["phone-number"]}>(+48) 733 314 441</Col></Row>
                 </Col>
-                <Col sm>
-                    <Row style={{ textAlign:'center' }}>
+                <Col sm className={styles["content-col"]}>
+                    <Row>
                         <SocialLink url="https://www.facebook.com/modrymlyn.rumia"/>
                         <SocialLink url="https://www.instagram.com/modrymlyn.rumia"/>
                         <SocialLink url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/>
@@ -89,7 +80,6 @@ const Home = () => {
             </Row>
         </TextWithBackground>
     </Container>
-    </>)
-};
+);
 
 export default Home;

@@ -1,7 +1,6 @@
-import { Container } from "react-bootstrap";
-
-import TextWithBackground from "../../components/TextWithBackground";
-import LazyImage from "../../components/LazyImage";
+import TextWithBackground from "components/TextWithBackground";
+import LazyImage from "components/LazyImage";
+import Container from "components/Container";
 
 import DolnaSala from 'assets/venues/dolna_sala.jpeg';
 import Wiata from 'assets/venues/wiata.jpeg';
@@ -15,8 +14,7 @@ const VenueImage = ({ src, text, href }) => (
 );
 
 const Reservations = () => (
-    <Container className={styles.wrapper} style={{  }}>
-
+    <Container>
     <TextWithBackground>
         <h3>
             📆 Organizacja imprez okolicznościowych 🍽

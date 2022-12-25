@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 
 import {
     Col,
-    Container,
     Row,
     Spinner
 } from "react-bootstrap";
 
+import Container from "components/Container";
 import TextWithBackground from "components/TextWithBackground";
 
 import styles from './NotFound.module.css'
