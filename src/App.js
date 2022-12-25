@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Navbar from './navbar/NavBar';
 
+import NotFound from './pages/notfound/NotFound'
 import Home from './pages/home/Home';
 import Menu from './pages/menu/Menu';
 import Photos from './pages/photos/Photos';
@@ -24,18 +25,18 @@ const App = () => (
         <Navbar />
         <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/menu' component={Menu} />
-            <Route path='/photos' component={Photos} />
-            <Route path='/photo/:id' component={PhotoDetails} />
-            <Route path='/reservations' component={Reservations} />
-            {/* <Route path='/reserve' component={Reserve} /> */}
-            {/* <Route path='/reserveAdmin' component={ReserveAdmin} /> */}
-            <Route path='/arp' component={Arp} />
-            {/* <Route path='/christmas' component={Christmas} /> */}
-            {/* <Route path='/valentines' component={Valentines} /> */}
-            {/* <Route path='/ukraine' component={Ukraine} /> */}
-            {/* <Route path='/easter' component={Easter} /> */}
-            <Route path='/*' component={Home} />
+            <Route exact path='/menu' component={Menu} />
+            <Route exact path='/photos' component={Photos} />
+            <Route exact path='/photo/:id' component={PhotoDetails} />
+            <Route exact path='/reservations' component={Reservations} />
+            {/* <Route exact path='/reserve' component={Reserve} /> */}
+            {/* <Route exact path='/reserveAdmin' component={ReserveAdmin} /> */}
+            <Route exact path='/arp' component={Arp} />
+            {/* <Route exact path='/christmas' component={Christmas} /> */}
+            {/* <Route exact path='/valentines' component={Valentines} /> */}
+            {/* <Route exact path='/ukraine' component={Ukraine} /> */}
+            {/* <Route exact path='/easter' component={Easter} /> */}
+            <Route exact path='/*' component={NotFound} />
         </Switch>
     </Router>
 );
