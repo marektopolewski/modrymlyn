@@ -8,9 +8,11 @@ import Wiata from 'assets/venues/wiata.jpeg';
 import styles from './Reservations.module.css';
 
 const VenueImage = ({ src, text, href }) => (
-    <a href={href} target="_blank" rel="noreferrer" >
-        <LazyImage className={styles["venue-image"]} src={src} text={text} />
-    </a>
+    <Container className={styles["venue-image-container"]}>
+        <a href={href} target="_blank" rel="noreferrer" >
+            <LazyImage className={styles["venue-image"]} src={src} text={text} />
+        </a>
+    </Container>
 );
 
 const Reservations = () => (

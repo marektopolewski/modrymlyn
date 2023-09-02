@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
     Col,
@@ -13,16 +13,16 @@ import TextWithBackground from "components/TextWithBackground";
 import styles from './NotFound.module.css'
 
 const useDelayedRedirect = (where, when) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            history.push(where);
+            navigate(where);
         }, when);
         return () => {
             clearTimeout(timeout);
         };
-    }, [history, where, when]);
+    }, [navigate, where, when]);
 };
 
 const RedirectSpinner = () => (

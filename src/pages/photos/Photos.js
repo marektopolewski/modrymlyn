@@ -14,7 +14,7 @@ const Photo = ({ idx, text }) => (
     <LazyImage
         className={styles["photo-image"]}
         text={`Zdjęcie ${idx} - ${text}`}
-        src={require(`assets/photos/photo-${idx}.jpeg`)?.default}
+        src={require(`assets/photos/photo-${idx}.jpeg`)}
     />
 );
 

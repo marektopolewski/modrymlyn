@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Routes } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Navbar from './navbar/NavBar';
@@ -23,21 +23,21 @@ import './App.css';
 const App = () => (
     <Router>
         <Navbar />
-        <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/menu' component={Menu} />
-            <Route exact path='/photos' component={Photos} />
-            <Route exact path='/photo/:id' component={PhotoDetails} />
-            <Route exact path='/reservations' component={Reservations} />
-            {/* <Route exact path='/reserve' component={Reserve} /> */}
-            {/* <Route exact path='/reserveAdmin' component={ReserveAdmin} /> */}
-            <Route exact path='/arp' component={Arp} />
-            {/* <Route exact path='/christmas' component={Christmas} /> */}
-            {/* <Route exact path='/valentines' component={Valentines} /> */}
-            {/* <Route exact path='/ukraine' component={Ukraine} /> */}
-            {/* <Route exact path='/easter' component={Easter} /> */}
-            <Route exact path='/*' component={NotFound} />
-        </Switch>
+        <Routes>
+            <Route exact path='/' element={<Home/>} />
+            <Route exact path='/menu' element={<Menu/>} />
+            <Route exact path='/photos' element={<Photos/>} />
+            <Route exact path='/photo/:id' element={<PhotoDetails/>} />
+            <Route exact path='/reservations' element={<Reservations/>} />
+            {/* <Route exact path='/reserve' element={<Reserve/>} /> */}
+            {/* <Route exact path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
+            <Route exact path='/arp' element={<Arp/>} />
+            {/* <Route exact path='/christmas' element={<Christmas/>} /> */}
+            {/* <Route exact path='/valentines' element={<Valentines/>} /> */}
+            {/* <Route exact path='/ukraine' element={<Ukraine/>} /> */}
+            {/* <Route exact path='/easter' element={<Easter/>} /> */}
+            <Route exact path='/*' element={<NotFound/>} />
+        </Routes>
     </Router>
 );
 
