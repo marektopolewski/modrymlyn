@@ -24,19 +24,19 @@ const App = () => (
     <Router>
         <Navbar />
         <Routes>
-            <Route exact path='/' element={<Home/>} />
-            <Route exact path='/menu' element={<Menu/>} />
-            <Route exact path='/photos' element={<Photos/>} />
-            <Route exact path='/photo/:id' element={<PhotoDetails/>} />
-            <Route exact path='/reservations' element={<Reservations/>} />
-            {/* <Route exact path='/reserve' element={<Reserve/>} /> */}
-            {/* <Route exact path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
-            <Route exact path='/arp' element={<Arp/>} />
-            {/* <Route exact path='/christmas' element={<Christmas/>} /> */}
-            {/* <Route exact path='/valentines' element={<Valentines/>} /> */}
-            {/* <Route exact path='/ukraine' element={<Ukraine/>} /> */}
-            {/* <Route exact path='/easter' element={<Easter/>} /> */}
-            <Route exact path='/*' element={<NotFound/>} />
+            <Route path='/' element={<Home/>} />
+            <Route path='/menu/:langVersion?' element={<Menu/>} />
+            <Route path='/photos' element={<Photos/>} />
+            <Route path='/photo/:id' element={<PhotoDetails/>} />
+            <Route path='/reservations' element={<Reservations/>} />
+            {/* <Route path='/reserve' element={<Reserve/>} /> */}
+            {/* <Route path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
+            <Route path='/arp' element={<Arp/>} />
+            {/* <Route path='/christmas' element={<Christmas/>} /> */}
+            {/* <Route path='/valentines' element={<Valentines/>} /> */}
+            {/* <Route path='/ukraine' element={<Ukraine/>} /> */}
+            {/* <Route path='/easter' element={<Easter/>} /> */}
+            <Route path='/*' element={<NotFound/>} />
         </Routes>
     </Router>
 );

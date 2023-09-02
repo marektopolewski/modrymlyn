@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import useWindowDimensions from 'WindowSize';
 
 import Container from 'components/Container';
@@ -13,6 +13,25 @@ import styles from './Menu.module.css';
 import logo2 from "assets/mlyn_logo2.jpg";
 import TextWithBackground from 'components/TextWithBackground';
 
+const LanguageConfig = {
+    en: {
+        button: {
+            lgLabel: "Zmień język 🇵🇱",
+            smLabel: "🇵🇱",
+            pathParam: "pl"
+        },
+        imgPrefix: "ang",
+    },
+    pl: {
+        button: {
+            lgLabel: "Change language 🇬🇧",
+            smLabel: "🇬🇧",
+            pathParam: "en"
+        },
+        imgPrefix: "pol",
+    }
+}
+
 const OutdatedWarning = () => (
     <TextWithBackground className={[styles.outdated]}>
         <h3>¡Sorry!</h3>
@@ -26,22 +45,23 @@ const OutdatedWarning = () => (
 )
 
 const Menu = () => {
-    const { width } = useWindowDimensions();
-    const [isEng, setIsEng] = useState(false);
+    const navigate = useNavigate();
+    const { langVersion } = useParams();
+    const lang = langVersion === "en" ? "en" : "pl";
+    const imgPrefix = LanguageConfig[lang].imgPrefix;
 
-    const text = isEng ? (width > 500 ? "Zmień język 🇵🇱" : "🇵🇱") : (width > 500 ? "Change language 🇬🇧" : "🇬🇧");
-    const lang = isEng ? "ang" : "pol";
+    const { width } = useWindowDimensions();
 
     return (
         <Container className={styles.menu}>
             <div className={styles["lang-button"]}>
-                <Button variant="outline-secondary" onClick={() => setIsEng(eng => !eng)}>
-                    {text}
+                <Button variant="outline-secondary" onClick={() => navigate(`/menu/${LanguageConfig[lang].button.pathParam}`)}>
+                    {width > 500 ? LanguageConfig[lang].button.lgLabel : LanguageConfig[lang].button.smLabel}
                 </Button>
             </div>
-            { isEng && <OutdatedWarning/> }
+            { lang === "en" && <OutdatedWarning/> }
             <Row className="justify-content-md-center">
-                <Col>
+                <Col className="d-flex justify-content-md-center">
                     <Image className="w-50" src={logo2} />
                 </Col>
             </Row>
@@ -49,7 +69,7 @@ const Menu = () => {
                 {[...Array(7).keys()].map(idx => (
                     <Col sm key={idx}>
                         <Image fluid
-                            src={require(`assets/menu-${lang}/menu-modry-mlin-${lang}_Page_${idx + 2}.jpg`)}/>
+                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}/>
                     </Col>
                 ))}
             </Row>
