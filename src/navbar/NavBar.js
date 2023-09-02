@@ -2,12 +2,18 @@ import React from 'react';
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 
 import useWindowDimensions from '../WindowSize';
 
 import euIcon from '../assets/icons/eu.png'
 import "./NavBar.css"
+
+const ArpIcon = () => (
+    <Image src={euIcon} className='arp-icon' title='EU funds'/>
+);
 
 const paths = [
     { lgLabel: "Strona główna", smLabel: "🏠", path: "/" },
@@ -18,6 +24,7 @@ const paths = [
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     { lgLabel: "Imprezy", smLabel: "📆", path: "/reservations" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
+    { lgLabel: "Unia Europejska", smLabel: <ArpIcon/>, path: "/arp" },
 ];
 
 const CustomNavItem = ({ href, className, children }) => (
@@ -26,20 +33,39 @@ const CustomNavItem = ({ href, className, children }) => (
     </Nav.Item>
 );
 
-export default function Navbar() {
+const FlexibleTitleItem = ({ smLabel, lgLabel }) => {
     const { width } = useWindowDimensions();
     const swapWidth = paths.length * 160;
+
+    if (width < swapWidth)
+        return smLabel;
+
+    if (width < swapWidth + 200 && lgLabel === "Unia Europejska")
+        lgLabel = "UE";
+
+    return (
+        <Container> 
+            <Row>
+                <Col>
+                    {smLabel}
+                </Col>
+            </Row>
+            <Row>
+                <span className='flex-title-item-text'>{lgLabel}</span>
+            </Row>
+        </Container>
+    );
+};
+
+export default function Navbar() {
     return (
         <Container>
             <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
                 {paths.map(({lgLabel, smLabel, path}) => (
-                    <CustomNavItem key={path} href={path}>
-                        {width < swapWidth ? smLabel : lgLabel}
+                    <CustomNavItem key={path} href={path} className={path === "/arp" ? "arp-link" : ""}>
+                        <FlexibleTitleItem smLabel={smLabel} lgLabel={lgLabel}/>
                     </CustomNavItem>
                 ))}
-                <CustomNavItem href='/arp' className='arp-link'>
-                    <Image src={euIcon} className='arp-icon' title='EU funds'/>
-                </CustomNavItem>
             </Nav>
         </Container>
     );

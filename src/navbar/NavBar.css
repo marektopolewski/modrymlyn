@@ -3,6 +3,9 @@
 }
 
 .arp-icon {
-    height: 1.25rem;
-    width: auto;
+    height: 1rem;
+}
+
+.flex-title-item-text {
+    font-size: smaller;
 }
