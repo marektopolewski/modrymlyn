@@ -11,7 +11,6 @@ import Button from 'react-bootstrap/Button';
 import styles from './Menu.module.css';
 
 import logo2 from "assets/mlyn_logo2.jpg";
-import TextWithBackground from 'components/TextWithBackground';
 
 const LanguageConfig = {
     en: {
@@ -32,18 +31,6 @@ const LanguageConfig = {
     }
 }
 
-const OutdatedWarning = () => (
-    <TextWithBackground className={[styles.outdated]}>
-        <h3>¡Sorry!</h3>
-        <p>
-            This version of the menu is <b>slightly out-of-date</b> 😢
-            <br/>
-            We're working on it but feel free to contact the
-            restaurant directly if you have any questions!
-        </p>
-    </TextWithBackground>
-)
-
 const Menu = () => {
     const navigate = useNavigate();
     const { langVersion } = useParams();
@@ -59,7 +46,6 @@ const Menu = () => {
                     {width > 500 ? LanguageConfig[lang].button.lgLabel : LanguageConfig[lang].button.smLabel}
                 </Button>
             </div>
-            { lang === "en" && <OutdatedWarning/> }
             <Row className="justify-content-md-center">
                 <Col className="d-flex justify-content-md-center">
                     <Image className="w-50" src={logo2} />
