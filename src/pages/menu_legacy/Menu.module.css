@@ -1,0 +1,14 @@
+.menu {
+    background-color: white;
+}
+
+.lang-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 1rem;
+}
+
+.outdated {
+    background-color: #ffcbcb;
+}

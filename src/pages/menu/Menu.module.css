@@ -1,14 +1,62 @@
-.menu {
-    background-color: white;
+.v-divider {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
-.lang-button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-top: 1rem;
+.h-divider {
+    height: 100%;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
 }
 
-.outdated {
-    background-color: #ffcbcb;
+/**************** Menu styles ****************/
+.section-header {
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 1rem;
+}
+
+.dish-container {
+    margin-bottom: 1rem;
+}
+
+.dish-img {
+    width: 75px;
+    height: 75px;
+}
+
+.dish-name {
+    font-size: large;
+    margin-bottom: 0;
+}
+
+.dish-desc {
+    font-weight: 200;
+}
+
+.dish-price {
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.vege {
+    color: rgb(43, 154, 33);
+}
+
+/**************** Modal styles ****************/
+.modal-body {
+    text-align: center !important;
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+/**************** Filters styles ****************/
+.filter-container {
+    margin: 0;
+    padding: 10px;
 }

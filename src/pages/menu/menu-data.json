@@ -1,0 +1,354 @@
+[
+    {
+        "header": "Przystawki",
+        "items": [
+            {
+                "name": "Òctowóné klopsë z pòmùchla",
+                "desc": "Dorsz mielony, marynowany w occie /100g/, nasz chleb",
+                "price": 23,
+                "fish": true
+            },
+            {
+                "name": "Szmùlt",
+                "desc": "Chleb ze smalcem /90g/, ogórek kiszony",
+                "price": 16,
+                "img": "smalec"
+            },
+            {
+                "name": "Zylc",
+                "desc": "Mięsna galareta /100g/, nasz chleb",
+                "price": 18,
+                "img": "zylc",
+                "hot": true
+            },
+            {
+                "name": "Grzónka",
+                "desc": "Grzanka z kozim serem i konfiturą z cebuli /2szt/",
+                "price": 22,
+                "img": "grzanki",
+                "vege": true,
+                "hot": true
+            },
+            {
+                "name": "Smaczi Kaszëb",
+                "desc": "Zestaw przystawek „Smaki Kaszub” /250g/, nasz chleb",
+                "price": 45
+            }
+        ]
+    },
+    {
+        "header": "Zupy",
+        "items": [
+            {
+                "name": "Zupa z kùrë z klóskama",
+                "desc": "Rosół z domowymi kluskami /400ml/",
+                "price": 18,
+                "img": "rosol",
+                "hot": true
+            },
+            {
+                "name": "Flaczi z bòczniaka",
+                "desc": "Flaczki z boczniaka /400ml/",
+                "price": 23,
+                "img": "flaczki",
+                "vege": true,
+                "hot": true
+            },
+            {
+                "name": "Mòzdrëchòwô zupa",
+                "desc": "Musztardowa z pieczonym ziemniakiem /400ml/",
+                "price": 20,
+                "img": "zupa_muszt",
+                "vege": true
+            }
+        ]
+    },
+    {
+        "header": "Dania obiadowe",
+        "items": [
+            {
+                "name": "Szmórowóné krowié miãso",
+                "desc": "Duszona wołowina /180g/, puree z chrzanem, marchewka",
+                "price": 46,
+                "img": "wolowina",
+                "hot": true
+            },
+            {
+                "name": "Piekłô kaczka",
+                "desc": "Pół pieczonej kaczki /500g/, ziemniaki pieczone, buraczki (danie dla 2 osób)",
+                "price": 98,
+                "img": "pieklo_kaczka"
+            },
+            {
+                "name": "Frikasé",
+                "desc": "Kurczak /200g/ w potrawce, ryż z agrestem marchewka z groszkiem",
+                "price": 36,
+                "img": "frikase"
+            },
+            {
+                "name": "Gbùrsczi dwòlaj",
+                "desc": "De volaille /160g/, puree z chrzanem marchewka z groszkiem",
+                "price": 38,
+                "hot": true
+            },
+            {
+                "name": "Karbònada",
+                "desc": "Schab z kością /230g/, puree z chrzanem kapusta zasmażana",
+                "price": 38
+            },
+            {
+                "name": "Gòlce",
+                "desc": "Kluski ziemniaczane /200g/ z sosem sezonowym",
+                "price": "32-38",
+                "img": "golce",
+                "vege": true
+            },
+            {
+                "name": "Kùgle z bùkwitë",
+                "desc": "Kotleciki z kaszy gryczanej i boczniaka nadziewane kozim serem /150g/ na sałacie",
+                "price": 32,
+                "img": "kugle",
+                "vege": true,
+                "hot": true
+            }
+        ]
+    },
+    {
+        "header": "Ryby",
+        "items": [
+            {
+                "name": "Sledze z pùlkama",
+                "desc": "Śledź w śmietanie/250g/, ziemniaki w mundurkach",
+                "price": 35,
+                "img": "sledz",
+                "fish": true
+            },
+            {
+                "name": "Pòmùchel",
+                "desc": "Dorsz panierowany /170g/, ziemniaki pieczone, kapusta kiszona",
+                "price": 47,
+                "fish": true,
+                "hot": true
+            },
+            {
+                "name": "Piekłi lasfór",
+                "desc": "Pstrąg z pieca /400g/, frytki, sałatka",
+                "price": 64,
+                "img": "pstrag",
+                "fish": true,
+                "hot": true
+            }
+        ]
+    },
+    {
+        "header": "Placki ziemniaczane",
+        "items": [
+            {
+                "name": "Kùrzony lasfór",
+                "desc": "Placki z wędzonym pstrągiem i szpinakiem /200g/",
+                "price": 39,
+                "fish": true,
+                "hot": true
+            },
+            {
+                "name": "Miãsny gùlasz",
+                "desc": "Placki z gulaszem mięsnym /200g/",
+                "price": 36,
+                "hot": true
+            },
+            {
+                "name": "Sezonowi zoś z warzëwów",
+                "desc": "Placki z sosem sezonowym, śmietana",
+                "price": "34-40",
+                "img": "plince_wege",
+                "vege": true
+            },
+            {
+                "name": "Słodczé plińce",
+                "desc": "Placki ze śmietaną, owocami i cukrem",
+                "price": 30,
+                "img": "plince_slodkie",
+                "vege": true
+            }
+        ]
+    },
+    {
+        "header": "Pierogi",
+        "items": [
+            {
+                "name": "Miãso",
+                "desc": "Pierogi /7szt/ z mięsem i skwarkami",
+                "price": 32
+            },
+            {
+                "name": "Cządowé pierodżi",
+                "desc": "Pierogi /7szt/ sezonowe",
+                "price": "28-34",
+                "img": "pierogi_wege",
+                "vege": true,
+                "hot": true
+            }
+        ]
+    },
+    {
+        "header": "Obiadki dla dzieci",
+        "items": [
+            {
+                "name": "Rëbné môłé klopsë",
+                "desc": "Klopsiki rybne /90g/ w sosie pomidorowym z ziemniaczkami, groszek",
+                "price": 24,
+                "img": "dzieci_klopsy",
+                "fish": true
+            },
+            {
+                "name": "Chrupiącô chrzebtowina",
+                "desc": "Chrupiące polędwiczki drobiowe /90g/, frytki, marchewka",
+                "price": 23,
+                "img": "dzieci_poledwiczki",
+                "hot": true
+            },
+            {
+                "name": "Słodczé plińce",
+                "desc": "Placki ziemniaczane /2szt/ z owocami śmietaną i cukrem",
+                "price": 20,
+                "img": "dzieci_plince",
+                "vege": true
+            }
+        ]
+    },
+    {
+        "header": "Napoje zimne",
+        "items": [
+            {
+                "name": "Kòmpòt",
+                "desc": "Kompot owocowy /0,3l/",
+                "price": 9
+            },
+            {
+                "name": "Lemòniada",
+                "desc": "Lemoniada /0,4l/ cytrynowa, gruszkowa, kwiat czarnego bzu",
+                "price": 15
+            },
+            {
+                "name": "Bąbelwòda",
+                "desc": "Woda gazowana z malinami, miętą i cytryną /0,4l/",
+                "price": 16
+            },
+            {
+                "name": "Mrożonô arbata",
+                "desc": "Mrożona herbata /0,4l/z truskawkami i limonką",
+                "price": 14
+            },
+            {
+                "name": "Kwasné mlékò",
+                "desc": "Maślanka /0,3l/",
+                "price": 12
+            },
+            {
+                "name": "Coca Cola",
+                "desc": "Cola, Fanta, Sprite, Kinley, FuzeTea /0,25l/",
+                "price": 8
+            },
+            {
+                "name": "Sok Cappy",
+                "desc": "/0,25l/",
+                "price": 6
+            },
+            {
+                "name": "Woda Kropla Beskidu",
+                "desc": "/0,33l/",
+                "price": 5
+            },
+            {
+                "name": "Burn",
+                "desc": "/0,25l/",
+                "price": 10
+            }
+        ]
+    },
+    {
+        "header": "Gorące napoje",
+        "items": [
+            {
+                "name": "Arbata z cytrusowò-kòrzennym syropã",
+                "desc": "Herbata z domowym syropem z cytrusów, z goździkami i anyżem",
+                "price": 16,
+                "img": "herbata_cytrus"
+            },
+            {
+                "name": "Zaparzoné kwiatë lëpë",
+                "desc": "Napar z kwiatów lipy z malinami",
+                "price": 16,
+                "img": "herbata_maliny"
+            },
+            {
+                "name": "Zaparzony remiónk",
+                "desc": "Napar z rumianku z czarnym bzem",
+                "price": 16,
+                "img": "herbata_rumianek"
+            },
+            {
+                "name": "Arbata",
+                "desc": "Herbata - wybór smaków",
+                "price": 10
+            },
+            {
+                "name": "Arbata ze sztróm",
+                "desc": "Herbata z wiśniówką /40ml/",
+                "price": 18,
+                "img": "herbata_wisniowka"
+            },
+            {
+                "name": "Gòrącô szokòlada",
+                "desc": "Gorąca czekolada, bita śmietana /250ml/",
+                "price": 22
+            }
+        ]
+    },
+    {
+        "header": "Coffee",
+        "items": [
+            {
+                "name": "Espresso",
+                "price": 7
+            },
+            {
+                "name": "Kawa czarna / biała",
+                "price": 10
+            },
+            {
+                "name": "Cappuccino",
+                "price": 12
+            },
+            {
+                "name": "Latte",
+                "price": 14
+            },
+            {
+                "name": "Kawa mrożona",
+                "price": 16
+            }
+        ]
+    },
+    {
+        "header": "Desery",
+        "items": [
+            {
+                "name": "Domôcy kùch",
+                "desc": "Ciasto domowe /120g/",
+                "price": 18,
+                "img": "ciasto"
+            },
+            {
+                "name": "Lodë",
+                "desc": "Deser lodowy /100g/",
+                "price": 24
+            },
+            {
+                "name": "Cytrónszpajza",
+                "desc": "Cytrynowy krem jajeczny /120ml/",
+                "price": 22
+            }
+        ]
+    }
+]

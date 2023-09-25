@@ -1,65 +1,146 @@
-import { useNavigate, useParams } from "react-router-dom";
-import useWindowDimensions from 'WindowSize';
+import { useCallback, useReducer, useState } from 'react';
+
+import MenuFilters from './MenuFilters';
 
 import Container from 'components/Container';
+import LazyImage from 'components/LazyImage'
+import TextWithBackground from 'components/TextWithBackground';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 import styles from './Menu.module.css';
 
-import logo2 from "assets/mlyn_logo2.jpg";
+import MenuData from './menu-data.json'
 
-const LanguageConfig = {
-    en: {
-        button: {
-            lgLabel: "Zmień język 🇵🇱",
-            smLabel: "🇵🇱",
-            pathParam: "pl"
-        },
-        imgPrefix: "ang",
-    },
-    pl: {
-        button: {
-            lgLabel: "Change language 🇬🇧",
-            smLabel: "🇬🇧",
-            pathParam: "en"
-        },
-        imgPrefix: "pol",
-    }
-}
+
+const MenuItemImage = ({ data, imageCallback }) => (
+    <LazyImage
+        className={styles['dish-img']}
+        text={data.text}
+        src={require(`assets/menu/${data.img}_s.jpeg`)}
+        onClick={() => imageCallback(data)}
+    />
+)
+
+const MenuItem = ({ item, imageCallback }) => (
+    <Row className={styles['dish-container']}>
+        <Col>
+            {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
+        </Col>
+        <Col>
+            <Row>
+                <p className={styles['dish-name']}>{item.name}</p>
+            </Row>
+            <Row>
+                <p className={styles['dish-desc']}>{item.desc}</p>
+            </Row>
+        </Col>
+        <Col>
+            <Col><p className={styles['dish-price']}>{item.price}</p></Col>
+            {item.vege && <Col><p className={styles['vege']}>Wege</p></Col>}
+        </Col>
+    </Row>
+);
+
+const MenuSection = ({ data, imageCallback }) => {
+    if (!data.items || data.items.length === 0)
+        return <></>;
+    return (
+        <Container>
+            <hr className={styles['v-divider']}/>
+            <p className={styles['section-header']}>{data.header}</p>
+            {
+                data.items.map((item, idx) => (
+                    <MenuItem
+                        key={idx}
+                        item={item}
+                        imageCallback={imageCallback}
+                    />
+                ))
+            }
+        </Container>
+    );
+};
+
+const MenuModal = ({ data, onHide }) => (
+    <Modal
+        className={styles['modal-container']}
+        size='lg'
+        centered
+        show={data !== undefined}
+        onHide={onHide}
+    >
+        <Modal.Header closeButton>
+            <Col>
+                <Row>
+                    <Modal.Title>
+                        {data?.name}
+                        {data?.vege && <span className={styles['vege']}> Wege</span>}
+                    </Modal.Title>
+                </Row>
+                <Row>
+                    <span>{data?.desc}</span>
+                </Row>
+            </Col>
+        </Modal.Header>
+        <Modal.Body>
+            <Container className={styles['modal-body']}>
+                <LazyImage
+                    className={styles['modal-img']}
+                    text={data?.name}
+                    src={data && require(`assets/menu/${data.img}.jpeg`)}
+                />
+            </Container>
+        </Modal.Body>
+    </Modal>
+);
+
+const menuDataReducer = (state, action) => {
+    if (!action)
+        return {
+            filter: undefined,
+            data: MenuData
+        };
+
+    return {
+        filter: action,
+        data: MenuData.map(section => ({
+            ...section,
+            items: section.items.filter(it => it[action])
+        })),
+    };
+};
 
 const Menu = () => {
-    const navigate = useNavigate();
-    const { langVersion } = useParams();
-    const lang = langVersion === "en" ? "en" : "pl";
-    const imgPrefix = LanguageConfig[lang].imgPrefix;
+    const [modalData, setModalData] = useState(undefined);
+    const showModalCallback = useCallback(data => setModalData(data), []);
+    const hideModalCallback = useCallback(() => setModalData(undefined), []);
 
-    const { width } = useWindowDimensions();
+    const [menuState, dispatch] = useReducer(menuDataReducer, { filter: undefined, data: MenuData });
+    const filterCallback = useCallback(filter => {
+        dispatch(filter);
+    }, []);
 
     return (
-        <Container className={styles.menu}>
-            <div className={styles["lang-button"]}>
-                <Button variant="outline-secondary" onClick={() => navigate(`/menu/${LanguageConfig[lang].button.pathParam}`)}>
-                    {width > 500 ? LanguageConfig[lang].button.lgLabel : LanguageConfig[lang].button.smLabel}
-                </Button>
-            </div>
-            <Row className="justify-content-md-center">
-                <Col className="d-flex justify-content-md-center">
-                    <Image className="w-50" src={logo2} />
-                </Col>
-            </Row>
-            <Row lg="2" md="2" sm="1">
-                {[...Array(7).keys()].map(idx => (
-                    <Col sm key={idx}>
-                        <Image fluid
-                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}/>
-                    </Col>
-                ))}
-            </Row>
+        <>
+        <MenuModal data={modalData} onHide={hideModalCallback}/>
+        <Container>
+            <TextWithBackground>
+            <MenuFilters active={menuState.filter} callback={filterCallback}/>
+            {
+                menuState.data.map((section, idx) => (
+                    <MenuSection
+                        key={idx}
+                        data={section}
+                        imageCallback={showModalCallback}
+                    />
+                ))
+            }
+            </TextWithBackground>
         </Container>
+        </>
     );
 };
 
