@@ -1,7 +1,7 @@
 import { useCallback, useReducer, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import MenuFilters from './MenuFilters';
-
 import Container from 'components/Container';
 import LazyImage from 'components/LazyImage'
 import TextWithBackground from 'components/TextWithBackground';
@@ -15,6 +15,13 @@ import styles from './Menu.module.css';
 import MenuData from './menu-data.json'
 
 
+const getAttrWithFallback = (data, attr, isEng) => {
+    const attrEng = `${attr}_eng`;
+    if (isEng && attrEng in data)
+        return data[attrEng];
+    return data[attr];
+};
+
 const MenuItemImage = ({ data, imageCallback }) => (
     <LazyImage
         className={styles['dish-img']}
@@ -24,38 +31,53 @@ const MenuItemImage = ({ data, imageCallback }) => (
     />
 )
 
-const MenuItem = ({ item, imageCallback }) => (
-    <Row className={styles['dish-container']}>
-        <Col>
-            {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
-        </Col>
-        <Col>
-            <Row>
-                <p className={styles['dish-name']}>{item.name}</p>
-            </Row>
-            <Row>
-                <p className={styles['dish-desc']}>{item.desc}</p>
-            </Row>
-        </Col>
-        <Col>
-            <Col><p className={styles['dish-price']}>{item.price}</p></Col>
-            {item.vege && <Col><p className={styles['vege']}>Wege</p></Col>}
-        </Col>
-    </Row>
-);
+const MenuItemVegeLabel = () => {
+    const { t } = useTranslation('menu');
+    return <Col><p className={styles['vege']}>{t('dish-vege')}</p></Col>
+}
+
+const MenuItem = ({ item, isEng, imageCallback }) => {
+    const dishName = getAttrWithFallback(item, 'name', isEng);
+    const dishDesc = getAttrWithFallback(item, 'desc', isEng);
+    return (
+        <Row className={styles['dish-container']}>
+            <Col>
+                {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
+            </Col>
+            <Col>
+                <Row>
+                    <p className={styles['dish-name']}>{dishName}</p>
+                </Row>
+                <Row>
+                    <p className={styles['dish-desc']}>{dishDesc}</p>
+                </Row>
+            </Col>
+            <Col>
+                <Col><p className={styles['dish-price']}>{item.price}</p></Col>
+                {item.vege && <MenuItemVegeLabel/>}
+            </Col>
+        </Row>
+    );
+};
 
 const MenuSection = ({ data, imageCallback }) => {
+    const { i18n } = useTranslation('menu');
+    const isEng = i18n.language === 'en';
+    const sectionHeader = getAttrWithFallback(data, 'header', isEng);
+
     if (!data.items || data.items.length === 0)
         return <></>;
+
     return (
         <Container>
             <hr className={styles['v-divider']}/>
-            <p className={styles['section-header']}>{data.header}</p>
+            <p className={styles['section-header']}>{sectionHeader}</p>
             {
                 data.items.map((item, idx) => (
                     <MenuItem
                         key={idx}
                         item={item}
+                        isEng={isEng}
                         imageCallback={imageCallback}
                     />
                 ))
@@ -98,7 +120,7 @@ const MenuModal = ({ data, onHide }) => (
 );
 
 const menuDataReducer = (state, action) => {
-    if (!action)
+    if (!action || action === state.filter)
         return {
             filter: undefined,
             data: MenuData

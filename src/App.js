@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -23,21 +23,23 @@ import './App.css';
 const App = () => (
     <Router>
         <Navbar />
-        <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/menu/:langVersion?' element={<Menu/>} />
-            <Route path='/photos' element={<Photos/>} />
-            <Route path='/photo/:id' element={<PhotoDetails/>} />
-            <Route path='/reservations' element={<Reservations/>} />
-            {/* <Route path='/reserve' element={<Reserve/>} /> */}
-            {/* <Route path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
-            <Route path='/arp' element={<Arp/>} />
-            {/* <Route path='/christmas' element={<Christmas/>} /> */}
-            {/* <Route path='/valentines' element={<Valentines/>} /> */}
-            {/* <Route path='/ukraine' element={<Ukraine/>} /> */}
-            {/* <Route path='/easter' element={<Easter/>} /> */}
-            <Route path='/*' element={<NotFound/>} />
-        </Routes>
+        <Suspense fallback="loading">
+            <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/menu/:langVersion?' element={<Menu/>} />
+                <Route path='/photos' element={<Photos/>} />
+                <Route path='/photo/:id' element={<PhotoDetails/>} />
+                <Route path='/reservations' element={<Reservations/>} />
+                {/* <Route path='/reserve' element={<Reserve/>} /> */}
+                {/* <Route path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
+                <Route path='/arp' element={<Arp/>} />
+                {/* <Route path='/christmas' element={<Christmas/>} /> */}
+                {/* <Route path='/valentines' element={<Valentines/>} /> */}
+                {/* <Route path='/ukraine' element={<Ukraine/>} /> */}
+                {/* <Route path='/easter' element={<Easter/>} /> */}
+                <Route path='/*' element={<NotFound/>} />
+            </Routes>
+        </Suspense>
     </Router>
 );
 

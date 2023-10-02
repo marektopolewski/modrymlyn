@@ -1,22 +1,26 @@
 [
     {
         "header": "Przystawki",
+        "header_eng": "Appetizers",
         "items": [
             {
                 "name": "Òctowóné klopsë z pòmùchla",
                 "desc": "Dorsz mielony, marynowany w occie /100g/, nasz chleb",
+                "desc_eng": "Cod cakes marinated in vinegar /100g/, our bread",
                 "price": 23,
                 "fish": true
             },
             {
                 "name": "Szmùlt",
                 "desc": "Chleb ze smalcem /90g/, ogórek kiszony",
+                "desc_eng": "Homemade bread and yard /90g/, pickles",
                 "price": 16,
                 "img": "smalec"
             },
             {
                 "name": "Zylc",
                 "desc": "Mięsna galareta /100g/, nasz chleb",
+                "desc_eng": "Meat jelly /100g/, our bread",
                 "price": 18,
                 "img": "zylc",
                 "hot": true
@@ -24,6 +28,7 @@
             {
                 "name": "Grzónka",
                 "desc": "Grzanka z kozim serem i konfiturą z cebuli /2szt/",
+                "desc_eng": "Toasties with goat cheese and onion jam /2pcs/",
                 "price": 22,
                 "img": "grzanki",
                 "vege": true,
@@ -32,16 +37,19 @@
             {
                 "name": "Smaczi Kaszëb",
                 "desc": "Zestaw przystawek „Smaki Kaszub” /250g/, nasz chleb",
+                "desc_eng": "Set of appetizers „Taste of Kashubia” /250g/, our bread",
                 "price": 45
             }
         ]
     },
     {
         "header": "Zupy",
+        "header_eng": "Soups",
         "items": [
             {
                 "name": "Zupa z kùrë z klóskama",
                 "desc": "Rosół z domowymi kluskami /400ml/",
+                "desc_eng": "Chicken soup with homemade noodles /400ml/",
                 "price": 18,
                 "img": "rosol",
                 "hot": true
@@ -49,6 +57,7 @@
             {
                 "name": "Flaczi z bòczniaka",
                 "desc": "Flaczki z boczniaka /400ml/",
+                "desc_eng": "Tripe soup from oyster mushrooms /400ml/",
                 "price": 23,
                 "img": "flaczki",
                 "vege": true,
@@ -57,6 +66,7 @@
             {
                 "name": "Mòzdrëchòwô zupa",
                 "desc": "Musztardowa z pieczonym ziemniakiem /400ml/",
+                "desc_eng": "Mustard soup with a roasted potato /400ml/",
                 "price": 20,
                 "img": "zupa_muszt",
                 "vege": true
@@ -65,10 +75,12 @@
     },
     {
         "header": "Dania obiadowe",
+        "header_eng": "Main courses",
         "items": [
             {
                 "name": "Szmórowóné krowié miãso",
                 "desc": "Duszona wołowina /180g/, puree z chrzanem, marchewka",
+                "desc_eng": "Braised beef /180g/, puree with horseradish, carrots",
                 "price": 46,
                 "img": "wolowina",
                 "hot": true
@@ -76,29 +88,34 @@
             {
                 "name": "Piekłô kaczka",
                 "desc": "Pół pieczonej kaczki /500g/, ziemniaki pieczone, buraczki (danie dla 2 osób)",
+                "desc_eng": "Half of a roasted duck /500g/, roasted potatoes, beets (for 2 persons)",
                 "price": 98,
                 "img": "pieklo_kaczka"
             },
             {
                 "name": "Frikasé",
-                "desc": "Kurczak /200g/ w potrawce, ryż z agrestem marchewka z groszkiem",
+                "desc": "Kurczak /200g/ w potrawce, ryż z agrestem, marchewka z groszkiem",
+                "desc_eng": "Chicken /200g/ in sauce, rice with gooseberries, carrots with pees",
                 "price": 36,
                 "img": "frikase"
             },
             {
                 "name": "Gbùrsczi dwòlaj",
-                "desc": "De volaille /160g/, puree z chrzanem marchewka z groszkiem",
+                "desc": "De volaille /160g/, puree z chrzanem, marchewka z groszkiem",
+                "desc_eng": "De volaille /160g/, puree with horseradish, carrots with pees",
                 "price": 38,
                 "hot": true
             },
             {
                 "name": "Karbònada",
                 "desc": "Schab z kością /230g/, puree z chrzanem kapusta zasmażana",
+                "desc_eng": "Pork lion on a bone /230g/, puree with horseradish, sautéed cabbage",
                 "price": 38
             },
             {
                 "name": "Gòlce",
                 "desc": "Kluski ziemniaczane /200g/ z sosem sezonowym",
+                "desc_eng": "Small duplings /200g/ in seasonal sauce",
                 "price": "32-38",
                 "img": "golce",
                 "vege": true
@@ -106,6 +123,7 @@
             {
                 "name": "Kùgle z bùkwitë",
                 "desc": "Kotleciki z kaszy gryczanej i boczniaka nadziewane kozim serem /150g/ na sałacie",
+                "desc_eng": "Buckwheat and oyster mushroom chops with goat cheese /150g/ on a salad",
                 "price": 32,
                 "img": "kugle",
                 "vege": true,
@@ -115,10 +133,12 @@
     },
     {
         "header": "Ryby",
+        "header_eng": "Fish",
         "items": [
             {
                 "name": "Sledze z pùlkama",
                 "desc": "Śledź w śmietanie/250g/, ziemniaki w mundurkach",
+                "desc_eng": "Herring in cream /250g/, jacket potatoes",
                 "price": 35,
                 "img": "sledz",
                 "fish": true
@@ -126,6 +146,7 @@
             {
                 "name": "Pòmùchel",
                 "desc": "Dorsz panierowany /170g/, ziemniaki pieczone, kapusta kiszona",
+                "desc_eng": "Breaded cod /170g/, roasted potatoes, sauerkraut",
                 "price": 47,
                 "fish": true,
                 "hot": true
@@ -133,6 +154,7 @@
             {
                 "name": "Piekłi lasfór",
                 "desc": "Pstrąg z pieca /400g/, frytki, sałatka",
+                "desc_eng": "Oven baked trout /400g/, fries, salad",
                 "price": 64,
                 "img": "pstrag",
                 "fish": true,
@@ -142,10 +164,12 @@
     },
     {
         "header": "Placki ziemniaczane",
+        "header_eng": "Potato pancakes",
         "items": [
             {
                 "name": "Kùrzony lasfór",
                 "desc": "Placki z wędzonym pstrągiem i szpinakiem /200g/",
+                "desc_eng": "Pancakes with smoked trout and spinach /200g/",
                 "price": 39,
                 "fish": true,
                 "hot": true
@@ -153,12 +177,14 @@
             {
                 "name": "Miãsny gùlasz",
                 "desc": "Placki z gulaszem mięsnym /200g/",
+                "desc_eng": "Pancakes with meat stew /200g/",
                 "price": 36,
                 "hot": true
             },
             {
                 "name": "Sezonowi zoś z warzëwów",
                 "desc": "Placki z sosem sezonowym, śmietana",
+                "desc_eng": "Pancakes with seasonal sauce",
                 "price": "34-40",
                 "img": "plince_wege",
                 "vege": true
@@ -166,6 +192,7 @@
             {
                 "name": "Słodczé plińce",
                 "desc": "Placki ze śmietaną, owocami i cukrem",
+                "desc_eng": "Pancakes with cream, fruit and sugar",
                 "price": 30,
                 "img": "plince_slodkie",
                 "vege": true
@@ -174,15 +201,18 @@
     },
     {
         "header": "Pierogi",
+        "header_eng": "Dumplings",
         "items": [
             {
                 "name": "Miãso",
                 "desc": "Pierogi /7szt/ z mięsem i skwarkami",
+                "desc_eng": "Dumplings /7pcs/ with meat, pork rinds",
                 "price": 32
             },
             {
                 "name": "Cządowé pierodżi",
                 "desc": "Pierogi /7szt/ sezonowe",
+                "desc_eng": "Dumplings /7pcs/ with seasonal filling",
                 "price": "28-34",
                 "img": "pierogi_wege",
                 "vege": true,
@@ -192,10 +222,12 @@
     },
     {
         "header": "Obiadki dla dzieci",
+        "header_eng": "Kids menu",
         "items": [
             {
                 "name": "Rëbné môłé klopsë",
                 "desc": "Klopsiki rybne /90g/ w sosie pomidorowym z ziemniaczkami, groszek",
+                "desc_eng": "Fish chops /90g/ in tomato sauce with potatoes, pees",
                 "price": 24,
                 "img": "dzieci_klopsy",
                 "fish": true
@@ -203,6 +235,7 @@
             {
                 "name": "Chrupiącô chrzebtowina",
                 "desc": "Chrupiące polędwiczki drobiowe /90g/, frytki, marchewka",
+                "desc_eng": "Crispy chicken ternderlions /90g/, fries, carrots",
                 "price": 23,
                 "img": "dzieci_poledwiczki",
                 "hot": true
@@ -210,6 +243,7 @@
             {
                 "name": "Słodczé plińce",
                 "desc": "Placki ziemniaczane /2szt/ z owocami śmietaną i cukrem",
+                "desc_eng": "Potato pancakes /2pcs/ with fruit, cream and sugar",
                 "price": 20,
                 "img": "dzieci_plince",
                 "vege": true
@@ -218,30 +252,36 @@
     },
     {
         "header": "Napoje zimne",
+        "header_eng": "Cold drinks",
         "items": [
             {
                 "name": "Kòmpòt",
                 "desc": "Kompot owocowy /0,3l/",
+                "desc_eng": "Homemade fruit compote /0,3l/",
                 "price": 9
             },
             {
                 "name": "Lemòniada",
-                "desc": "Lemoniada /0,4l/ cytrynowa, gruszkowa, kwiat czarnego bzu",
+                "desc": "Lemoniada /0,4l/ cytrynowa / gruszkow / kwiat czarnego bzu",
+                "desc_eng": "Homemade lemonade /0,4l/ lemon / pear / elderflower",
                 "price": 15
             },
             {
                 "name": "Bąbelwòda",
                 "desc": "Woda gazowana z malinami, miętą i cytryną /0,4l/",
+                "desc_eng": "Sparkling water with raspberries, mint and lemon /0,4l/",
                 "price": 16
             },
             {
                 "name": "Mrożonô arbata",
                 "desc": "Mrożona herbata /0,4l/z truskawkami i limonką",
+                "desc_eng": "Iced tea /0,4l/with strawberries and lime",
                 "price": 14
             },
             {
                 "name": "Kwasné mlékò",
                 "desc": "Maślanka /0,3l/",
+                "desc_eng": "Buttermilk /0,3l/",
                 "price": 12
             },
             {
@@ -251,56 +291,68 @@
             },
             {
                 "name": "Sok Cappy",
+                "name_eng": "Cappy Juice",
                 "desc": "/0,25l/",
+                "desc_eng": "/0,25l/",
                 "price": 6
             },
             {
                 "name": "Woda Kropla Beskidu",
+                "name_eng": "Kropla Beskidu Water",
                 "desc": "/0,33l/",
+                "desc_eng": "/0,33l/",
                 "price": 5
             },
             {
                 "name": "Burn",
                 "desc": "/0,25l/",
+                "desc_eng": "/0,25l/",
                 "price": 10
             }
         ]
     },
     {
         "header": "Gorące napoje",
+        "header_eng": "Hot drinks",
         "items": [
             {
                 "name": "Arbata z cytrusowò-kòrzennym syropã",
                 "desc": "Herbata z domowym syropem z cytrusów, z goździkami i anyżem",
+                "desc_eng": "Tea with homemade citrus syrup, cloves and anise",
                 "price": 16,
                 "img": "herbata_cytrus"
             },
             {
                 "name": "Zaparzoné kwiatë lëpë",
                 "desc": "Napar z kwiatów lipy z malinami",
+                "desc_eng": "Linden flower infusion with raspberries",
                 "price": 16,
                 "img": "herbata_maliny"
             },
             {
                 "name": "Zaparzony remiónk",
                 "desc": "Napar z rumianku z czarnym bzem",
+                "desc_eng": "Chamomile infusion with elderflower",
                 "price": 16,
                 "img": "herbata_rumianek"
             },
             {
                 "name": "Arbata",
                 "desc": "Herbata - wybór smaków",
+                "desc_eng": "Tea - selection of flavors",
                 "price": 10
             },
             {
                 "name": "Arbata ze sztróm",
                 "desc": "Herbata z wiśniówką /40ml/",
+                "desc_eng": "Tea with vishnovka (cherry liqueur) /40ml/",
                 "price": 18,
                 "img": "herbata_wisniowka"
             },
             {
                 "name": "Gòrącô szokòlada",
                 "desc": "Gorąca czekolada, bita śmietana /250ml/",
+                "desc_eng": "Hot chocolate, whipped cream /250ml/",
                 "price": 22
             }
         ]
@@ -314,6 +366,7 @@
             },
             {
                 "name": "Kawa czarna / biała",
+                "name_eng": "White / black coffee",
                 "price": 10
             },
             {
@@ -326,27 +379,32 @@
             },
             {
                 "name": "Kawa mrożona",
+                "name_eng": "Iced coffee",
                 "price": 16
             }
         ]
     },
     {
         "header": "Desery",
+        "header_eng": "Desserts",
         "items": [
             {
                 "name": "Domôcy kùch",
                 "desc": "Ciasto domowe /120g/",
+                "desc_eng": "Homemade cake /120g/",
                 "price": 18,
                 "img": "ciasto"
             },
             {
                 "name": "Lodë",
                 "desc": "Deser lodowy /100g/",
+                "desc_eng": "Ice cream dessert /100g/",
                 "price": 24
             },
             {
                 "name": "Cytrónszpajza",
                 "desc": "Cytrynowy krem jajeczny /120ml/",
+                "desc_eng": "Lemon egg custard /120ml/",
                 "price": 22
             }
         ]
