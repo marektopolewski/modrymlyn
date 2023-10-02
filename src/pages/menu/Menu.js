@@ -33,7 +33,7 @@ const MenuItemImage = ({ data, imageCallback }) => (
 
 const MenuItemVegeLabel = () => {
     const { t } = useTranslation('menu');
-    return <Col><p className={styles['vege']}>{t('dish-vege')}</p></Col>
+    return <p className={styles['vege']}>{t('dish-vege')}</p>;
 }
 
 const MenuItem = ({ item, isEng, imageCallback }) => {
@@ -53,7 +53,7 @@ const MenuItem = ({ item, isEng, imageCallback }) => {
                 </Row>
             </Col>
             <Col>
-                <Col><p className={styles['dish-price']}>{item.price}</p></Col>
+                <span className={styles['dish-price']}>{item.price}</span> zł
                 {item.vege && <MenuItemVegeLabel/>}
             </Col>
         </Row>
