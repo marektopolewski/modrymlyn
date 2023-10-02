@@ -2,17 +2,17 @@ import { useCallback, useReducer, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import MenuFilters from './MenuFilters';
+import MenuItemModal from './MenuItemModal';
+
 import Container from 'components/Container';
 import LazyImage from 'components/LazyImage'
 import TextWithBackground from 'components/TextWithBackground';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Modal from 'react-bootstrap/Modal';
-
-import styles from './Menu.module.css';
 
 import MenuData from './menu-data.json'
+import styles from './Menu.module.css';
 
 
 const getAttrWithFallback = (data, attr, isEng) => {
@@ -86,39 +86,6 @@ const MenuSection = ({ data, imageCallback }) => {
     );
 };
 
-const MenuModal = ({ data, onHide }) => (
-    <Modal
-        className={styles['modal-container']}
-        size='lg'
-        centered
-        show={data !== undefined}
-        onHide={onHide}
-    >
-        <Modal.Header closeButton>
-            <Col>
-                <Row>
-                    <Modal.Title>
-                        {data?.name}
-                        {data?.vege && <span className={styles['vege']}> Wege</span>}
-                    </Modal.Title>
-                </Row>
-                <Row>
-                    <span>{data?.desc}</span>
-                </Row>
-            </Col>
-        </Modal.Header>
-        <Modal.Body>
-            <Container className={styles['modal-body']}>
-                <LazyImage
-                    className={styles['modal-img']}
-                    text={data?.name}
-                    src={data && require(`assets/menu/${data.img}.jpeg`)}
-                />
-            </Container>
-        </Modal.Body>
-    </Modal>
-);
-
 const menuDataReducer = (state, action) => {
     if (!action || action === state.filter)
         return {
@@ -147,7 +114,7 @@ const Menu = () => {
 
     return (
         <>
-        <MenuModal data={modalData} onHide={hideModalCallback}/>
+        <MenuItemModal data={modalData} onHide={hideModalCallback}/>
         <Container>
             <TextWithBackground>
             <MenuFilters active={menuState.filter} callback={filterCallback}/>
