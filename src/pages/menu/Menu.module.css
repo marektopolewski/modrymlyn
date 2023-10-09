@@ -3,11 +3,6 @@
     margin-bottom: 3rem;
 }
 
-.h-divider {
-    height: 100%;
-    border: 1px rgba(0, 0, 0, 0.3) solid;
-}
-
 /**************** Menu styles ****************/
 .section-header {
     font-weight: bold;
@@ -16,12 +11,17 @@
 }
 
 .dish-container {
-    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.dish-container:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .dish-img {
     width: 75px;
     height: 75px;
+    margin: auto;
 }
 
 .dish-name {
@@ -31,7 +31,9 @@
 
 .dish-desc {
     font-weight: 200;
+    min-width: 200px;
 }
+
 
 .dish-price {
     font-size: larger;
@@ -43,9 +45,15 @@
     color: rgb(43, 154, 33);
 }
 
+/************** Menu styles (SM) **************/
+.dish-price-wrapper {
+    width: 99px; /* match img */
+}
+
 /**************** Modal styles ****************/
 .modal-body {
     text-align: center !important;
+    min-height: 200px;
 }
 
 .modal-img {
@@ -59,4 +67,10 @@
 .filter-container {
     margin: 0;
     padding: 10px;
+}
+
+.lang-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

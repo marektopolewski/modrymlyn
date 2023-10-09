@@ -3,13 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import MenuFilters from './MenuFilters';
 import MenuItemModal from './MenuItemModal';
+import MenuLanguageButton from './MenuLanguageButton';
 
 import Container from 'components/Container';
 import LazyImage from 'components/LazyImage'
 import TextWithBackground from 'components/TextWithBackground';
+import useWindowDimensions from 'WindowSize';
 
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 import MenuData from './menu-data.json'
 import styles from './Menu.module.css';
@@ -33,30 +35,72 @@ const MenuItemImage = ({ data, imageCallback }) => (
 
 const MenuItemVegeLabel = () => {
     const { t } = useTranslation('menu');
-    return <p className={styles['vege']}>{t('dish-vege')}</p>;
+    return <span className={styles['vege']}>{t('dish-vege')}</span>;
 }
 
+const MenuItemSm = ({name, desc, item, imageCallback}) => (
+    <Row className={styles['dish-container']}>
+        <Col>
+            <Row>
+                <p className={styles['dish-name']}>{name} {item.vege && <MenuItemVegeLabel/>}</p>
+            </Row>
+            <Row>
+                <p className={styles['dish-desc']}>{desc}</p>
+            </Row>
+        </Col>
+        <Col sm='auto'>
+            <Row>
+                {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
+            </Row>
+            <Row>
+                <Col className={styles['dish-price-wrapper']}>
+                    <span className={styles['dish-price']}>{item.price}</span> zł
+                </Col>
+            </Row>
+        </Col>
+    </Row>
+);
+
+const MenuItemLg = ({name, desc, item, imageCallback}) => { console.log(); return (
+    <Row className={styles['dish-container']}>
+        <Col>
+            {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
+        </Col>
+        <Col>
+            <Row>
+                <p className={styles['dish-name']}>{name}</p>
+            </Row>
+            <Row>
+                <p className={styles['dish-desc']}>{desc}</p>
+            </Row>
+        </Col>
+        <Col>
+            <span className={styles['dish-price']}>{item.price}</span> zł
+            {item.vege && <p><MenuItemVegeLabel/></p>}
+        </Col>
+    </Row>
+);}
+
 const MenuItem = ({ item, isEng, imageCallback }) => {
+    const { width } = useWindowDimensions();
     const dishName = getAttrWithFallback(item, 'name', isEng);
     const dishDesc = getAttrWithFallback(item, 'desc', isEng);
+    if (width < 650)
+        return (
+            <MenuItemSm
+                name={dishName}
+                desc={dishDesc}
+                item={item}
+                imageCallback={imageCallback}
+            />
+        );
     return (
-        <Row className={styles['dish-container']}>
-            <Col>
-                {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
-            </Col>
-            <Col>
-                <Row>
-                    <p className={styles['dish-name']}>{dishName}</p>
-                </Row>
-                <Row>
-                    <p className={styles['dish-desc']}>{dishDesc}</p>
-                </Row>
-            </Col>
-            <Col>
-                <span className={styles['dish-price']}>{item.price}</span> zł
-                {item.vege && <MenuItemVegeLabel/>}
-            </Col>
-        </Row>
+        <MenuItemLg
+            name={dishName}
+            desc={dishDesc}
+            item={item}
+            imageCallback={imageCallback}
+        />
     );
 };
 
@@ -116,6 +160,7 @@ const Menu = () => {
         <>
         <MenuItemModal data={modalData} onHide={hideModalCallback}/>
         <Container>
+            <MenuLanguageButton/>
             <TextWithBackground>
             <MenuFilters active={menuState.filter} callback={filterCallback}/>
             {

@@ -1,7 +1,8 @@
 {
-    "lang-button": "Polski 🇵🇱",
-    "hot-filter": "Popular 🔥",
-    "fish-filter": "Fish 🐟",
-    "vege-filter": "Vege 🌱",
+    "lang-button": "🇵🇱",
+    "lang-button-desc": "Zmień język",
+    "hot-filter": "Popular",
+    "fish-filter": "Fish",
+    "vege-filter": "Vege",
     "dish-vege": "Vege"
 }

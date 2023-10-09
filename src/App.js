@@ -6,6 +6,7 @@ import Navbar from './navbar/NavBar';
 
 import NotFound from './pages/notfound/NotFound'
 import Home from './pages/home/Home';
+import { default as MenuLegacy } from './pages/menu_legacy/Menu';
 import Menu from './pages/menu/Menu';
 import Photos from './pages/photos/Photos';
 import PhotoDetails from './pages/photos/PhotoDetails';
@@ -26,7 +27,8 @@ const App = () => (
         <Suspense fallback="loading">
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/menu/:langVersion?' element={<Menu/>} />
+                <Route path='/menu_new' element={<Menu/>} />
+                <Route path='/menu/:langVersion?' element={<MenuLegacy/>} />
                 <Route path='/photos' element={<Photos/>} />
                 <Route path='/photo/:id' element={<PhotoDetails/>} />
                 <Route path='/reservations' element={<Reservations/>} />
