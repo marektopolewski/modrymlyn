@@ -1,0 +1,113 @@
+[
+    {
+        "name": "Przystawki",
+        "items": [
+            {
+                "id": "1",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "2",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "3",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            }
+        ]
+    },
+    {
+        "name": "Dania Główne",
+        "items": [
+            {
+                "id": "4",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "5",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "6",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "7",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "8",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "9",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "10",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "11",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "12",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "13",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            }
+        ]
+    },
+    {
+        "name": "Desery",
+        "items": [
+            {
+                "id": "14",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            },
+            {
+                "id": "15",
+                "name": "Pizza z Nutellą",
+                "desc": "Wygląda mało apetycznie, ale jest sztos",
+                "price": "39.00"
+            },
+            {
+                "id": "16",
+                "name": "McKurczaki",
+                "desc": "Kurczaki jak z McDonalds ale zdrowe",
+                "price": "29.00"
+            }
+        ]
+    }
+]

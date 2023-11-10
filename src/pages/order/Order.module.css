@@ -1,0 +1,48 @@
+.orders-loading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+/********* Order Section *********/
+.section-wrapper {
+    margin-bottom: 3rem;
+}
+.section-wrapper h4 {
+    margin-bottom: 1rem;
+}
+
+/*********** Order Item **********/
+.item-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.item-wrapper:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.item-desc {
+    font-size: smaller;
+}
+
+.item-counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.item-count {
+    width: 20px;
+}
+
+.item-count-0 {
+    opacity: 0.5;
+}

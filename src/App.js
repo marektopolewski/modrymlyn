@@ -11,6 +11,8 @@ import Menu from './pages/menu/Menu';
 import Photos from './pages/photos/Photos';
 import PhotoDetails from './pages/photos/PhotoDetails';
 import Reservations from './pages/reserve/Reservations';
+import Order from './pages/order/Order';
+import OrderCheckout from 'pages/order/OrderCheckout';
 // import Reserve from './pages/reserve/Reserve';
 // import ReserveAdmin from './pages/reserve/ReserveAdmin';
 import Arp from './pages/arp/Arp';
@@ -32,6 +34,8 @@ const App = () => (
                 <Route path='/photos' element={<Photos/>} />
                 <Route path='/photo/:id' element={<PhotoDetails/>} />
                 <Route path='/reservations' element={<Reservations/>} />
+                <Route path='/order' element={<Order/>} />
+                <Route path='/order-checkout' element={<OrderCheckout/>} />
                 {/* <Route path='/reserve' element={<Reserve/>} /> */}
                 {/* <Route path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
                 <Route path='/arp' element={<Arp/>} />
