@@ -1,0 +1,41 @@
+.order-modal-body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.order-modal-img {
+    height: 50%;
+    max-height: 300px;
+}
+
+.order-modal-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-modal-controls svg {
+    width: 16px;
+    height: 16px;
+}
+
+.order-modal-buttons {
+    width: 100%;
+    margin-top: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.order-modal-buttons button {
+    width: 100%;
+}

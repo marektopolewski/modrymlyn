@@ -1,86 +1,57 @@
-import { useCallback, useEffect, useState } from 'react';
-import useLocalStorageState from 'use-local-storage-state'
-import usePageBottom from 'hooks/pagebottom';
-import { useNavigate } from 'react-router-dom';
+import { useCallback, useState } from 'react';
+import useLocalStorageState from 'use-local-storage-state';
 
 import Container from 'components/Container';
 import FloatingCart from './FloatingCart';
+import LazyImage from 'components/LazyImage';
+import OrderItemModal from './OrderItemModal';
 import TextWithBackground from 'components/TextWithBackground';
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Spinner from 'react-bootstrap/Spinner';
 
+import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './Order.module.css';
+
 import OrderData from './order-data.json'
 
-
-const MIN_ITEM_COUNT = 0
-const MAX_ITEM_COUNT = 20
-
-
-const cartIsEmpty = (cart) => {
-    if (!cart)
-        return true;
-    for (const itemId in cart) {
-        if (cart[itemId] && cart[itemId] !== 0)
-            return false;
-    }
-    return true;
+const getCartItemCount = (cart, itemId) => {
+    return Object.keys(cart || {}).includes(itemId) ? cart[itemId] : 0
 };
 
-const OrdersLoading = () => (
-    <div className={styles['orders-loading']}>
-        <span>Ładujemy pyszności...</span>
-        <Spinner/>
-    </div>
-);
-
-const OrderItem = ({ item, count, cartCallback }) => (
-    <Row className={styles['item-wrapper']}>
-        <Col xs='3'>
+const OrderItem = ({ item, count, onClick }) => (
+    <Row className={styles['order-item-wrapper']}>
+        <Col>
+            <LazyImage
+                className={styles['order-item-img']}
+                text={"Image placeholder"}
+                src={require(`assets/menu/${"ciasto"}_s.jpeg`)}
+            />
+        </Col>
+        <Col>
             <span>{item.name}</span>
         </Col>
-        <Col>
-            <span className={styles['item-desc']}>{item.desc}</span>
-        </Col>
-        <Col xs='2'>
-            <span>{item.price}zł</span>
+        <Col className={styles['order-item-desc']}>
+            <span>{item.desc}</span>
         </Col>
         <Col>
-            <div className={styles['item-counter']}>
-                <Button
-                    size='sm'
-                    variant='secondary'
-                    disabled={count <= MIN_ITEM_COUNT}
-                    onClick={() => cartCallback(item.id, count - 1)}
-                >
-                    -
-                </Button>
-                <div className={styles['item-count']}>
-                    <span className={count === 0 ? styles['item-count-0'] : ''}>{count}</span>
+            <Button
+                className={styles['order-item-button']}
+                onClick={() => onClick(item.id)}
+            >
+                <div className={styles['order-item-button-content']}>
+                    <CartLogo/>
+                    <span>{item.price.toFixed(2)} zł</span>
                 </div>
-                <Button
-                    size='sm'
-                    variant='secondary'
-                    disabled={count >= MAX_ITEM_COUNT}
-                    onClick={() => cartCallback(item.id, count + 1)}
-                >
-                    +
-                </Button>
-            </div>
+                {!!count && <div className={styles['order-item-button-count']}>{count}</div>}
+            </Button>
         </Col>
     </Row>
 );
 
-const OrderSection = ({ name, items }) => {
-    const [cart, setCart] = useLocalStorageState('cart', {});
-    const changeItemCount = useCallback((itemId, count) => {
-        if (count < MIN_ITEM_COUNT || count > MAX_ITEM_COUNT)
-            return;
-        setCart((prevCart) => ({ ...prevCart, [itemId]: count }));
-    }, [setCart]);
+const OrderSection = ({ name, items, onItemClick }) => {
+    const [cart,] = useLocalStorageState('cart', {});
     return (
         <div className={styles['section-wrapper']}>
             <h4>⏤ {name} ⏤</h4>
@@ -88,36 +59,22 @@ const OrderSection = ({ name, items }) => {
                 <OrderItem
                     key={item.id}
                     item={item}
-                    count={Object.keys(cart || {}).includes(item.id) ? cart[item.id] :  0}
-                    cartCallback={changeItemCount}
+                    count={getCartItemCount(cart, item.id)}
+                    onClick={onItemClick}
                 />
             ))}
         </div>
     );
 };
 
+
+
 const Order = () => {
-    useEffect(() => {
-        const fetchData = async () => {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            const data = OrderData;
-            setOrderData(data);
-            setIsLoading(false);
-        };
-        fetchData();
+    const [basketPreview, setBasketPreview] = useState(false);
+    const [itemPreview, setItemPreview] = useState({});
+    const previewOrder = useCallback((id) => {
+        setItemPreview({ show: true, id: id })
     }, []);
-
-    const [orderData, setOrderData] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
-    const [canContinue, setCanContinue] = useState(false);
-
-    const [cart,] = useLocalStorageState('cart', {});
-    useEffect(() => setCanContinue(!cartIsEmpty(cart)), [cart]);
-
-    const isPageBottom = usePageBottom(100);
-
-    const navigate = useNavigate();
-
     return (
         <>
         <Container>
@@ -136,32 +93,28 @@ const Order = () => {
         </TextWithBackground>
 
         <TextWithBackground>
-            {isLoading && <OrdersLoading/>}
-            {!isLoading && orderData.length > 0 && 
-                <Col>
-                    {orderData.map((orderSection, idx) => (
-                        <OrderSection
-                            key={idx}
-                            name={orderSection.name}
-                            items={orderSection.items}
-                        />
-                    ))}
-                </Col>
-            }
-        </TextWithBackground>
-    
-        <TextWithBackground>
-            <Button
-                size='lg'
-                disabled={!canContinue}
-                onClick={() => navigate("/order-checkout")}
-            >
-                Przejdź dalej
-            </Button>
+            <Col>
+                {OrderData.map((orderSection, idx) => (
+                    <OrderSection
+                        key={idx}
+                        name={orderSection.name}
+                        items={orderSection.items}
+                        onItemClick={previewOrder}
+                    />
+                ))}
+            </Col>
         </TextWithBackground>
         </Container>
-
-        {canContinue && !isPageBottom && <FloatingCart/>}
+        <OrderItemModal
+            show={itemPreview?.show}
+            onHide={() => setItemPreview({})}
+            onBasket={() => {
+                setItemPreview({});
+                setBasketPreview(true);
+            }}
+            itemId={itemPreview?.id}
+        />
+        <FloatingCart modalShow={basketPreview} setModalShow={setBasketPreview}/>
         </>
     );
 }

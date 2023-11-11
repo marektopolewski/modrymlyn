@@ -15,7 +15,7 @@
 }
 
 /*********** Order Item **********/
-.item-wrapper {
+.order-item-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,26 +23,73 @@
     padding-bottom: 0.5rem;
 }
 
-.item-wrapper:nth-child(odd) {
+.order-item-wrapper:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.item-desc {
+.order-item-img {
+    width: 75px;
+    height: 75px;
+}
+
+.order-item-desc {
     font-size: smaller;
 }
 
-.item-counter {
+.order-item-button {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    
+    background-color: #91c4de !important;
+    border: white solid 1.5px !important;
+}
+
+.order-item-button-content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    column-gap: 0.5rem;
+    justify-content: center;
 }
 
-.item-count {
-    width: 20px;
+.order-item-button-content svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
 }
 
-.item-count-0 {
-    opacity: 0.5;
+.order-item-button-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    min-width: 24px;
+    min-height: 24px;
+    border-radius: 12px;
+
+    color: #91c4de;
+    font-size: medium;
+}
+
+@media only screen and (max-width: 700px) {
+    .order-item-desc {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .order-item-desc {
+        display: none;
+    }
+    .order-item-button {
+        width: 80px;
+    }
+    .order-item-button span {
+        font-size: smaller;
+    }
+    .order-item-button svg {
+        display: none;
+    }
 }
