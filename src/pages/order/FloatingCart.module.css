@@ -93,3 +93,23 @@ input[type=number]::-webkit-outer-spin-button {
 .cart-modal-total {
     font-size: smaller;
 }
+
+/* Cart animation */
+.cart-anim-enter-active {
+    transform: scale(0.9);
+    transition: transform 200ms;
+}
+
+.cart-anim-enter-done {
+    transform: scale(1);
+    transition: transform 200ms;
+}
+.cart-anim-exit-active {
+    transform: scale(1.1);
+    transition: transform 200ms;
+}
+
+.cart-anim-exit-done {
+    transform: scale(1);
+    transition: transform 200ms;
+}

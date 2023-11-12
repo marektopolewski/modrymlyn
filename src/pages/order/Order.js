@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Provider, useSelector } from 'react-redux';
 import store, { getCartCount } from 'services/Cart';
@@ -16,6 +16,7 @@ import Row from 'react-bootstrap/Row';
 
 import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './Order.module.css';
+import usePageBottom from 'hooks/pagebottom';
 
 
 const OrderItem = ({ item, onClick }) => {
@@ -66,10 +67,18 @@ const OrderSection = ({ name, items, onItemClick }) => (
 
 const Order = () => {
     const [basketPreview, setBasketPreview] = useState(false);
+    const [basketShake, setBasketShake] = useState(false);
     const [itemPreview, setItemPreview] = useState({});
     const previewOrder = useCallback((id) => {
         setItemPreview({ show: true, id: id })
     }, []);
+
+    const pageBottom = usePageBottom();
+    useEffect(() => {
+        if (pageBottom)
+            setBasketShake(true);
+    }, [pageBottom, setBasketShake]);
+
     return (
         <Provider store={store}>
         <Container>
@@ -105,11 +114,14 @@ const Order = () => {
             onHide={() => setItemPreview({})}
             onBasket={() => {
                 setItemPreview({});
-                setBasketPreview(true);
+                setBasketShake(true);
             }}
             itemId={itemPreview?.id}
         />
-        <FloatingCart modalShow={basketPreview} setModalShow={setBasketPreview}/>
+        <FloatingCart
+            modalShow={basketPreview} setModalShow={setBasketPreview}
+            shake={basketShake} setShake={setBasketShake}
+        />
         </Provider>
     );
 }

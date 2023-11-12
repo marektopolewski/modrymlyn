@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import { useSelector } from 'react-redux';
 import { getCart, getCartCountTotal, getCartValueTotal, OrderItemsMap } from 'services/Cart';
@@ -14,21 +16,36 @@ import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './FloatingCart.module.css';
 
 
-const CartButton = ({ onClick }) => {
+const CartButton = ({ shake, setShake, onClick }) => {
     const cartCountTotal = useSelector(getCartCountTotal);
+    const animationRef = useRef(null);
     return (
-        <button
-            className={styles['cart-button']}
-            onClick={onClick}
+        <CSSTransition
+            nodeRef={animationRef}
+            in={shake}
+            timeout={200}
+            classNames={{
+                enterActive: styles['cart-anim-enter-active'],
+                enterDone: styles['cart-anim-enter-done'],
+                exitActive: styles['cart-anim-exit-active'],
+                exitDone: styles['cart-anim-exit-done']
+            }}
+            onEntered={() => setShake(false)}  // automatically exit the animation
         >
-            <div className={styles['cart-button-row']}>
-                <CartLogo/>
-                <span>Koszyk</span>
-                <div className={styles['cart-button-count']}>
-                    {cartCountTotal}
+            <button
+                ref={animationRef}
+                className={styles['cart-button']}
+                onClick={onClick}
+            >
+                <div className={styles['cart-button-row']}>
+                    <CartLogo/>
+                    <span>Koszyk</span>
+                    <div className={styles['cart-button-count']}>
+                        {cartCountTotal}
+                    </div>
                 </div>
-            </div>
-        </button>
+            </button>
+        </CSSTransition>
     );
 };
 
@@ -105,9 +122,9 @@ const CartModal = (props) => {
     );
 };
 
-const FloatingCart = ({ modalShow, setModalShow }) => (
+const FloatingCart = ({ modalShow, setModalShow, shake, setShake }) => (
     <>
-    <CartButton onClick={() => setModalShow(true)} />
+    <CartButton shake={shake} setShake={setShake} onClick={() => setModalShow(true)} />
     <CartModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
 );
