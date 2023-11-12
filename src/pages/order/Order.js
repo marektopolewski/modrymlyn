@@ -1,5 +1,8 @@
 import { useCallback, useState } from 'react';
-import useLocalStorageState from 'use-local-storage-state';
+
+import { Provider, useSelector } from 'react-redux';
+import store, { getCartCount } from 'services/Cart';
+import OrderData from 'services/order-data.json'
 
 import Container from 'components/Container';
 import FloatingCart from './FloatingCart';
@@ -14,60 +17,52 @@ import Row from 'react-bootstrap/Row';
 import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './Order.module.css';
 
-import OrderData from './order-data.json'
 
-const getCartItemCount = (cart, itemId) => {
-    return Object.keys(cart || {}).includes(itemId) ? cart[itemId] : 0
-};
-
-const OrderItem = ({ item, count, onClick }) => (
-    <Row className={styles['order-item-wrapper']}>
-        <Col>
-            <LazyImage
-                className={styles['order-item-img']}
-                text={"Image placeholder"}
-                src={require(`assets/menu/${"ciasto"}_s.jpeg`)}
-            />
-        </Col>
-        <Col>
-            <span>{item.name}</span>
-        </Col>
-        <Col className={styles['order-item-desc']}>
-            <span>{item.desc}</span>
-        </Col>
-        <Col>
-            <Button
-                className={styles['order-item-button']}
-                onClick={() => onClick(item.id)}
-            >
-                <div className={styles['order-item-button-content']}>
-                    <CartLogo/>
-                    <span>{item.price.toFixed(2)} zł</span>
-                </div>
-                {!!count && <div className={styles['order-item-button-count']}>{count}</div>}
-            </Button>
-        </Col>
-    </Row>
-);
-
-const OrderSection = ({ name, items, onItemClick }) => {
-    const [cart,] = useLocalStorageState('cart', {});
+const OrderItem = ({ item, onClick }) => {
+    const cartCount = useSelector(state => getCartCount(state, item.id));
     return (
-        <div className={styles['section-wrapper']}>
-            <h4>⏤ {name} ⏤</h4>
-            {items.map((item) => (
-                <OrderItem
-                    key={item.id}
-                    item={item}
-                    count={getCartItemCount(cart, item.id)}
-                    onClick={onItemClick}
+        <Row className={styles['order-item-wrapper']}>
+            <Col>
+                <LazyImage
+                    className={styles['order-item-img']}
+                    text={"Image placeholder"}
+                    src={require(`assets/menu/${"ciasto"}_s.jpeg`)}
                 />
-            ))}
-        </div>
+            </Col>
+            <Col>
+                <span>{item.name}</span>
+            </Col>
+            <Col className={styles['order-item-desc']}>
+                <span>{item.desc}</span>
+            </Col>
+            <Col>
+                <Button
+                    className={styles['order-item-button']}
+                    onClick={() => onClick(item.id)}
+                >
+                    <div className={styles['order-item-button-content']}>
+                        <CartLogo/>
+                        <span>{item.price.toFixed(2)} zł</span>
+                    </div>
+                    {!!cartCount && <div className={styles['order-item-button-count']}>{cartCount}</div>}
+                </Button>
+            </Col>
+        </Row>
     );
 };
 
-
+const OrderSection = ({ name, items, onItemClick }) => (
+    <div className={styles['section-wrapper']}>
+        <h4>⏤ {name} ⏤</h4>
+        {items.map((item) => (
+            <OrderItem
+                key={item.id}
+                item={item}
+                onClick={onItemClick}
+            />
+        ))}
+    </div>
+);
 
 const Order = () => {
     const [basketPreview, setBasketPreview] = useState(false);
@@ -76,7 +71,7 @@ const Order = () => {
         setItemPreview({ show: true, id: id })
     }, []);
     return (
-        <>
+        <Provider store={store}>
         <Container>
         <TextWithBackground>
             <h3>
@@ -115,7 +110,7 @@ const Order = () => {
             itemId={itemPreview?.id}
         />
         <FloatingCart modalShow={basketPreview} setModalShow={setBasketPreview}/>
-        </>
+        </Provider>
     );
 }
 

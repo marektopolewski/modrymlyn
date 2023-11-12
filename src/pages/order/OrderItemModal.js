@@ -1,3 +1,8 @@
+import { useCallback, useRef } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { setCartCount, OrderItemsMap } from 'services/Cart';
+
 import LazyImage from 'components/LazyImage';
 import CartItemCount from './CartItemCount';
 
@@ -6,21 +11,17 @@ import Modal from 'react-bootstrap/Modal';
 
 import styles from './OrderItemModal.module.css';
 
-import OrderData from './order-data.json'
-
-
-const getOrderItem = (itemId) => {
-    for (const sectionIt in OrderData) {
-        for (const itemIt in OrderData[sectionIt].items) {
-            if (OrderData[sectionIt].items[itemIt].id === itemId)
-                return OrderData[sectionIt].items[itemIt];
-        }
-    }
-    return undefined;
-};
 
 const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
-    const item = getOrderItem(itemId);
+    const item = OrderItemsMap[itemId];
+    const itemCountRef = useRef();
+
+    const dispatch = useDispatch();
+    const onConfirm = useCallback(() => {
+        dispatch(setCartCount(itemId, itemCountRef.current.value));
+        onBasket();
+    }, [itemId, itemCountRef, dispatch, onBasket]);
+
     return (
         <Modal.Body className={styles['order-modal-body']}>
             <LazyImage
@@ -31,7 +32,11 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
             <div className={styles['order-modal-details']}>
                 <Modal.Title>{item.name}</Modal.Title>
                 <p>{item.desc}</p>
-                <CartItemCount itemId={item.id}/>
+                <CartItemCount
+                    itemId={item.id}
+                    ref={itemCountRef}
+                    drafting
+                />
                 <div className={styles['order-modal-buttons']}>
                     <Button
                         size='lg'
@@ -40,7 +45,9 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
                     >
                         Powrót
                     </Button>
-                    <Button size='lg' onClick={onBasket}>Koszyk</Button>
+                    <Button size='lg' onClick={onConfirm}>
+                        Dodaj
+                    </Button>
                 </div>
             </div>
         </Modal.Body>

@@ -1,5 +1,7 @@
-import useLocalStorageState from 'use-local-storage-state';
 import { useNavigate } from 'react-router-dom';
+
+import { useSelector } from 'react-redux';
+import { getCart, getCartCountTotal, getCartValueTotal, OrderItemsMap } from 'services/Cart';
 
 import CartItemCount from './CartItemCount';
 
@@ -11,39 +13,9 @@ import Row from 'react-bootstrap/Row';
 import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './FloatingCart.module.css';
 
-import OrderData from './order-data.json'
-
-
-const getTotalItemCount = (cart) => {
-    return Object.keys(cart || {}).reduce(
-        (acc, itemId) => acc + cart[itemId],
-        0,
-    );
-};
-
-const getTotalItemValue = (cart) => {
-    return getCartItems(cart).reduce(
-        (acc, itemId) => acc + cart[itemId] * getOrderItem(itemId).price,
-        0,
-    ).toFixed(2);
-};
-
-const getCartItems = (cart) => {
-    return Object.keys(cart || {}).filter(itemId => cart[itemId] > 0);
-};
-
-const getOrderItem = (itemId) => {
-    for (const sectionIt in OrderData) {
-        for (const itemIt in OrderData[sectionIt].items) {
-            if (OrderData[sectionIt].items[itemIt].id === itemId)
-                return OrderData[sectionIt].items[itemIt];
-        }
-    }
-    return undefined;
-};
 
 const CartButton = ({ onClick }) => {
-    const [cart,] = useLocalStorageState('cart', {});
+    const cartCountTotal = useSelector(getCartCountTotal);
     return (
         <button
             className={styles['cart-button']}
@@ -53,7 +25,7 @@ const CartButton = ({ onClick }) => {
                 <CartLogo/>
                 <span>Koszyk</span>
                 <div className={styles['cart-button-count']}>
-                    {getTotalItemCount(cart)}
+                    {cartCountTotal}
                 </div>
             </div>
         </button>
@@ -69,7 +41,7 @@ const CartModalItem = ({ item, count }) => (
             <CartItemCount itemId={item.id}/>
         </Col>
         <Col>
-            {(count * item.price).toFixed(2)} zł
+            ({(count * item.price).toFixed(2)}zł)
         </Col>
     </Row>
 );
@@ -80,7 +52,9 @@ const CartModalEmpty = () => (
 
 const CartModal = (props) => {
     const navigate = useNavigate();
-    const [cart, setCart] = useLocalStorageState('cart', {});
+    const cart = useSelector(getCart);
+    const cartCountTotal = useSelector(getCartCountTotal);
+    const cartValueTotal = useSelector(getCartValueTotal);
     return (
         <Modal
             {...props}
@@ -92,15 +66,14 @@ const CartModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 {
-                    getTotalItemCount(cart) === 0 ?
+                    cartCountTotal === 0 ?
                         <CartModalEmpty/>
                     :
-                        getCartItems(cart).map(itemId => (
+                        Object.keys(cart).map(itemId => (
                             <CartModalItem
                                 key={itemId}
-                                item={getOrderItem(itemId)}
+                                item={OrderItemsMap[itemId]}
                                 count={cart[itemId]}
-                                updateCount={count => setCart(prevCart => ({ ...prevCart, [itemId]: count }))}
                             />
                         ))
                 }
@@ -119,10 +92,12 @@ const CartModal = (props) => {
                 <Col>
                     <Button
                         size='lg'
-                        disabled={getTotalItemCount(cart) === 0}
+                        disabled={cartCountTotal === 0}
                         onClick={() => navigate('/order-checkout')}
                     >
-                            Do kasy ({getTotalItemValue(cart)} zł)
+                            Do kasy
+                            {' '}
+                            <span className={styles['cart-modal-total']}>({cartValueTotal.toFixed(2)}zł)</span>
                     </Button>
                 </Col>
             </Row>
