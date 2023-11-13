@@ -224,7 +224,7 @@ const CheckoutForm = () => {
                 </InputGroup>
 
                 <br/>
-                <Button type='submit'>Potwierdź zamówienie</Button>
+                <Button type='submit' size='lg'>Potwierdź zamówienie</Button>
             </Form>
         </div>
     );

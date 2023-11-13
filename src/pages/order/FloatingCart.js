@@ -17,6 +17,8 @@ import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './FloatingCart.module.css';
 
 
+const MIN_CART_VALUE = 150;
+
 const CartButton = ({ shake, setShake, onClick }) => {
     const cartCountTotal = useSelector(getCartCountTotal);
     const animationRef = useRef(null);
@@ -136,7 +138,7 @@ const CartModal = (props) => {
                 <Col>
                     <Button
                         size='lg'
-                        disabled={cartCountTotal === 0}
+                        disabled={cartCountTotal === 0 || cartValueTotal < MIN_CART_VALUE}
                         onClick={() => navigate('/order-checkout')}
                     >
                             Do kasy
@@ -145,6 +147,14 @@ const CartModal = (props) => {
                     </Button>
                 </Col>
             </Row>
+            { cartValueTotal < MIN_CART_VALUE &&
+                <Row className={styles['cart-modal-footer']}>
+                    <Col>{/*make sure text is under checkout button*/}</Col>
+                    <Col className={styles['cart-modal-total-min']}>
+                        <p>Minimalna kwota zamówienia wynosi: {MIN_CART_VALUE.toFixed()}zł</p>
+                    </Col>
+                </Row>
+            }
         </Modal>
     );
 };

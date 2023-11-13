@@ -74,6 +74,12 @@
     font-size: smaller;
 }
 
+.cart-modal-total-min {
+    font-size: smaller;
+    text-align: center;
+    margin-top: -0.5rem;
+}
+
 /* Cart item count */
 .cart-item-count-wrapper {
     display: flex;
