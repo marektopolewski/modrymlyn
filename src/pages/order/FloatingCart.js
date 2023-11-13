@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import useWindowDimensions from 'hooks/windowsize';
 
 import { useSelector } from 'react-redux';
-import { getCart, getCartCountTotal, getCartValueTotal, OrderItemsMap } from 'services/Cart';
+import { getCart, getCartCountTotal, getCartValueTotal, OrderItemsMap, MIN_CART_VALUE } from 'services/Cart';
 
 import CartItemCount from './CartItemCount';
 
@@ -16,8 +16,6 @@ import Row from 'react-bootstrap/Row';
 import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './FloatingCart.module.css';
 
-
-const MIN_CART_VALUE = 150;
 
 const CartButton = ({ shake, setShake, onClick }) => {
     const cartCountTotal = useSelector(getCartCountTotal);
@@ -148,9 +146,9 @@ const CartModal = (props) => {
                 </Col>
             </Row>
             { cartValueTotal < MIN_CART_VALUE &&
-                <Row className={styles['cart-modal-footer']}>
+                <Row className={styles['cart-modal-total-min']}>
                     <Col>{/*make sure text is under checkout button*/}</Col>
-                    <Col className={styles['cart-modal-total-min']}>
+                    <Col>
                         <p>Minimalna kwota zamówienia wynosi: {MIN_CART_VALUE.toFixed()}zł</p>
                     </Col>
                 </Row>

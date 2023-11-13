@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Container from 'components/Container';
 import TextWithBackground from 'components/TextWithBackground';
 
 import { Provider, useSelector, useDispatch } from 'react-redux';
-import store, { clearCart, getCart, getCartValueTotal, OrderItemsMap } from 'services/Cart';
+import store, { clearCart, getCart, getCartValueTotal, OrderItemsMap, MIN_CART_VALUE } from 'services/Cart';
 
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -112,9 +112,14 @@ const CheckoutForm = () => {
     const [needInvoice, setNeedInvoice] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const cartValueTotal = useSelector(getCartValueTotal);
 
     const onSubmit = useCallback(e => {
         e.preventDefault();
+        if (cartValueTotal < MIN_CART_VALUE) {
+            alert(`Minimalna kwota zamówienia wynosi ${MIN_CART_VALUE.toFixed(2)}zł.`)
+            return;
+        }
         const data = Object.fromEntries(new FormData(e.target).entries());
         if (!('nip' in data))
             data.nip = ''
@@ -128,7 +133,7 @@ const CheckoutForm = () => {
         e.target.reset();
         dispatch(clearCart());
         navigate('/order');
-    }, [navigate, dispatch]);
+    }, [cartValueTotal, navigate, dispatch]);
     return (
         <div className={styles['form-wrapper']}>
             <Form onSubmit={onSubmit}>
@@ -225,22 +230,46 @@ const CheckoutForm = () => {
 
                 <br/>
                 <Button type='submit' size='lg'>Potwierdź zamówienie</Button>
+                {cartValueTotal < MIN_CART_VALUE &&
+                    <p className={styles['form-min-cart-value']}>
+                        Minimalna kwota zamówienia wynosi: {MIN_CART_VALUE.toFixed()}zł
+                    </p>
+                }
+                <Button
+                    className={styles['checkout-go-back-button']}
+                    variant='secondary'
+                    size='sm'
+                    onClick={() => navigate('/order')}
+                >
+                    Powrót
+                </Button>
             </Form>
         </div>
     );
 };
 
-const OrderCheckout = () => (
-    <Provider store={store}>
-        <Container>
-        <TextWithBackground>
-            <div className={styles['checkout-wrapper']}>
-                <CheckoutForm/>
-                <CartSummary/>
-            </div>
-        </TextWithBackground>
-    </Container>
-    </Provider>
-);
+const OrderCheckout = () => {
+
+    useEffect(() => {
+        const onBeforeUnload = (e) => {
+            e.preventDefault();
+            e.returnValue = ''; // ask before leaving
+        };
+        window.addEventListener('beforeunload', onBeforeUnload);
+    }, []);
+
+    return (
+        <Provider store={store}>
+            <Container>
+            <TextWithBackground>
+                <div className={styles['checkout-wrapper']}>
+                    <CheckoutForm/>
+                    <CartSummary/>
+                </div>
+            </TextWithBackground>
+        </Container>
+        </Provider>
+    );
+};
 
 export default OrderCheckout;

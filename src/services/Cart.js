@@ -13,6 +13,8 @@ export const OrderItemsMap = OrderData.reduce(
     {},
 );
 
+export const MIN_CART_VALUE = 150;
+
 export const _clamp_count = (count) => {
     return Math.max(Math.min(count, 99), 0);
 };

@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.checkout-go-back-button {
+    margin-top: 0.5rem;
+}
+
 /**** Cart summary ****/
 .cart-summary-outer {
     flex: 1;
@@ -110,4 +114,8 @@
 
 .form-input-invoice-check {
     min-width: 150px;
+}
+
+.form-min-cart-value {
+    font-size: smaller;
 }
