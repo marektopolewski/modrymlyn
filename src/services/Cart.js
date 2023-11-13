@@ -30,6 +30,10 @@ const cartSlice = createSlice({
             else
                 state[id] = newCount;
         },
+        clear: (state,) => {
+            for (const key in state)
+                delete state[key]
+        }
     }
 });
 
@@ -76,5 +80,8 @@ export const setCartCount = (cartItemId, newCount) => {
         dispatch(cartSlice.actions.updateCount({ id: cartItemId, count: newCount }));
     };
 };
+
+export const clearCart = cartSlice.actions.clear;
+
 
 export default store;
