@@ -13,17 +13,17 @@ import styles from './FloatingCart.module.css';
 const CartItemCount = forwardRef((props, ref) => {
 
     const itemId = props.itemId;
-    const drafting = !!props.drafting;
+    const captureChange = props.captureChange;
 
     const cartCount = useSelector(state => getCartCount(state, itemId));
     const [inputValue, setInputValue] = useState(cartCount);
 
     const dispatch = useDispatch();
     const safeDispatch = useCallback((...args) => {
-        if (drafting)
-            return;
+        if (!!captureChange)
+            return captureChange();
         return dispatch(...args);
-    }, [drafting, dispatch]);
+    }, [captureChange, dispatch]);
 
     const onChange = useCallback((count) => {
         setInputValue(_clamp_count(count));
@@ -47,8 +47,8 @@ const CartItemCount = forwardRef((props, ref) => {
     }, [itemId, safeDispatch, setInputValue]);
 
     return (
-        <div className={styles['cart-modal-item-count-wrapper']}>
-            <div className={styles['cart-modal-item-count']}>
+        <div className={styles['cart-item-count-wrapper']}>
+            <div className={styles['cart-item-count']}>
                 <Button
                     variant='secondary'
                     onClick={() => onClick(-1)}
@@ -70,6 +70,7 @@ const CartItemCount = forwardRef((props, ref) => {
                 </Button>
             </div>
             <Button
+                className={styles['cart-item-count-del']}
                 variant="danger"
                 disabled={inputValue === 0}
                 onClick={onDeleteClick}

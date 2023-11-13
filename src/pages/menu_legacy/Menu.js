@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import useWindowDimensions from 'WindowSize';
+import useWindowDimensions from 'hooks/windowsize';
 
 import Container from 'components/Container';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import useWindowDimensions from 'hooks/windowsize';
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
@@ -6,10 +7,9 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
-import useWindowDimensions from '../WindowSize';
-
 import euIcon from '../assets/icons/eu.png'
 import "./NavBar.css"
+
 
 const ArpIcon = () => (
     <Image src={euIcon} className='arp-icon' title='EU funds'/>

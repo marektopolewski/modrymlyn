@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import usePageBottom from 'hooks/pagebottom';
 
 import { Provider, useSelector } from 'react-redux';
 import store, { getCartCount } from 'services/Cart';
@@ -16,7 +17,6 @@ import Row from 'react-bootstrap/Row';
 
 import { ReactComponent as CartLogo } from 'assets/icons/cart.svg';
 import styles from './Order.module.css';
-import usePageBottom from 'hooks/pagebottom';
 
 
 const OrderItem = ({ item, onClick }) => {

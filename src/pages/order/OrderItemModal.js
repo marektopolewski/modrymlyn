@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { setCartCount, OrderItemsMap } from 'services/Cart';
@@ -14,6 +14,8 @@ import styles from './OrderItemModal.module.css';
 
 const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
     const item = OrderItemsMap[itemId];
+
+    const [isItemCountDirty, setIsItemCountDirty] = useState(false);
     const itemCountRef = useRef();
 
     const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
                 <CartItemCount
                     itemId={item.id}
                     ref={itemCountRef}
-                    drafting
+                    captureChange={() => setIsItemCountDirty(true)}
                 />
                 <div className={styles['order-modal-buttons']}>
                     <Button
@@ -45,7 +47,11 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
                     >
                         Powrót
                     </Button>
-                    <Button size='lg' onClick={onConfirm}>
+                    <Button
+                        size='lg'
+                        disabled={!isItemCountDirty}
+                        onClick={onConfirm}
+                    >
                         Dodaj
                     </Button>
                 </div>

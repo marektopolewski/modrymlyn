@@ -1,5 +1,6 @@
 import { useCallback, useReducer, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import useWindowDimensions from 'hooks/windowsize';
 
 import MenuFilters from './MenuFilters';
 import MenuItemModal from './MenuItemModal';
@@ -8,7 +9,6 @@ import MenuLanguageButton from './MenuLanguageButton';
 import Container from 'components/Container';
 import LazyImage from 'components/LazyImage'
 import TextWithBackground from 'components/TextWithBackground';
-import useWindowDimensions from 'WindowSize';
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';

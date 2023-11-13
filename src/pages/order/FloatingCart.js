@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import useWindowDimensions from 'hooks/windowsize';
 
 import { useSelector } from 'react-redux';
 import { getCart, getCartCountTotal, getCartValueTotal, OrderItemsMap } from 'services/Cart';
@@ -49,7 +50,15 @@ const CartButton = ({ shake, setShake, onClick }) => {
     );
 };
 
-const CartModalItem = ({ item, count }) => (
+const CartModalItem = (props) => {
+    const { width } = useWindowDimensions();
+    if (width > 500)
+        return <CartModalItemLg {...props}/>
+    else
+        return <CartModalItemSm {...props}/>
+};
+
+const CartModalItemLg = ({ item, count }) => (
     <Row className={styles['cart-modal-item']}>
         <Col>
             {item.name}
@@ -61,6 +70,24 @@ const CartModalItem = ({ item, count }) => (
             ({(count * item.price).toFixed(2)}zł)
         </Col>
     </Row>
+);
+
+const CartModalItemSm = ({ item, count }) => (
+    <Col className={styles['cart-modal-item']}>
+        <Row className={styles['cart-modal-item-sm-row']}>
+            <Col>
+                {item.name}
+            </Col>
+            <Col>
+                ({(count * item.price).toFixed(2)}zł)
+            </Col>
+        </Row>
+        <Row className={styles['cart-modal-item-sm-row']}>
+            <Col>
+                <CartItemCount itemId={item.id}/>
+            </Col>
+        </Row>
+    </Col>
 );
 
 const CartModalEmpty = () => (

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import useWindowDimensions from 'hooks/windowsize';
 
 import TextWithBackground from 'components/TextWithBackground';
-import useWindowDimensions from 'WindowSize';
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
