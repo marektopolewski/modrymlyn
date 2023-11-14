@@ -27,7 +27,7 @@ const OrderItem = ({ item, onClick }) => {
                 <LazyImage
                     className={styles['order-item-img']}
                     text={"Image placeholder"}
-                    src={require(`assets/menu/${"ciasto"}_s.jpeg`)}
+                    src={require(`assets/menu/${item.img || "ciasto"}_s.jpeg`)}
                 />
             </Col>
             <Col>
@@ -102,7 +102,7 @@ const Order = () => {
                 {OrderData.map((orderSection, idx) => (
                     <OrderSection
                         key={idx}
-                        name={orderSection.name}
+                        name={orderSection.header}
                         items={orderSection.items}
                         onItemClick={previewOrder}
                     />
