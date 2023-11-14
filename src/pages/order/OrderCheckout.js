@@ -49,17 +49,18 @@ const CartSummary = () => {
                 Twoje zamówienie 🧾
             </h4>
             <div className={styles['cart-summary']}>
-                <br/>
-                <p>Restauracja Modry Młyn</p>
-                <p>ul. Mickiewicza 19A</p>
-                <p>84-230 Rumia</p>
-                    <div className={styles['cart-summary-row']}>
-                        <span>NIP: 5860058616</span>
-                        <span>{dateStr}</span>
-                    </div>
-                <p>## FISKALNY ##</p>
-                <hr className={styles['cart-summary-hr']}/>
-                <Col>
+                    <Col>
+                    <br/>
+                    <p>Restauracja Modry Młyn</p>
+                    <p>ul. Mickiewicza 19A</p>
+                    <p>84-230 Rumia</p>
+                        <div className={styles['cart-summary-row']}>
+                            <span>NIP: 5860058616</span>
+                            <span>{dateStr}</span>
+                        </div>
+                    <p>## FISKALNY ##</p>
+                    <hr className={styles['cart-summary-hr']}/>
+
                     {Object.keys(cart).map(itemId => (
                         <CartSummaryItem
                             key={itemId}
