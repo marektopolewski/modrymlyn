@@ -1,0 +1,54 @@
+.order-diagram {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: small;
+}
+
+.order-diagram-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 90px;
+}
+
+.order-diagram-number {
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.order-diagram-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 33px;
+    line-height: 1.25em;
+    
+    margin-bottom: 10px;
+}
+
+.order-diagram-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: #91c4de;
+}
+
+.order-diagram svg {
+    width: 20px;
+    height: 20px;
+}
