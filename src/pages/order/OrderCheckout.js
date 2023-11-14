@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useWindowDimensions from 'hooks/windowsize';
 
@@ -6,7 +6,7 @@ import Container from 'components/Container';
 import TextWithBackground from 'components/TextWithBackground';
 
 import { Provider, useSelector, useDispatch } from 'react-redux';
-import store, { clearCart, getCart, getCartValueTotal, OrderItemsMap, MIN_CART_VALUE } from 'services/Cart';
+import store, { clearCart, getCartWithOrderData, getCartValueTotal, MIN_CART_VALUE } from 'services/Cart';
 
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -17,25 +17,22 @@ import Row from 'react-bootstrap/Row';
 import styles from './OrderCheckout.module.css';
 
 
-const CartSummaryItem = ({itemId, itemCount}) => {
-    const item = OrderItemsMap[itemId];
-    return (
-        <Row className={styles['cart-summary-item']}>
-            <Col xs={6} className={styles['cart-summary-item-name']}>
-                <span>{item.name}</span>
-            </Col>
-            <Col xs={3}>
-                <span>x{itemCount}</span>
-            </Col>
-            <Col xs={3} className={styles['cart-summary-item-price']}>
-                <span>{(itemCount * item.price).toFixed(2)}</span>
-            </Col>
-        </Row>
-    );
-};
+const CartSummaryItem = ({name, count, price}) => (
+    <Row className={styles['cart-summary-item']}>
+        <Col xs={6} className={styles['cart-summary-item-name']}>
+            <span>{name}</span>
+        </Col>
+        <Col xs={3}>
+            <span>x{count}</span>
+        </Col>
+        <Col xs={3} className={styles['cart-summary-item-price']}>
+            <span>{(count * price).toFixed(2)}</span>
+        </Col>
+    </Row>
+);
 
 const CartSummary = () => {
-    const cart = useSelector(getCart);
+    const cart = useSelector(getCartWithOrderData);
     const cartValueTotal = useSelector(getCartValueTotal);
     const cartValueTotalStr = cartValueTotal.toFixed(2);
 
@@ -61,11 +58,12 @@ const CartSummary = () => {
                     <p>## FISKALNY ##</p>
                     <hr className={styles['cart-summary-hr']}/>
 
-                    {Object.keys(cart).map(itemId => (
+                    {cart.map(cartItem => (
                         <CartSummaryItem
-                            key={itemId}
-                            itemId={itemId}
-                            itemCount={cart[itemId]}
+                            key={cartItem.id}
+                            name={cartItem.name}
+                            count={cartItem.count}
+                            price={cartItem.price}
                         />
                     ))}
                 
@@ -111,9 +109,15 @@ const CheckoutFormLabel = ({required, children, ...props}) => (
 ); 
 
 const CheckoutForm = ({ withSummary }) => {
+    const [formData, setFormData] = useState({});
+    const onChange = useCallback(e => {
+        setFormData(fd => ({ ...fd, [e.target.name]: e.target.value }))
+    }, [setFormData]);
+
     const [needInvoice, setNeedInvoice] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const cart = useSelector(getCartWithOrderData);
     const cartValueTotal = useSelector(getCartValueTotal);
 
     const onSubmit = useCallback(e => {
@@ -122,23 +126,42 @@ const CheckoutForm = ({ withSummary }) => {
             alert(`Minimalna kwota zamówienia wynosi ${MIN_CART_VALUE.toFixed(2)}zł.`)
             return;
         }
-        const data = Object.fromEntries(new FormData(e.target).entries());
-        if (!('nip' in data))
-            data.nip = ''
-        alert(
-            `email: ${data.email}
-            \nname: ${data.name}
-            \ntelephone: ${data.telephone}
-            \nnip: ${data.nip}
-            \nnotes: ${data.notes}`
-        )
+        const submitData = Object.fromEntries(new FormData(e.target).entries());
+        if (!('nip' in submitData))
+        submitData.nip = ''
+        
+        const emailData = {
+            ...submitData,
+            total: cartValueTotal,
+            order: cart.map(item => ({
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                count: item.count,
+            })),
+        }
+        alert(JSON.stringify(emailData));
         e.target.reset();
         dispatch(clearCart());
         navigate('/order');
-    }, [cartValueTotal, navigate, dispatch]);
+    }, [cart, cartValueTotal, navigate, dispatch]);
+
+    const formRef = useRef();
+    useEffect(() => {
+        const onBeforeUnload = (e) => {
+            e.preventDefault();
+            e.returnValue = ''; // ask before leaving
+        };
+        if (Object.keys(formData).every(attr => !formData[attr]))
+            window.removeEventListener('beforeunload', onBeforeUnload);
+        else
+            window.addEventListener('beforeunload', onBeforeUnload);
+        return () => window.removeEventListener('beforeunload', onBeforeUnload);
+    }, [formData]);
+
     return (
         <div className={styles['form-wrapper']}>
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit} ref={formRef}>
         
                 <h4>Dane kontaktowe ☎️</h4>
                 <InputGroup className={styles['form-input-group']}>
@@ -152,6 +175,7 @@ const CheckoutForm = ({ withSummary }) => {
                         name='name'
                         aria-label='Imię i nazwisko'
                         aria-describedby='name'
+                        onChange={onChange}
                     />
                 </InputGroup>
 
@@ -166,6 +190,7 @@ const CheckoutForm = ({ withSummary }) => {
                         name='telephone'
                         aria-label='Telefon'
                         aria-describedby='telephone'
+                        onChange={onChange}
                     />
                 </InputGroup>
 
@@ -180,6 +205,7 @@ const CheckoutForm = ({ withSummary }) => {
                         name='email'
                         aria-label='Email'
                         aria-describedby='email'
+                        onChange={onChange}
                     />
                 </InputGroup>
         
@@ -209,6 +235,7 @@ const CheckoutForm = ({ withSummary }) => {
                                 name='nip'
                                 aria-label='Numer NIP'
                                 aria-describedby='nip'
+                                onChange={onChange}
                             />
                         </InputGroup>
                     }
@@ -227,6 +254,7 @@ const CheckoutForm = ({ withSummary }) => {
                         name='notes'
                         aria-label='Uwagi'
                         aria-describedby='notes'
+                        onChange={onChange}
                     />
                 </InputGroup>
 
@@ -260,14 +288,6 @@ const CheckoutForm = ({ withSummary }) => {
 const OrderCheckout = () => {
     const { width } = useWindowDimensions();
     const inlineSummary = width < 800;
-    useEffect(() => {
-        const onBeforeUnload = (e) => {
-            e.preventDefault();
-            e.returnValue = ''; // ask before leaving
-        };
-        window.addEventListener('beforeunload', onBeforeUnload);
-    }, []);
-
     return (
         <Provider store={store}>
             <Container>

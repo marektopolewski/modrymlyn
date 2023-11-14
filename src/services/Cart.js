@@ -77,6 +77,14 @@ export const getCartValueTotal = createSelector(
     )
 );
 
+export const getCartWithOrderData = createSelector(
+    (state) => state.cart || {},
+    (cart) => Object.keys(cart).map(itemId => ({
+        ...OrderItemsMap[itemId],
+        count: cart[itemId],
+    }))
+);
+
 export const setCartCount = (cartItemId, newCount) => {
     return (dispatch) => {
         dispatch(cartSlice.actions.updateCount({ id: cartItemId, count: newCount }));
