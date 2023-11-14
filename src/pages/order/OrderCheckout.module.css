@@ -1,9 +1,9 @@
 .checkout-wrapper {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 3rem 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -26,6 +26,7 @@
     flex: 1;
     min-width: 300px;
     max-width: 500px;
+    margin: auto;
 }
 
 .cart-summary {
@@ -64,8 +65,9 @@
 
 .cart-summary-row {
     display: flex;
+    text-align: left;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .cart-summary-sum {
@@ -81,7 +83,7 @@
 /**** Checkout form ****/
 .form-wrapper {
     flex: 1;
-    min-width: 400px;
+    min-width: 325px;
     max-width: 600px;
 }
 
@@ -91,7 +93,8 @@
 }
 
 .form-label {
-    min-width: 150px;
+    font-size: smaller !important;
+    min-width: 126px;
 }
 
 .form-input-invoice .form-label {

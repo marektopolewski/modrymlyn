@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useWindowDimensions from 'hooks/windowsize';
 
 import Container from 'components/Container';
 import TextWithBackground from 'components/TextWithBackground';
@@ -91,7 +92,7 @@ const CartSummary = () => {
                         <span>{dateStr} {dateTimeStr}</span>
                     </div>
                     <div className={styles['cart-summary-row']}>
-                        <span>Nr transakcji: 001</span>
+                        <span>Nr. sys.: 011</span>
                         <span>www.modrymlyn.pl</span>
                     </div>
                     <br/><br/>
@@ -108,7 +109,7 @@ const CheckoutFormLabel = ({required, children, ...props}) => (
     </InputGroup.Text>
 ); 
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ withSummary }) => {
     const [needInvoice, setNeedInvoice] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -228,6 +229,13 @@ const CheckoutForm = () => {
                     />
                 </InputGroup>
 
+                {withSummary && 
+                    <>
+                    <br/>
+                    <CartSummary/>
+                    </>
+                }
+
                 <br/>
                 <Button type='submit' size='lg'>Potwierdź zamówienie</Button>
                 {cartValueTotal < MIN_CART_VALUE &&
@@ -249,7 +257,8 @@ const CheckoutForm = () => {
 };
 
 const OrderCheckout = () => {
-
+    const { width } = useWindowDimensions();
+    const inlineSummary = width < 800;
     useEffect(() => {
         const onBeforeUnload = (e) => {
             e.preventDefault();
@@ -263,8 +272,8 @@ const OrderCheckout = () => {
             <Container>
             <TextWithBackground>
                 <div className={styles['checkout-wrapper']}>
-                    <CheckoutForm/>
-                    <CartSummary/>
+                    <CheckoutForm withSummary={inlineSummary}/>
+                    {!inlineSummary && <CartSummary/>}
                 </div>
             </TextWithBackground>
         </Container>
