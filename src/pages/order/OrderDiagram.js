@@ -22,7 +22,10 @@ const OrderDiagramStep = ({ number, text, icon }) => (
 );
 
 const OrderDiagram = () => (
-    <div className={styles['order-diagram']}>
+    <div
+        className={styles['order-diagram']}
+        // onClick={() => {}}
+    >
     <OrderDiagramStep
         number="1"
         text="Skompletuj zamówienie"
