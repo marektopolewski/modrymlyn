@@ -140,10 +140,41 @@ const CheckoutForm = ({ withSummary }) => {
                 count: item.count,
             })),
         }
-        alert(JSON.stringify(emailData));
+
+        fetch(
+            '/api/email/send.php',
+            {
+                body: JSON.stringify(emailData),
+                cache: 'no-cache',
+                headers: { 'content-type': 'application/json' },
+                method: 'POST',
+                referrer: 'no-referrer',
+                mode: 'same-origin',
+            }
+        ).then(response => {
+            if (response.ok)
+                return response.json()
+            else
+                return Promise.reject(response)
+        })
+        .then(json => {
+            console.log('Success', json)
+        })
+        .catch(error => {
+            let errMsg = '';
+            errMsg += 'Coś poszło nie tak :(\n';
+            errMsg += 'Jeśli problem się powtarza, skontaktuj się z restauracją pod:\n';
+            errMsg += '+48 733 314 441\n';
+            errMsg += 'Przepraszamy za utrudnienia!\n';
+            errMsg += '\n - - - - - - - - - - \n';
+            errMsg += 'Error Code: ' + error.status + '\n';
+            alert(errMsg);
+        })
+
         e.target.reset();
         dispatch(clearCart());
         navigate('/order');
+
     }, [cart, cartValueTotal, navigate, dispatch]);
 
     const formRef = useRef();
