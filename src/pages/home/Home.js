@@ -14,6 +14,7 @@ import exterior from "assets/photos/photo-7.jpeg";
 import interior from "assets/photos/photo-6.jpeg";
 import pfr from "assets/pfr.jpg";
 import arp from "assets/arp.jpg";
+import arp2 from "assets/arp2.jpg";
 
 import styles from './Home.module.css';
 
@@ -59,6 +60,11 @@ const Home = () => (
             <Col xs="auto" sm="auto" md="auto" lg="auto">
                 <a href="/arp">
                     <Image src={arp} className={styles["funding-image"]} />
+                </a>
+            </Col>
+            <Col xs="auto" sm="auto" md="auto" lg="auto">
+                <a href="/arp">
+                    <Image src={arp2} className={styles["funding-image"]} />
                 </a>
             </Col>
         </Row>
