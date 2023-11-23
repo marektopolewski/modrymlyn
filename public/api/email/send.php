@@ -3,6 +3,7 @@
 
     $_POST = json_decode(file_get_contents('php://input'), true);
 
+    $date = strip_tags($_POST["date"]);
     $name = strip_tags($_POST["name"]);
     $telephone = strip_tags($_POST["telephone"]);
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);

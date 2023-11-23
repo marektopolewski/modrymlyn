@@ -17,6 +17,12 @@ import Row from 'react-bootstrap/Row';
 import styles from './OrderCheckout.module.css';
 
 
+const getDatePlusDays = (days) => {
+    const date = new Date();
+    date.setDate(date.getDate() + days);
+    return date.toISOString().split('T')[0];
+}
+
 const CartSummaryItem = ({name, count, price}) => (
     <Row className={styles['cart-summary-item']}>
         <Col xs={6} className={styles['cart-summary-item-name']}>
@@ -101,6 +107,24 @@ const CartSummary = () => {
     );
 };
 
+const Explainer = () => {
+    const onClick = () => {
+        let text = "";
+        text += "Zamówienia online muszą być złożone z min. 2 dniowym i maks. 3 tygodniowym wyprzedzeniem.";
+        text += "\n\nJeśli dostępne terminy Ci nie odpowiadają, skontaktuj się z nami telefonicznie.";
+        text += "\n\n(+48) 733 314 441";
+        alert(text);
+    };
+    return (
+        <InputGroup.Text
+            className={styles['form-explainer']}
+            onClick={onClick}
+        >
+            ?
+        </InputGroup.Text>
+    )
+};
+
 const CheckoutFormLabel = ({required, children, ...props}) => (
     <InputGroup.Text {...props} className={styles['form-label']}>
         {children}
@@ -128,7 +152,7 @@ const CheckoutForm = ({ withSummary }) => {
         }
         const submitData = Object.fromEntries(new FormData(e.target).entries());
         if (!('nip' in submitData))
-        submitData.nip = ''
+            submitData.nip = ''
         
         const emailData = {
             ...submitData,
@@ -194,6 +218,26 @@ const CheckoutForm = ({ withSummary }) => {
         <div className={styles['form-wrapper']}>
             <Form onSubmit={onSubmit} ref={formRef}>
         
+                <h4>Termin 📆</h4>
+                <InputGroup className={styles['form-input-group']}>
+                    <CheckoutFormLabel id='date' required>
+                        Termin odbioru
+                    </CheckoutFormLabel>
+                    <Form.Control
+                        required
+                        type='date'
+                        name='date'
+                        aria-label='Termin odbioru'
+                        aria-describedby='date'
+                        defaultValue={getDatePlusDays(2)}
+                        min={getDatePlusDays(2)}
+                        max={getDatePlusDays(3 * 7)}
+                        onChange={onChange}
+                    />
+                    <Explainer/>
+                </InputGroup>
+
+                <br/>
                 <h4>Dane kontaktowe ☎️</h4>
                 <InputGroup className={styles['form-input-group']}>
                     <CheckoutFormLabel id='name' required>
