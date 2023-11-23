@@ -10,7 +10,7 @@ import { default as MenuLegacy } from './pages/menu_legacy/Menu';
 import Menu from './pages/menu/Menu';
 import Photos from './pages/photos/Photos';
 import PhotoDetails from './pages/photos/PhotoDetails';
-import Reservations from './pages/reserve/Reservations';
+import Services from './pages/services/Services';
 import Order from './pages/order/Order';
 import OrderCheckout from 'pages/order/OrderCheckout';
 // import Reserve from './pages/reserve/Reserve';
@@ -33,7 +33,7 @@ const App = () => (
                 <Route path='/menu/:langVersion?' element={<MenuLegacy/>} />
                 <Route path='/photos' element={<Photos/>} />
                 <Route path='/photo/:id' element={<PhotoDetails/>} />
-                <Route path='/reservations' element={<Reservations/>} />
+                <Route path='/services' element={<Services/>} />
                 <Route path='/order' element={<Order/>} />
                 <Route path='/order-checkout' element={<OrderCheckout/>} />
                 {/* <Route path='/reserve' element={<Reserve/>} /> */}

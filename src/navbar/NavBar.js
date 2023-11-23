@@ -22,7 +22,7 @@ const paths = [
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
-    { lgLabel: "Imprezy", smLabel: "📆", path: "/reservations" },
+    { lgLabel: "Oferta", smLabel: "📆", path: "/services" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
     { lgLabel: "Unia Europejska", smLabel: <ArpIcon/>, path: "/arp" },
 ];
