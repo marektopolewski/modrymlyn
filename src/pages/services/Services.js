@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 import TextWithBackground from "components/TextWithBackground";
 import LazyImage from "components/LazyImage";
@@ -12,18 +13,17 @@ import Wiata from 'assets/services/wiata.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
 
 import styles from './Services.module.css';
-import { useNavigate } from "react-router-dom";
 
 
 const ServiceFiltersData = [
     {
         id: 0,
-        text: "Organizacja imprez okolicznościowych",
+        text: "Organizacja imprez",
         img: Wiata,
     },
     {
         id: 1,
-        text: "Sprzedaż domowych wędzonek",
+        text: "Sprzedaż wędzonek",
         img: Wedzoniki,
     },
     {
@@ -35,19 +35,18 @@ const ServiceFiltersData = [
 
 const ServiceFiltersItem = ({ text, img, active, onClick }) => (
     <Card
-        className={`${styles["service-filters-item"]} ${active && styles["service-filter-active"]}`}
+        className={`${styles["service-filters-item"]} ${active ? styles["service-filter-active"] : ""}`}
         onClick={onClick}
     >
         <Card.Img variant="top" src={img}/>
-        <div className={styles["service-filters-item-text"]}>
+        <Button variant="light" disabled={active}>
             <span>{text}</span>
-        </div>
-        <Button variant="secondary" size='sm' disabled={active}>Więcej informacji</Button>
+        </Button>
     </Card>
 );
 
 const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     return (
         <div className={styles["service-filters"]}>
         {
@@ -58,7 +57,8 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
                     img={filter.img}
                     onClick={() => {
                         if (filter.id === 2) // catering
-                            navigate('/order')
+                            // navigate('/order')
+                            alert("Dostępne wkrótce!")
                         else
                             onActiveFilterChanged(filter.id)
                     }}
@@ -134,26 +134,28 @@ const Smoked = () => (
 
         <br/>
         <table>
-            <tr>
-                <td>Szynka wędzona prażona (ok. 500g)</td>
-                <td>85 zł/1kg</td>
-            </tr>
-            <tr>
-                <td>Boczek wędzony (ok. 500g)</td>
-                <td>75 zł/1kg</td>
-            </tr>
-            <tr>
-                <td>Polędwiczka wędzona prażona (ok. 300g)</td>
-                <td>95 zł/1kg</td>
-            </tr>
-            <tr>
-                <td>Pstrąg wędzony cały (ok. 350g)</td>
-                <td>85 zł/1kg</td>
-            </tr>
-            <tr>
-                <td>Jajko wędzone</td>
-                <td>12 zł/3szt</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>Szynka wędzona prażona (ok. 500g)</td>
+                    <td>85 zł/1kg</td>
+                </tr>
+                <tr>
+                    <td>Boczek wędzony (ok. 500g)</td>
+                    <td>75 zł/1kg</td>
+                </tr>
+                <tr>
+                    <td>Polędwiczka wędzona prażona (ok. 300g)</td>
+                    <td>95 zł/1kg</td>
+                </tr>
+                <tr>
+                    <td>Pstrąg wędzony cały (ok. 350g)</td>
+                    <td>85 zł/1kg</td>
+                </tr>
+                <tr>
+                    <td>Jajko wędzone</td>
+                    <td>12 zł/3szt</td>
+                </tr>
+            </tbody>
         </table>
             
         <ServiceImage
