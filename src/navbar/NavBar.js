@@ -28,7 +28,7 @@ const paths = [
 ];
 
 const CustomNavItem = ({ href, className, children }) => (
-    <Nav.Item as='li' className={className} style={{ backgroundColor:'aliceblue' }}>
+    <Nav.Item as='div' className={className}>
         <Nav.Link href={href} eventKey={href}>{children}</Nav.Link>
     </Nav.Item>
 );
@@ -59,8 +59,8 @@ const FlexibleTitleItem = ({ smLabel, lgLabel }) => {
 
 export default function Navbar() {
     return (
-        <Container>
-            <Nav fill variant="tabs" as="ul" defaultActiveKey="/" activeKey={window.location.pathname}>
+        <Container className="nav-bar-container">
+            <Nav as="div" fill variant="tabs" defaultActiveKey="/" activeKey={window.location.pathname}>
                 {paths.map(({lgLabel, smLabel, path}) => (
                     <CustomNavItem key={path} href={path} className={path === "/arp" ? "arp-link" : ""}>
                         <FlexibleTitleItem smLabel={smLabel} lgLabel={lgLabel}/>

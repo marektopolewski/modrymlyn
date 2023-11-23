@@ -1,3 +1,21 @@
+.nav-bar-container .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.nav-bar-container .nav-item {
+    flex:1 1 auto;
+    background-color: #d8d8d6;
+    max-width: 250px;
+}
+
+.nav-bar-container ul {
+    border: none;
+}
+
 .arp-link {
     flex: none !important;
 }
@@ -8,4 +26,5 @@
 
 .flex-title-item-text {
     font-size: smaller;
+    color: #000;
 }
