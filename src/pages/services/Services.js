@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import TextWithBackground from "components/TextWithBackground";
 import LazyImage from "components/LazyImage";
 import Container from "components/Container";
@@ -9,7 +11,7 @@ import DolnaSala from 'assets/venues/dolna_sala.jpeg';
 import Wiata from 'assets/venues/wiata.jpeg';
 
 import styles from './Services.module.css';
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const ServiceFiltersData = [
@@ -21,6 +23,11 @@ const ServiceFiltersData = [
     {
         id: 1,
         text: "Sprzedaż domowych wędzonek",
+        img: Wiata,
+    },
+    {
+        id: 2,
+        text: "Zamów catering online",
         img: Wiata,
     },
 ];
@@ -38,21 +45,29 @@ const ServiceFiltersItem = ({ text, img, active, onClick }) => (
     </Card>
 );
 
-const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => (
-    <div className={styles["service-filters"]}>
-    {
-        ServiceFiltersData.map(filter => (
-            <ServiceFiltersItem
-                key={filter.id}
-                text={filter.text}
-                img={filter.img}
-                onClick={() => onActiveFilterChanged(filter.id)}
-                active={activeFilter === filter.id}
-            />
-        ))
-    }
-    </div>
-);
+const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
+    const navigate = useNavigate();
+    return (
+        <div className={styles["service-filters"]}>
+        {
+            ServiceFiltersData.map(filter => (
+                <ServiceFiltersItem
+                    key={filter.id}
+                    text={filter.text}
+                    img={filter.img}
+                    onClick={() => {
+                        if (filter.id === 2) // catering
+                            navigate('/order')
+                        else
+                            onActiveFilterChanged(filter.id)
+                    }}
+                    active={activeFilter === filter.id}
+                />
+            ))
+        }
+        </div>
+    );
+};
 
 const VenueImage = ({ src, text, href }) => (
     <Container className={styles["venue-image-container"]}>
