@@ -7,8 +7,9 @@ import Container from "components/Container";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import DolnaSala from 'assets/venues/dolna_sala.jpeg';
-import Wiata from 'assets/venues/wiata.jpeg';
+import DolnaSala from 'assets/services/dolna_sala.jpeg';
+import Wiata from 'assets/services/wiata.jpeg';
+import Wedzoniki from 'assets/services/wedzonki.jpeg';
 
 import styles from './Services.module.css';
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const ServiceFiltersData = [
     {
         id: 1,
         text: "Sprzedaż domowych wędzonek",
-        img: Wiata,
+        img: Wedzoniki,
     },
     {
         id: 2,
@@ -69,10 +70,10 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
     );
 };
 
-const VenueImage = ({ src, text, href }) => (
-    <Container className={styles["venue-image-container"]}>
+const ServiceImage = ({ src, text, href }) => (
+    <Container className={styles["service-image-container"]}>
         <a href={href} target="_blank" rel="noreferrer" >
-            <LazyImage className={styles["venue-image"]} src={src} text={text} />
+            <LazyImage className={styles["service-image"]} src={src} text={text} />
         </a>
     </Container>
 );
@@ -95,7 +96,7 @@ const Parties = () => (
             Dysponujemy kameralną, oddzielną salką, gdzie zapewniamy
             niepowtarzalną atmosferę, no i pyszne jedzenie 😋
         </p>
-        <VenueImage
+        <ServiceImage
             src={DolnaSala} 
             text="Imprezy okolicznościowe: sala dolna" 
             href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/157751023163707"
@@ -105,7 +106,7 @@ const Parties = () => (
         <p>
             Zapraszamy również do naszej wiaty w sielskim klimacie! 🌻
         </p>
-        <VenueImage
+        <ServiceImage
             src={Wiata}
             text="Imprezy okolicznościowe: wiata"
             href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/341843051421169"    
@@ -123,6 +124,52 @@ const Smoked = () => (
         <h3>
             🐟 Sprzedaż domowych wędzonek 🍖
         </h3>
+        <br/>
+        <p>
+            Miłośnikom prawdziwego głębokiego smaku oferujemy własnoręcznie przygotowane
+            w naszej wędzarni wędliny i nie tylko. Przygotowane jedynie z naturalnych
+            składników, bez żadnej „chemii”, wędzone w prawdziwym dymie ze starannie
+            dobranego drewna. 👨‍🍳💨
+        </p>
+
+        <br/>
+        <table>
+            <tr>
+                <td>Szynka wędzona prażona (ok. 500g)</td>
+                <td>85 zł/1kg</td>
+            </tr>
+            <tr>
+                <td>Boczek wędzony (ok. 500g)</td>
+                <td>75 zł/1kg</td>
+            </tr>
+            <tr>
+                <td>Polędwiczka wędzona prażona (ok. 300g)</td>
+                <td>95 zł/1kg</td>
+            </tr>
+            <tr>
+                <td>Pstrąg wędzony cały (ok. 350g)</td>
+                <td>85 zł/1kg</td>
+            </tr>
+            <tr>
+                <td>Jajko wędzone</td>
+                <td>12 zł/3szt</td>
+            </tr>
+        </table>
+            
+        <ServiceImage
+            src={Wedzoniki}
+            text="Imprezy okolicznościowe: wiata"
+        />
+
+        <p>
+            Wszystko przygotowane według tradycyjnych, sprawdzonych przepisów.<br/>
+            Musicie tego spróbować! 😋
+        </p>
+
+        <br/>
+        <p>
+            Sprawdź dostępność telefonicznie: <b>(+48) 733 314 441</b> 
+        </p>
     </TextWithBackground>
     </>
 );
@@ -130,7 +177,7 @@ const Smoked = () => (
 const Services = () => {
     const [activeFilter, setActiveFilter] = useState(0);
     return (
-        <Container>
+        <Container className={styles["services-container"]}>
             <ServiceFilters
                 activeFilter={activeFilter}
                 onActiveFilterChanged={setActiveFilter}

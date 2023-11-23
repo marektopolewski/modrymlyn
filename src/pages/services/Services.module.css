@@ -1,10 +1,15 @@
-.venue-image-container {
+.services-container p {
+    max-width: 700px;
+    margin: auto;
+}
+
+.service-image-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.venue-image {
+.service-image {
     margin: auto;
     width: 100%;
     height: 100%;
@@ -12,9 +17,30 @@
     max-height: 500px;
 }
 
-.venue-image:hover {
+.service-image:hover {
     transform: scale(1.03);
     transition-duration: 0.3s;
+}
+
+.services-container table {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+    font-size: smaller;
+}
+
+.services-container td,tr {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.services-container td:nth-child(2) {
+    text-align: center;
+}
+
+.services-container tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /*** Service Filters ***/
