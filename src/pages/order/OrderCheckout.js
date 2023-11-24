@@ -197,7 +197,7 @@ const CheckoutForm = ({ withSummary }) => {
 
         e.target.reset();
         dispatch(clearCart());
-        navigate('/order');
+        navigate('/catering');
 
     }, [cart, cartValueTotal, navigate, dispatch]);
 
@@ -351,7 +351,7 @@ const CheckoutForm = ({ withSummary }) => {
                     className={styles['checkout-go-back-button']}
                     variant='secondary'
                     size='sm'
-                    onClick={() => navigate('/order')}
+                    onClick={() => navigate('/catering')}
                 >
                     Powrót
                 </Button>

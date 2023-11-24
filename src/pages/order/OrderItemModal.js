@@ -29,7 +29,7 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
             <LazyImage
                 className={styles['order-modal-img']}
                 text={"Image placeholder"}
-                src={require(`assets/menu/${item.img || "ciasto"}.jpeg`)}
+                src={require(`assets/catering/${item.img}.jpg`)}
             />
             <div className={styles['order-modal-details']}>
                 <Modal.Title>{item.name}</Modal.Title>

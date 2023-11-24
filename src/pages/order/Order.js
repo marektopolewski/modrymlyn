@@ -28,7 +28,7 @@ const OrderItem = ({ item, onClick }) => {
                 <LazyImage
                     className={styles['order-item-img']}
                     text={"Image placeholder"}
-                    src={require(`assets/menu/${item.img || "ciasto"}_s.jpeg`)}
+                    src={require(`assets/catering/${item.img}_s.jpg`)}
                     onClick={() => onClick(item.id)}
                 />
             </Col>

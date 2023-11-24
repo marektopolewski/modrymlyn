@@ -57,7 +57,7 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
                     img={filter.img}
                     onClick={() => {
                         if (filter.id === 2) // catering
-                            // navigate('/order')
+                            // navigate('/catering')
                             alert("Dostępne wkrótce!")
                         else
                             onActiveFilterChanged(filter.id)

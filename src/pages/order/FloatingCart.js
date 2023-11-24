@@ -137,7 +137,7 @@ const CartModal = (props) => {
                     <Button
                         size='lg'
                         disabled={cartCountTotal === 0 || cartValueTotal < MIN_CART_VALUE}
-                        onClick={() => navigate('/order-checkout')}
+                        onClick={() => navigate('/catering-checkout')}
                     >
                             Do kasy
                             {' '}
