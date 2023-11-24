@@ -43,13 +43,6 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.service-image-subpage {
-    -moz-transition: display 2s linear;
-    -webkit-transition: display 2s linear;
-    -o-transition: display 2s linear;
-    transition: display 2s linear;
-}
-
 /*** Service Filters ***/
 .service-filters {
     display: flex;

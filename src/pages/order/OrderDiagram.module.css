@@ -52,3 +52,21 @@
     width: 20px;
     height: 20px;
 }
+
+.order-diagram-note {
+    font-size: smaller;
+    max-width: 650px;
+    margin: auto;
+    margin-top: 1.5rem;
+}
+
+.order-diagram-note span {
+    white-space: nowrap;
+}
+
+.order-diagram-note-extra {
+    font-size: x-small;
+    max-width: 650px;
+    margin: auto;
+    margin-top: 0.5rem;
+}

@@ -29,6 +29,7 @@ const OrderItem = ({ item, onClick }) => {
                     className={styles['order-item-img']}
                     text={"Image placeholder"}
                     src={require(`assets/menu/${item.img || "ciasto"}_s.jpeg`)}
+                    onClick={() => onClick(item.id)}
                 />
             </Col>
             <Col>
