@@ -1,10 +1,9 @@
-import React, { Suspense } from 'react';
-import { Route, Routes } from 'react-router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Suspense, createRef } from 'react';
+import { createBrowserRouter, RouterProvider, useLocation, useOutlet } from 'react-router-dom';
+import {  CSSTransition, SwitchTransition } from "react-transition-group";
 
 import Navbar from './navbar/NavBar';
 
-import NotFound from './pages/notfound/NotFound'
 import Home from './pages/home/Home';
 import { default as MenuLegacy } from './pages/menu_legacy/Menu';
 import Menu from './pages/menu/Menu';
@@ -13,40 +12,84 @@ import PhotoDetails from './pages/photos/PhotoDetails';
 import Services from './pages/services/Services';
 import Order from './pages/order/Order';
 import OrderCheckout from 'pages/order/OrderCheckout';
-// import Reserve from './pages/reserve/Reserve';
-// import ReserveAdmin from './pages/reserve/ReserveAdmin';
 import Arp from './pages/arp/Arp';
-// import Christmas from './pages/christmas/Christmas';
-// import Valentines from './pages/valentines/Valentines';
-// import Ukraine from './pages/ukraine/Ukraine';
-// import Easter from './pages/easter/Easter';
+import Christmas from './pages/christmas/Christmas';
+import Valentines from './pages/valentines/Valentines';
+import Ukraine from './pages/ukraine/Ukraine';
+import Easter from './pages/easter/Easter';
+import NotFound from './pages/notfound/NotFound'
 
 import './App.css';
 
+
+const ROUTES = [
+    { path: '/', element: <Home/>, nodeRef: createRef() },
+
+    { path: '/menu', element: <MenuLegacy/>, nodeRef: createRef() },
+    { path: '/menu_new', element: <Menu/>, nodeRef: createRef(), disabled: true },
+
+    { path: '/photos', element: <Photos/>, nodeRef: createRef() },
+    { path: '/photo/:id', element: <PhotoDetails/>, nodeRef: createRef() },
+
+    { path: '/services', element: <Services/>, nodeRef: createRef() },
+    { path: '/catering', element: <Order/>, nodeRef: createRef() },
+    { path: '/catering-checkout', element: <OrderCheckout/>, nodeRef: createRef() },
+
+    { path: '/arp', element: <Arp/>, nodeRef: createRef() },
+
+    { path: '/christmas', element: <Christmas/>, nodeRef: createRef(), disabled: true },
+    { path: '/valentines', element: <Valentines/>, nodeRef: createRef(), disabled: true },
+    { path: '/ukraine', element: <Ukraine/>, nodeRef: createRef(), disabled: true },
+    { path: '/easter', element: <Easter/>, nodeRef: createRef(), disabled: true },
+
+    { path: '/*', element: <NotFound/>, nodeRef: createRef() },
+];
+
+
+const AnimatedRoutes = () => {
+    const location = useLocation();
+    const currentOutlet = useOutlet()
+    const { nodeRef } = ROUTES.find(route => route.path === location.pathname) ?? {}
+    return (
+        <>
+        <Navbar/>
+        <SwitchTransition>
+            <CSSTransition
+                key={location.pathname}
+                nodeRef={nodeRef}
+                timeout={200}
+                classNames="anim-page"
+                unmountOnExit
+            >
+              <div ref={nodeRef} className="page">
+                {currentOutlet}
+              </div>
+            </CSSTransition>
+        </SwitchTransition>
+        </>
+    );
+};
+
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <AnimatedRoutes/>,
+        children: ROUTES.filter(route =>!route.disabled).map(route => ({
+            index: route.path === '/',
+            path: route.path === '/' ? undefined : route.path,
+            element: route.element,
+        })),
+    }
+]);
+
+
 const App = () => (
-    <Router>
-        <Navbar />
-        <Suspense fallback="loading">
-            <Routes>
-                <Route path='/' element={<Home/>} />
-                <Route path='/menu_new' element={<Menu/>} />
-                <Route path='/menu/:langVersion?' element={<MenuLegacy/>} />
-                <Route path='/photos' element={<Photos/>} />
-                <Route path='/photo/:id' element={<PhotoDetails/>} />
-                <Route path='/services' element={<Services/>} />
-                <Route path='/catering' element={<Order/>} />
-                <Route path='/catering-checkout' element={<OrderCheckout/>} />
-                {/* <Route path='/reserve' element={<Reserve/>} /> */}
-                {/* <Route path='/reserveAdmin' element={<ReserveAdmin/>} /> */}
-                <Route path='/arp' element={<Arp/>} />
-                {/* <Route path='/christmas' element={<Christmas/>} /> */}
-                {/* <Route path='/valentines' element={<Valentines/>} /> */}
-                {/* <Route path='/ukraine' element={<Ukraine/>} /> */}
-                {/* <Route path='/easter' element={<Easter/>} /> */}
-                <Route path='/*' element={<NotFound/>} />
-            </Routes>
+    <RouterProvider router={router}>
+        <Suspense fallback="">
+            <AnimatedRoutes/>
         </Suspense>
-    </Router>
+    </RouterProvider>
 );
 
 export default App;

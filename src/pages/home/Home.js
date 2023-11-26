@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SocialIcon } from 'react-social-icons';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import Spinner from 'react-bootstrap/Spinner';
 
 import TextWithBackground from '../../components/TextWithBackground';
 import Container from '../../components/Container';
@@ -23,6 +24,21 @@ const SocialLink = ({ url, network }) => (
         <SocialIcon url={url} network={network}/>
     </Col>
 );
+
+const Map = () => {
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const loadTimer = setTimeout(() => setLoading(false), 201);
+        return () => clearTimeout(loadTimer);
+    }, [setLoading]);
+    if (loading)
+        return (
+        <TextWithBackground className={[styles['map-placeholder']]}>
+            <Spinner/>
+        </TextWithBackground>
+    )
+    return <PigeonMap height={300}/>;
+};
 
 const Home = () => (
     <Container>
@@ -49,7 +65,7 @@ const Home = () => (
                 <Image src={interior} className={styles["content-image"]} />
             </Col>
             <Col className={styles["content-col"]} sm={12} md={8} lg={4}>
-                <PigeonMap height={300} />
+                <Map/>
             </Col>
         </Row>
 

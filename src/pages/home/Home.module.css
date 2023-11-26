@@ -33,3 +33,13 @@
 .content-col {
     margin-bottom: 1rem;
 }
+
+.map-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 300px;
+    margin: 0 !important;
+}

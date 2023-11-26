@@ -7,14 +7,10 @@
     border: none;
 }
 
-.nav-bar-container .nav-item {
+.nav-bar-container .nav-link {
     flex:1 1 auto;
     background-color: #d8d8d6;
     max-width: 250px;
-}
-
-.nav-bar-container ul {
-    border: none;
 }
 
 .arp-link {

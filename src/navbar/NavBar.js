@@ -1,5 +1,6 @@
 import React from 'react';
 import useWindowDimensions from 'hooks/windowsize';
+import { NavLink } from 'react-router-dom'
 
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
@@ -28,9 +29,14 @@ const paths = [
 ];
 
 const CustomNavItem = ({ href, className, children }) => (
-    <Nav.Item as='div' className={className}>
-        <Nav.Link href={href} eventKey={href}>{children}</Nav.Link>
-    </Nav.Item>
+    <Nav.Link
+        as={NavLink}
+        to={href}
+        className={className}
+        end
+    >
+        {children}
+    </Nav.Link>
 );
 
 const FlexibleTitleItem = ({ smLabel, lgLabel }) => {

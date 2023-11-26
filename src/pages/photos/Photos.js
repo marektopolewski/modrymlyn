@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { NavLink } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 
@@ -29,9 +30,14 @@ const Photos = () => {
     return (<>
         <Container className={styles.wrapper}>
         { photos.map((photo, idx) => (
-                <a key={idx} href={`./photo/${idx}`} className={styles["photo-wrapper"]}>
+                <NavLink
+                    className={styles["photo-wrapper"]}
+                    key={idx}
+                    to={`/photo/${idx}`}
+                    end
+                >
                     <Photo idx={PHOTO_DATA.length - idx} text={photo.header} />
-                </a>
+                </NavLink>
             ))
         }
         </Container>
