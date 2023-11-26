@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Image from 'react-bootstrap/Image';
+import Container from 'components/Container'
+import LazyImage from 'components/LazyImage';
+import TextWithBackground from 'components/TextWithBackground'
 
-import TextWithBackground from '../../components/TextWithBackground'
-import Container from '../../components/Container'
 import christmasMenu from "assets/christmas.jpg";
 
 import styles from './Christmas.module.css'
@@ -31,7 +31,7 @@ const Christmas = () => (
             </p>
         </TextWithBackground>
 
-        <Image src={christmasMenu} fluid />
+        <LazyImage src={christmasMenu} fluid />
 
         <TextWithBackground className={[styles.text, styles.hashtags]}>
             #kaszuby #kuchniakaszubska #restrauracjakaszubska #modrymłyn

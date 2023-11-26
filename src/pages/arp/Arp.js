@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
+
+import LazyImage from 'components/LazyImage';
 
 import arp from "assets/arp_large.jpg";
 import arp2 from "assets/arp2_large.jpg";
@@ -10,10 +11,10 @@ const Arp = () => (
     <Container>
         <div className={styles.header}>
             <div className={styles['image-wrap']}>
-                <Image src={arp} className={styles.image}/>
+                <LazyImage src={arp} className={styles.image}/>
             </div>
             <div className={styles['image-wrap']}>
-                <Image src={arp2} className={styles.image}/>
+                <LazyImage src={arp2} className={styles.image}/>
             </div>
         </div>
         

@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 
-import { Card, Image } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-import TextWithBackground from "components/TextWithBackground";
 import Container from "components/Container";
+import LazyImage from "components/LazyImage";
+import TextWithBackground from "components/TextWithBackground";
 
 import styles from './PhotoDetails.module.css'
 
@@ -36,7 +37,7 @@ const PhotoDetails = () => {
         <Container className={styles["details-wrapper"]}>
         <Card className={styles["details-card"]}>
             <div className={styles["details-image"]}>
-                <Image src={require(`assets/photos/photo-${details.id}.jpeg`)} fluid />
+                <LazyImage src={require(`assets/photos/photo-${details.id}.jpeg`)} fluid />
             </div>
             <TextWithBackground>
                 <Card.Title className={styles.title} dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>

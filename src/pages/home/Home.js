@@ -3,11 +3,11 @@ import { SocialIcon } from 'react-social-icons';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 import Spinner from 'react-bootstrap/Spinner';
 
-import TextWithBackground from '../../components/TextWithBackground';
-import Container from '../../components/Container';
+import Container from 'components/Container';
+import LazyImage from 'components/LazyImage';
+import TextWithBackground from 'components/TextWithBackground';
 
 import PigeonMap from './MapContainer';
 import logo from "assets/mlyn_logo.jpg";
@@ -51,7 +51,7 @@ const Home = () => (
                         <h5 className={styles.subsubtitle}>ul. Mickewicza 19A, Rumia</h5>
                     </Col>
                     <Col md="auto">
-                        <Image src={logo} className={styles.logo} />
+                        <LazyImage src={logo} className={styles.logo} />
                     </Col>
                 </Row>
             </Container>
@@ -59,10 +59,10 @@ const Home = () => (
 
         <Row className={`justify-content-center ${styles["content-row"]}`}>
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
-                <Image src={exterior} className={styles["content-image"]} />
+                <LazyImage src={exterior} className={styles["content-image"]} />
             </Col>
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg={4}>
-                <Image src={interior} className={styles["content-image"]} />
+                <LazyImage src={interior} className={styles["content-image"]} />
             </Col>
             <Col className={styles["content-col"]} sm={12} md={8} lg={4}>
                 <Map/>
@@ -71,16 +71,16 @@ const Home = () => (
 
         <Row className="justify-content-center">
             <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
-                <Image src={pfr} className={styles["funding-image"]} />
+                <LazyImage src={pfr} className={styles["funding-image"]} />
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
                 <a href="/arp">
-                    <Image src={arp} className={styles["funding-image"]} />
+                    <LazyImage src={arp} className={styles["funding-image"]} />
                 </a>
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto">
                 <a href="/arp">
-                    <Image src={arp2} className={styles["funding-image"]} />
+                    <LazyImage src={arp2} className={styles["funding-image"]} />
                 </a>
             </Col>
         </Row>

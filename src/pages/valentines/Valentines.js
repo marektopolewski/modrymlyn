@@ -1,13 +1,14 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image';
 
 import Container from 'components/Container';
+import LazyImage from 'components/LazyImage';
+
 import valentinesMenu from "assets/valentines.jpg";
 
 export default function Valentines() {
     return (
         <Container>
-            <Image src={valentinesMenu} fluid />
+            <LazyImage src={valentinesMenu} fluid />
         </Container>
     );
 }
