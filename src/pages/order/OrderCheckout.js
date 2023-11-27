@@ -158,10 +158,9 @@ const CheckoutForm = ({ withSummary }) => {
             ...submitData,
             total: cartValueTotal,
             order: cart.map(item => ({
-                id: item.id,
                 name: item.name,
-                price: item.price,
                 count: item.count,
+                value: (item.count * item.price).toFixed(2),
             })),
         }
 
