@@ -196,7 +196,7 @@ const CheckoutForm = ({ withSummary }) => {
 
         e.target.reset();
         dispatch(clearCart());
-        navigate('/catering');
+        navigate('/catering-success');
 
     }, [cart, cartValueTotal, navigate, dispatch]);
 
@@ -365,13 +365,13 @@ const OrderCheckout = () => {
     return (
         <Provider store={store}>
             <Container>
-            <TextWithBackground>
-                <div className={styles['checkout-wrapper']}>
-                    <CheckoutForm withSummary={inlineSummary}/>
-                    {!inlineSummary && <CartSummary/>}
-                </div>
-            </TextWithBackground>
-        </Container>
+                <TextWithBackground>
+                    <div className={styles['checkout-wrapper']}>
+                        <CheckoutForm withSummary={inlineSummary}/>
+                        {!inlineSummary && <CartSummary/>}
+                    </div>
+                </TextWithBackground>
+            </Container>
         </Provider>
     );
 };

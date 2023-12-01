@@ -1,0 +1,9 @@
+.order-success-wrapper a {
+    white-space: nowrap;
+}
+
+.back-to-main-button {
+    width: 95%;
+    max-width: 600px;
+    margin: auto;
+}

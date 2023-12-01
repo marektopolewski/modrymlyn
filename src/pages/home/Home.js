@@ -89,7 +89,9 @@ const Home = () => (
             <Row>
                 <Col className={styles["content-col"]}>
                     <Row><Col className={styles["phone-header"]}>Zadzwoń do nas:</Col></Row>
-                    <Row><Col className={styles["phone-number"]}>(+48) 733 314 441</Col></Row>
+                    <Row><Col className={styles["phone-number"]}>
+                        <a href="tel:+48733314441">(+48) 733 314 441</a>
+                    </Col></Row>
                 </Col>
                 <Col sm className={styles["content-col"]}>
                     <Row>

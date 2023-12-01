@@ -78,6 +78,10 @@ const ServiceImage = ({ src, text, href }) => (
     </Container>
 );
 
+const TelLink = () => (
+    <b><a href="tel:+48733314441">(+48) 733 314 441</a></b>
+);
+
 const Parties = () => (
     <>
     <TextWithBackground>
@@ -87,8 +91,8 @@ const Parties = () => (
         <br/>
         <p>
             Wesele, urodziny, I Komunia święta czy Wigilia firmowa... w Modrym Młynie
-            zorganizujemy dla Ciebie wymarzoną imprezę okolicznościową. Sprawdź
-            dostępność dat i sal telefonicznie: <b>(+48) 733 314 441</b>
+            zorganizujemy dla Ciebie wymarzoną imprezę okolicznościową. <br/>
+            Sprawdź dostępność dat i sal telefonicznie: <TelLink/>
         </p>
 
         <br/>
@@ -112,7 +116,7 @@ const Parties = () => (
             href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/341843051421169"    
         />
         <p>
-            Sprawdź dostępność telefonicznie: <b>(+48) 733 314 441</b>
+            Zadzwoń i dowiedź się więcej: <TelLink/>
         </p>
     </TextWithBackground>
     </>
@@ -170,7 +174,7 @@ const Smoked = () => (
 
         <br/>
         <p>
-            Sprawdź dostępność telefonicznie: <b>(+48) 733 314 441</b> 
+            Sprawdź dostępność telefonicznie: <TelLink/>
         </p>
     </TextWithBackground>
     </>

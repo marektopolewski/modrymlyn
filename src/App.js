@@ -12,6 +12,7 @@ import PhotoDetails from './pages/photos/PhotoDetails';
 import Services from './pages/services/Services';
 import Order from './pages/order/Order';
 import OrderCheckout from 'pages/order/OrderCheckout';
+import OrderSuccess from 'pages/order/OrderSuccess';
 import Arp from './pages/arp/Arp';
 import Christmas from './pages/christmas/Christmas';
 import Valentines from './pages/valentines/Valentines';
@@ -34,6 +35,7 @@ const ROUTES = [
     { path: '/services', element: <Services/>, nodeRef: createRef() },
     { path: '/catering', element: <Order/>, nodeRef: createRef() },
     { path: '/catering-checkout', element: <OrderCheckout/>, nodeRef: createRef() },
+    { path: '/catering-success', element: <OrderSuccess/>, nodeRef: createRef() },
 
     { path: '/arp', element: <Arp/>, nodeRef: createRef() },
 
