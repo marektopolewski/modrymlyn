@@ -180,8 +180,10 @@ const CheckoutForm = ({ withSummary }) => {
             else
                 return Promise.reject(response)
         })
-        .then(json => {
-            console.log('Success', json)
+        .then(() => {
+            navigate('/catering-success');
+            e.target.reset();
+            dispatch(clearCart());
         })
         .catch(error => {
             let errMsg = '';
@@ -193,11 +195,6 @@ const CheckoutForm = ({ withSummary }) => {
             errMsg += 'Error Code: ' + error.status + '\n';
             alert(errMsg);
         })
-
-        e.target.reset();
-        dispatch(clearCart());
-        navigate('/catering-success');
-
     }, [cart, cartValueTotal, navigate, dispatch]);
 
     const formRef = useRef();

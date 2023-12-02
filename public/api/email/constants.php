@@ -7,6 +7,4 @@
     $HEADERS  .= 'From: '.$HOST_NAME .'<'.$HOST_MAIL.'>'. "\r\n";
 
     $MY_MAIL = "biuro@mlynmodry.pl";
-
-    $MAIL_HEADER = '<img width="100%" src="http://www.modrymlyn.pl/api/email/header.jpg">';
 ?>
