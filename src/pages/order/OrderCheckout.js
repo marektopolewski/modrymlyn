@@ -174,26 +174,46 @@ const CheckoutForm = ({ withSummary }) => {
                 referrer: 'no-referrer',
                 mode: 'same-origin',
             }
-        ).then(response => {
-            if (response.ok)
-                return response.json()
-            else
-                return Promise.reject(response)
+        ).then(async response => {
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                const errText = await response.text();
+                const rejectText = JSON.stringify({
+                    status: response.status,
+                    text: errText,
+                });
+                return await Promise.reject(rejectText);
+            }
         })
         .then(() => {
             navigate('/catering-success');
             e.target.reset();
             dispatch(clearCart());
         })
-        .catch(error => {
-            let errMsg = '';
-            errMsg += 'Coś poszło nie tak :(\n';
-            errMsg += 'Jeśli problem się powtarza, skontaktuj się z restauracją pod:\n';
-            errMsg += '+48 733 314 441\n';
-            errMsg += 'Przepraszamy za utrudnienia!\n';
-            errMsg += '\n - - - - - - - - - - \n';
-            errMsg += 'Error Code: ' + error.status + '\n';
-            alert(errMsg);
+        .catch((error) => {
+            let errCode = "";
+            let errMsg = "";
+            try {
+                const errJson = JSON.parse(error);
+                errCode = errJson["status"];
+                errMsg = errJson["text"];
+            }
+            catch {
+                errMsg = error; 
+            }
+
+            let alertMsg = '';
+            alertMsg += 'Coś poszło nie tak :(\n';
+            alertMsg += 'Sprawdź maila:\n';
+            alertMsg += 'Jeśli problem się powtarza, skontaktuj się z restauracją pod:\n';
+            alertMsg += '+48 733 314 441\n';
+            alertMsg += 'Przepraszamy za utrudnienia!\n';
+            alertMsg += '\n - - - - - - - - - - \n';
+            alertMsg += 'Kod błędu: ' + errCode + '\n';
+            alertMsg += 'Błąd: ' + errMsg + '\n';
+            alert(alertMsg);
         })
     }, [cart, cartValueTotal, navigate, dispatch]);
 

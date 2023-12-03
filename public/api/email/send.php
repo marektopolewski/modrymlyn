@@ -11,7 +11,7 @@
     //
     // Copy to an accessible location:
     // $ cp -r vendor build/api/email/_vendor
-    require_once dirname(__DIR__) . 'email/_vendor/autoload.php';
+    require_once dirname(__DIR__) . '/email/_vendor/autoload.php';
     use Pelago\Emogrifier\CssInliner;
 
     $_POST = json_decode(file_get_contents('php://input'), true);
@@ -74,6 +74,7 @@
     }
 
     table {
+    	font-family: monospace;
         border-collapse: collapse;
         margin: auto;
     }
@@ -199,13 +200,20 @@
     $content = CssInliner::fromHtml($html)->inlineCss($css)->render();
 
     // $sentMe = @mail($MY_MAIL, 'Nowe zamówienie caternigowe', $content, $HEADERS, '-f '.$HOST_MAIL);
-    $sentCm = @mail($email, 'Modry Młyn: Twoje zamówienie ', $content, $HEADERS, '-f '.$HOST_MAIL);
+    // $sentCm = @mail($email, 'Modry Młyn: Twoje zamówienie ', $content, $HEADERS, '-f '.$HOST_MAIL);
 
     if ($sentMe && $sentCm) {
         http_response_code(200);
         echo json_encode([ 'msg' => 'success' ]);
-    } else {
+    }
+    else {
         http_response_code(500);
-        echo json_encode([ 'msg' => 'error', 'sent' => [ 'me' => $sentMe, 'client' => $sentCm ] ]);
+        echo json_encode([
+            'msg' => 'error',
+            'sent' => [
+                'restaurant' => $sentMe,
+                'client' => $sentCm,
+            ],
+        ]);
     }
 ?>
