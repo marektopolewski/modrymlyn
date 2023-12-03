@@ -356,6 +356,10 @@ const CheckoutForm = ({ withSummary }) => {
                     </>
                 }
 
+                <p>
+                    KlikajPotwierdzam zapoznanie się z treścią Regulaminu oraz Polityki prywatności.
+                </p>
+
                 <br/>
                 <Button type='submit' size='lg'>Potwierdź zamówienie</Button>
                 {cartValueTotal < MIN_CART_VALUE &&
