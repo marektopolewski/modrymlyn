@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Snowfall from 'react-snowfall'
+
 import Container from 'components/Container'
 import LazyImage from 'components/LazyImage';
 import TextWithBackground from 'components/TextWithBackground'
@@ -9,16 +11,21 @@ import christmasMenu from "assets/christmas.jpg";
 import styles from './Christmas.module.css'
 
 const Christmas = () => (
-    <Container>
+    <>
+    <Snowfall
+        color="white"
+        snowflakeCount={200}
+    />
+    <Container> 
         <TextWithBackground>
             <h3>
-                🎄 Święta z Modrym Młynem 🎄
+                🎄 Święta z Modrym Młynem 🎅
             </h3>
             <br/>
             <p>
                 Z racji tego, że grudzień zbliża się wielkimi krokami, a do
                 Świąt Bożego Narodzeniapozostało już niewiele czasu,
-                przygotowaliśmy dla Was ofertę cateringu świątecznego 🎅
+                przygotowaliśmy dla Was ofertę <b>cateringu świątecznego</b> 🧑‍🎄
             </p>
             <p>
                 Zapraszamy do wyboru potraw na Wasz świąteczny stół!
@@ -27,19 +34,25 @@ const Christmas = () => (
                 Zamówienia przyjmujemy do 18 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
             </p>
             <p>
-                Zachęcamy do składania zamówień na miejscu, ewentualnie telefonicznie 😊
+                Zachęcamy do składania zamówień na miejscu lub telefonicznie 😊<br/>
+                <a href="tel:+48733314441">(+48) 733 314 441</a>
             </p>
         </TextWithBackground>
 
-        <LazyImage src={christmasMenu} fluid />
+        <div className={styles['img-container']}>
+            <LazyImage src={christmasMenu} />
+        </div>
 
         <TextWithBackground className={[styles.text, styles.hashtags]}>
-            #kaszuby #kuchniakaszubska #restrauracjakaszubska #modrymłyn
-            #rumia #święta #wigilia #catering #cateringświąteczny
-            #ofertaświąteczna #menuświąteczne #świątecznystół
+            <p>
+                #kaszuby #kuchniakaszubska #restrauracjakaszubska #modrymłyn
+                #rumia #święta #wigilia #catering #cateringświąteczny
+                #ofertaświąteczna #menuświąteczne #świątecznystół
+            </p>
         </TextWithBackground>
 
     </Container>
+    </>
 );
 
 export default Christmas;

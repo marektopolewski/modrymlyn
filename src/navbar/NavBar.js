@@ -18,7 +18,7 @@ const ArpIcon = () => (
 
 const paths = [
     { lgLabel: "Strona główna", smLabel: "🏠", path: "/" },
-    // { lgLabel: "🎄 Święta 🎅", smLabel: "🎄", path: "/christmas" },
+    { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
@@ -68,7 +68,7 @@ export default function Navbar() {
         <Container className="nav-bar-container">
             <Nav as="div" fill variant="tabs" defaultActiveKey="/" activeKey={window.location.pathname}>
                 {paths.map(({lgLabel, smLabel, path}) => (
-                    <CustomNavItem key={path} href={path} className={path === "/arp" ? "arp-link" : ""}>
+                    <CustomNavItem key={path} href={path} className={path.replace("/", "") + "-link"}>
                         <FlexibleTitleItem smLabel={smLabel} lgLabel={lgLabel}/>
                     </CustomNavItem>
                 ))}

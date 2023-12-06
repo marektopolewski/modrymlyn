@@ -8,7 +8,7 @@ import valentinesMenu from "assets/valentines.jpg";
 export default function Valentines() {
     return (
         <Container>
-            <LazyImage src={valentinesMenu} fluid />
+            <LazyImage src={valentinesMenu}/>
         </Container>
     );
 }

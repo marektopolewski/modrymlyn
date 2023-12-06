@@ -37,7 +37,7 @@ const PhotoDetails = () => {
         <Container className={styles["details-wrapper"]}>
         <Card className={styles["details-card"]}>
             <div className={styles["details-image"]}>
-                <LazyImage src={require(`assets/photos/photo-${details.id}.jpeg`)} fluid />
+                <LazyImage src={require(`assets/photos/photo-${details.id}.jpeg`)}/>
             </div>
             <TextWithBackground>
                 <Card.Title className={styles.title} dangerouslySetInnerHTML={{__html: details.header}}></Card.Title>

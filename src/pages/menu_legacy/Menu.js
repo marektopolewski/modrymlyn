@@ -54,8 +54,9 @@ const Menu = () => {
             <Row lg="2" md="2" sm="1">
                 {[...Array(7).keys()].map(idx => (
                     <Col sm key={idx}>
-                        <Image fluid
-                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}/>
+                        <Image
+                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}
+                        />
                     </Col>
                 ))}
             </Row>
