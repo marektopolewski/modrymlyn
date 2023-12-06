@@ -356,14 +356,15 @@ const CheckoutForm = ({ withSummary }) => {
                     </>
                 }
 
-                <p>
-                    KlikajPotwierdzam zapoznanie się z treścią Regulaminu oraz Polityki prywatności.
+                <p className={styles['form-small-desc']}>
+                    Klikjąc <i>Potwierdź zamówienie"</i> oświadczasz że zapoznałeś się z
+                    treścią <a href="/regulamin">Regulaminu</a> oraz 
+                    z <a href="/regulamin">Polityki prywatności</a>.
                 </p>
 
-                <br/>
                 <Button type='submit' size='lg'>Potwierdź zamówienie</Button>
                 {cartValueTotal < MIN_CART_VALUE &&
-                    <p className={styles['form-min-cart-value']}>
+                    <p className={styles['form-small-desc']}>
                         Minimalna kwota zamówienia wynosi: {MIN_CART_VALUE.toFixed()}zł
                     </p>
                 }
