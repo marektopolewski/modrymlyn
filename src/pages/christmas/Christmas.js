@@ -24,14 +24,14 @@ const Christmas = () => (
             <br/>
             <p>
                 Z racji tego, że grudzień zbliża się wielkimi krokami, a do
-                Świąt Bożego Narodzeniapozostało już niewiele czasu,
+                Świąt Bożego Narodzenia pozostało już niewiele czasu,
                 przygotowaliśmy dla Was ofertę <b>cateringu świątecznego</b> 🧑‍🎄
             </p>
             <p>
                 Zapraszamy do wyboru potraw na Wasz świąteczny stół!
             </p>
             <p>
-                Zamówienia przyjmujemy do 18 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
+                Zamówienia przyjmujemy do 17 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
             </p>
             <p>
                 Zachęcamy do składania zamówień na miejscu lub telefonicznie 😊<br/>

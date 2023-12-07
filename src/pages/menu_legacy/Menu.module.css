@@ -12,3 +12,33 @@
 .outdated {
     background-color: #ffcbcb;
 }
+
+.menu-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-logo img {
+    width: 50%;
+    height: auto;
+}
+
+.menu-imgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.menu-imgs div {
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.menu-imgs img {
+    width: 100%;
+    height: auto;
+}

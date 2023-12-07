@@ -3,8 +3,6 @@ import useWindowDimensions from 'hooks/windowsize';
 
 import Container from 'components/Container';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
@@ -46,20 +44,19 @@ const Menu = () => {
                     {width > 500 ? LanguageConfig[lang].button.lgLabel : LanguageConfig[lang].button.smLabel}
                 </Button>
             </div>
-            <Row className="justify-content-md-center">
-                <Col className="d-flex justify-content-md-center">
-                    <Image className="w-50" src={logo2} />
-                </Col>
-            </Row>
-            <Row lg="2" md="2" sm="1">
+            <div className={styles["menu-logo"]}>
+                <Image src={logo2} />
+            </div>
+            <div className={styles["menu-imgs"]}>
                 {[...Array(7).keys()].map(idx => (
-                    <Col sm key={idx}>
+                    <div>
                         <Image
+                            key={idx}
                             src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}
                         />
-                    </Col>
+                    </div>
                 ))}
-            </Row>
+            </div>
         </Container>
     );
 };
