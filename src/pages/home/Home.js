@@ -16,8 +16,22 @@ import interior from "assets/photos/photo-6.jpeg";
 import pfr from "assets/pfr.jpg";
 import arp from "assets/arp.jpg";
 import arp2 from "assets/arp2.jpg";
+import googlemaps from "assets/icons/googlemaps.png";
 
 import styles from './Home.module.css';
+
+const GoogleMapsLink = () => (
+    <Col style={{ marginBottom:'1rem' }}>
+        <a
+            className={styles["google-maps-icon"]}
+            href="https://goo.gl/maps/Te9WZqxWGadQH34N7"
+        >
+            <div>
+                <LazyImage src={googlemaps} text="GoogleMaps"/>
+            </div>
+        </a>
+    </Col>
+);
 
 const SocialLink = ({ url, network }) => (
     <Col style={{ marginBottom:'1rem' }}>
@@ -26,6 +40,7 @@ const SocialLink = ({ url, network }) => (
 );
 
 const Map = () => {
+    console.log(typeof googlemaps);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const loadTimer = setTimeout(() => setLoading(false), 201);
@@ -97,11 +112,16 @@ const Home = () => (
                     <Row>
                         <SocialLink url="https://www.facebook.com/modrymlyn.rumia"/>
                         <SocialLink url="https://www.instagram.com/modrymlyn.rumia"/>
-                        <SocialLink url="https://goo.gl/maps/Te9WZqxWGadQH34N7" network="google"/>
+                        <GoogleMapsLink/>
                         <SocialLink url="mailto:biuro@mlynmodry.pl"/>
                     </Row>
                 </Col>
             </Row>
+            <div className={styles["footer"]}>
+                <a href="/regulamin">Regulamin</a>
+                <span>|</span>
+                <a href="/regulamin">Polityka Prywatności</a>
+            </div>
         </TextWithBackground>
     </Container>
 );
