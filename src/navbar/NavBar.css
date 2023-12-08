@@ -19,7 +19,8 @@
 
 .christmas-link {
     background: url("assets/christmas_pattern.jpg") !important;
-    background-size: cover !important;
+    /* background-size:  !important; */
+    background-size: contain !important;
 }
 
 .christmas-link span {
