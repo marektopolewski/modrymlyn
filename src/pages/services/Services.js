@@ -6,11 +6,18 @@ import LazyImage from "components/LazyImage";
 import Container from "components/Container";
 
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
 
 import DolnaSala from 'assets/services/dolna_sala.jpeg';
+import DolnaSala2 from 'assets/services/dolna_sala_2.jpeg';
 import Wiata from 'assets/services/wiata.jpeg';
+import Wiata2 from 'assets/services/wiata_2.jpeg';
+import GornaSala from 'assets/services/gorna_sala.jpeg';
+import GornaSala2 from 'assets/services/gorna_sala_2.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
+import Catering from 'assets/catering/mus_groszek.jpg'
 
 import styles from './Services.module.css';
 
@@ -19,7 +26,7 @@ const ServiceFiltersData = [
     {
         id: 0,
         text: "Organizacja imprez",
-        img: Wiata,
+        img: Wiata2,
     },
     {
         id: 1,
@@ -29,7 +36,7 @@ const ServiceFiltersData = [
     {
         id: 2,
         text: "Zamów catering online",
-        img: Wiata,
+        img: Catering,
     },
 ];
 
@@ -71,15 +78,21 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
 };
 
 const ServiceImage = ({ src, text, href }) => (
-    <Container className={styles["service-image-container"]}>
-        <a href={href} target="_blank" rel="noreferrer" >
-            <LazyImage className={styles["service-image"]} src={src} text={text} />
-        </a>
-    </Container>
+    <a href={href} target="_blank" rel="noreferrer">
+        <LazyImage
+            className={styles["service-image"]}
+            src={src}
+            text={text}
+        />
+    </a>
 );
 
 const TelLink = () => (
-    <b><a href="tel:+48733314441">(+48) 733 314 441</a></b>
+    <a href="tel:+48733314441">
+        <span className={styles["service-tel"]}>
+            <b>(+48) 733 314 441</b>
+        </span>
+    </a>
 );
 
 const Parties = () => (
@@ -100,21 +113,70 @@ const Parties = () => (
             Dysponujemy kameralną, oddzielną salką, gdzie zapewniamy
             niepowtarzalną atmosferę, no i pyszne jedzenie 😋
         </p>
-        <ServiceImage
-            src={DolnaSala} 
-            text="Imprezy okolicznościowe: sala dolna" 
-            href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/157751023163707"
-        />
+        <br/>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={DolnaSala2} 
+                    text="Imprezy okolicznościowe: sala dolna" 
+                    href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/157751023163707"
+                />
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={DolnaSala} 
+                    text="Imprezy okolicznościowe: sala dolna" 
+                    href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/157751023163707"
+                />
+            </Col>
+        </Row>
+
+        <br/>
+        <p>
+            ☀️ Dla spragnionych słońca i widoku na park Starowiejski
+            możemy również zaoferować salę górną 🌳
+        </p>
+        <br/>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={GornaSala}
+                    text="Imprezy okolicznościowe: sala górna"
+                    href="https://www.facebook.com/modrymlyn.rumia/posts/pfbid0V7tEb67FU7gjhbMJ3MFUgybetDKwxrdPyz4YeZ7TV4nkntxc7wbFWmaabXT9bQZNl"
+                />
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={GornaSala2} 
+                    text="Imprezy okolicznościowe: sala górna 2" 
+                    href="https://www.facebook.com/photo.php?fbid=534031755539375&set=pb.100067976659529.-2207520000&type=3"
+                />
+            </Col>
+        </Row>
 
         <br/>
         <p>
             Zapraszamy również do naszej wiaty w sielskim klimacie! 🌻
         </p>
-        <ServiceImage
-            src={Wiata}
-            text="Imprezy okolicznościowe: wiata"
-            href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/341843051421169"    
-        />
+        <br/>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Wiata2}
+                    text="Imprezy okolicznościowe: wiata"
+                    href="https://www.facebook.com/modrymlyn.rumia/posts/pfbid0V7tEb67FU7gjhbMJ3MFUgybetDKwxrdPyz4YeZ7TV4nkntxc7wbFWmaabXT9bQZNl"    
+                />
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Wiata}
+                    text="Imprezy okolicznościowe: wiata"
+                    href="https://www.facebook.com/modrymlyn.rumia/photos/a.105183665087110/341843051421169"    
+                />
+            </Col>
+        </Row>
+
+        <br/>
         <p>
             Zadzwoń i dowiedź się więcej: <TelLink/>
         </p>
@@ -161,6 +223,7 @@ const Smoked = () => (
                 </tr>
             </tbody>
         </table>
+        <br/>
             
         <ServiceImage
             src={Wedzoniki}

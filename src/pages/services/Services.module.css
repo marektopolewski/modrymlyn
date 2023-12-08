@@ -1,3 +1,7 @@
+.service-tel {
+    white-space: nowrap;
+}
+
 .services-container p {
     max-width: 700px;
     margin: auto;
@@ -13,8 +17,7 @@
     margin: auto;
     width: 100%;
     height: 100%;
-    max-width: 500px;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 .service-image:hover {
@@ -71,10 +74,15 @@
 
 .service-filters-item {
     flex: 1 1 auto;
-    max-width: 300px;
+    max-width: 250px;
     width: 100%;
     height: 100%;
     background-color: #d8d8d6 !important;
+}
+
+.service-filters-item img {
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
 }
 
 .service-filters-item button {
