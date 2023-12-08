@@ -18,6 +18,7 @@ import Christmas from './pages/christmas/Christmas';
 import Valentines from './pages/valentines/Valentines';
 import Ukraine from './pages/ukraine/Ukraine';
 import Easter from './pages/easter/Easter';
+import Rules from 'pages/rules/Rules';
 import NotFound from './pages/notfound/NotFound'
 
 import './App.css';
@@ -43,6 +44,8 @@ const ROUTES = [
     { path: '/valentines', element: <Valentines/>, nodeRef: createRef(), disabled: true },
     { path: '/ukraine', element: <Ukraine/>, nodeRef: createRef(), disabled: true },
     { path: '/easter', element: <Easter/>, nodeRef: createRef(), disabled: true },
+
+    { path: '/regulamin', element: <Rules/>, nodeRef: createRef(), },
 
     { path: '/*', element: <NotFound/>, nodeRef: createRef() },
 ];

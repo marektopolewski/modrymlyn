@@ -19,7 +19,6 @@
 
 .christmas-link {
     background: url("assets/christmas_pattern.jpg") !important;
-    /* background-size:  !important; */
     background-size: contain !important;
 }
 

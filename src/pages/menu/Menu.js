@@ -61,7 +61,7 @@ const MenuItemSm = ({name, desc, item, imageCallback}) => (
     </Row>
 );
 
-const MenuItemLg = ({name, desc, item, imageCallback}) => { console.log(); return (
+const MenuItemLg = ({name, desc, item, imageCallback}) => (
     <Row className={styles['dish-container']}>
         <Col>
             {item.img && <MenuItemImage data={item} imageCallback={imageCallback}/>}
@@ -79,7 +79,7 @@ const MenuItemLg = ({name, desc, item, imageCallback}) => { console.log(); retur
             {item.vege && <p><MenuItemVegeLabel/></p>}
         </Col>
     </Row>
-);}
+);
 
 const MenuItem = ({ item, isEng, imageCallback }) => {
     const { width } = useWindowDimensions();

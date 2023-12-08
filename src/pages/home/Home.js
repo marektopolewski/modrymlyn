@@ -40,7 +40,6 @@ const SocialLink = ({ url, network }) => (
 );
 
 const Map = () => {
-    console.log(typeof googlemaps);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const loadTimer = setTimeout(() => setLoading(false), 201);
