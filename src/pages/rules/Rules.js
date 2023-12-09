@@ -94,6 +94,11 @@ const TermsAndConditions = () => (
                     Serwisu lub Serwis na szkodę majątkową lub wizerunkową.
                 </li>
                 <li>
+                    Wszystkie informacje zawarte i wyświetlane poprzez Serwis, odnoszące się do towarów i usług,
+                    łącznie z ich cenami, nie stanowią oferty handlowej w rozumieniu art. 66 Kodeksu Cywilnego,
+                    lecz zaproszenie do zawarcia umowy określone w art. 71 Kodeksu Cywilnego.
+                </li>
+                <li>
                     Serwis internetowy, działający pod www.modrymlyn.pl, prowadzony jest przez Sylwię Topolewską prowadzącą
                     działalność gospodarczą pod firmą „VIVA Sylwia Topolewska”, wpisaną do Centralnej Ewidencji i Informacji
                     o Działalności Gospodarczej (CEIDG) prowadzonej przez ministra właściwego ds. gospodarki, NIP 5860058616,
