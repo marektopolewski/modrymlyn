@@ -1,0 +1,106 @@
+.nav-container {
+    width: 100%;
+    background-color: #d8d8d6;
+}
+
+.nav-logo {
+    height: 40px;
+}
+
+.nav-items div {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-items a {
+    flex: 1;
+}
+
+.nav-item-label {
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: 767px) {
+        flex-direction: row;
+        justify-content: center !important;
+        gap: 10px;
+        min-width: 250px;
+    }
+}
+
+.nav-item-label span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+:global(.navbar-toggler-icon) {
+    background-image: url("assets/nav_toggler_icon.png") !important;
+}
+
+/****** Christmas link ******/
+.christmas-link {
+    background: url("assets/christmas_pattern.jpg") !important;
+    background-size: contain !important;
+    opacity: 0.7; /* fake active nav */
+}
+
+.christmas-link:hover {
+    opacity: 0.9; /* fake active nav */
+}
+.christmas-link:global(.active) {
+    opacity: 1; /* fake active nav */
+}
+
+.christmas-link span {
+    color: white;
+    text-shadow: 0 0 3px #e83131;
+}
+
+/****** ARP/EU link ******/
+.arp-link {
+    flex: none !important;
+
+    color: unset !important; /* fake active nav */
+    opacity: 0.7;            /* fake active nav */
+}
+
+.arp-link:hover {
+    opacity: 0.9; /* fake active nav */
+}
+.arp-link:global(.active) {
+    opacity: 1; /* fake active nav */
+}
+
+.arp-link div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.arp-icon {
+    height: 20px;
+}
+
+.arp-link span {
+    flex: none !important;
+    font-size: small;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.arp-label-lg {
+    display: block;
+    line-height: 100%;
+}
+.arp-label-sm {
+    display: none;
+}
+@media only screen and (max-width: 1000px) {
+    .arp-label-lg {
+        display: none;
+    }
+    .arp-label-sm {
+        display: block;
+    }
+}

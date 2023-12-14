@@ -1,23 +1,26 @@
 import React from 'react';
-import useWindowDimensions from 'hooks/windowsize';
 import { NavLink } from 'react-router-dom'
 
 import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
 
-import euIcon from '../assets/icons/eu.png'
-import "./NavBar.css"
+import EuIcon from '../assets/icons/eu.png';
+import MlynNavIcon from '../assets/nav_logo.png';
+
+import styles from "./NavBar.module.css";
 
 
 const ArpIcon = () => (
-    <Image src={euIcon} className='arp-icon' title='EU funds'/>
+    <Image
+        className={styles['arp-icon']} 
+        src={EuIcon}
+        title='EU funds'
+    />
 );
 
 const paths = [
-    { lgLabel: "Strona główna", smLabel: "🏠", path: "/" },
     { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
@@ -25,54 +28,73 @@ const paths = [
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     { lgLabel: "Oferta", smLabel: "📆", path: "/services" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
-    { lgLabel: "Unia Europejska", smLabel: <ArpIcon/>, path: "/arp" },
 ];
 
-const CustomNavItem = ({ href, className, children }) => (
+const MyNavbarLink = ({ path, smLabel, lgLabel }) => (
     <Nav.Link
         as={NavLink}
-        to={href}
-        className={className}
+        to={path}
+        className={styles[path.replace("/", "") + "-link"]}
         end
+        eventKey={path}
     >
-        {children}
+        <div className={styles["nav-item-label"]}>
+            <span>{smLabel}</span>
+            <span>{lgLabel}</span>
+        </div>
     </Nav.Link>
 );
 
-const FlexibleTitleItem = ({ smLabel, lgLabel }) => {
-    const { width } = useWindowDimensions();
-    const swapWidth = paths.length * 160;
+const ArpNavbarLink = () => (
+    <Nav.Link
+        className={styles["arp-link"]}
+        as={NavLink} to="/arp" end
+        eventKey={"/arp"}
+    >
+        <div>
+            <ArpIcon/>
+            <span className={styles["arp-label-lg"]}>Unia<br/>Europejska</span>
+            <span className={styles["arp-label-sm"]}>UE</span>
+        </div>
+    </Nav.Link>
 
-    if (width < swapWidth)
-        return smLabel;
+);
 
-    if (width < swapWidth + 200 && lgLabel === "Unia Europejska")
-        lgLabel = "UE";
+const MyNavbar = () => (
+    <Navbar
+        collapseOnSelect
+        expand="md"
+        className={styles["nav-container"]}
+    >
+        <Container>
+            <Navbar.Brand>
+                <Nav.Link as={NavLink} to="/" end>
+                    <Image
+                        className={styles["nav-logo"]}
+                        src={MlynNavIcon}
+                        title='Modry Młyn: Home'
+                    />
+                </Nav.Link>
+            </Navbar.Brand>
 
-    return (
-        <Container> 
-            <Row>
-                <Col>
-                    {smLabel}
-                </Col>
-            </Row>
-            <Row>
-                <span className='flex-title-item-text'>{lgLabel}</span>
-            </Row>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+
+            <Navbar.Collapse
+                id="responsive-navbar-nav"
+                className={styles["nav-items"]}
+            >
+                <Nav className="me-auto">
+                    {paths.map((pathProps) => (
+                        <MyNavbarLink
+                            key={pathProps["path"]}
+                            {...pathProps}
+                        />
+                    ))}
+                    <ArpNavbarLink/>
+                </Nav>
+            </Navbar.Collapse>
         </Container>
-    );
-};
+    </Navbar>
+);
 
-export default function Navbar() {
-    return (
-        <Container className="nav-bar-container">
-            <Nav as="div" fill variant="tabs" defaultActiveKey="/" activeKey={window.location.pathname}>
-                {paths.map(({lgLabel, smLabel, path}) => (
-                    <CustomNavItem key={path} href={path} className={path.replace("/", "") + "-link"}>
-                        <FlexibleTitleItem smLabel={smLabel} lgLabel={lgLabel}/>
-                    </CustomNavItem>
-                ))}
-            </Nav>
-        </Container>
-    );
-};
+export default MyNavbar;
