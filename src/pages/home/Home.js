@@ -62,7 +62,7 @@ const Home = () => (
                     <Col>
                         <h1 className="mt-3">Modry Młyn</h1>
                         <h5 className={styles.subtitle}>Tradycyjna kuchnia kaszubska w nowoczesnym wydaniu.</h5>
-                        <h5 className={styles.subsubtitle}>ul. Mickewicza 19A, Rumia</h5>
+                        <h5 className={styles.subsubtitle}>ul. Mickiewicza 19A, Rumia</h5>
                     </Col>
                     <Col md="auto">
                         <LazyImage src={logo} className={styles.logo} />

@@ -15,7 +15,7 @@ const LanguageConfig = {
         button: {
             lgLabel: "Zmień język 🇵🇱",
             smLabel: "🇵🇱",
-            pathParam: "pl"
+            pathParam: "" // empty goes to PL
         },
         imgPrefix: "ang",
     },
