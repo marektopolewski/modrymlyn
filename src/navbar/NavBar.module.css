@@ -3,6 +3,10 @@
     background-color: #d8d8d6;
 }
 
+.nav-container :global(.navbar-nav) {
+    width: 100%;
+}
+
 .nav-logo {
     height: 40px;
 }

@@ -47,7 +47,7 @@ const ROUTES = [
 
     { path: '/regulamin', element: <Rules/>, nodeRef: createRef(), },
 
-    { path: '/*', element: <NotFound/>, nodeRef: createRef() },
+    { path: '*', element: <NotFound/>, nodeRef: createRef() },
 ];
 
 

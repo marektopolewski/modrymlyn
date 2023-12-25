@@ -66,34 +66,34 @@ const MyNavbar = () => (
         expand="md"
         className={styles["nav-container"]}
     >
-        <Container>
-            <Navbar.Brand>
-                <Nav.Link as={NavLink} to="/" end>
-                    <Image
-                        className={styles["nav-logo"]}
-                        src={MlynNavIcon}
-                        title='Modry Młyn: Home'
-                    />
-                </Nav.Link>
-            </Navbar.Brand>
-
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-
-            <Navbar.Collapse
-                id="responsive-navbar-nav"
-                className={styles["nav-items"]}
-            >
-                <Nav className="me-auto">
-                    {paths.map((pathProps) => (
-                        <MyNavbarLink
-                            key={pathProps["path"]}
-                            {...pathProps}
+        <Nav>
+            <Container>
+                <Navbar.Brand>
+                    <Nav.Link as={NavLink} to="/" eventKey={"/"} end>
+                        <Image
+                            className={styles["nav-logo"]}
+                            src={MlynNavIcon}
+                            title='Modry Młyn: Home'
                         />
-                    ))}
-                    <ArpNavbarLink/>
-                </Nav>
-            </Navbar.Collapse>
-        </Container>
+                    </Nav.Link>
+                </Navbar.Brand>
+
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+
+                <Navbar.Collapse
+                    id="responsive-navbar-nav"
+                    className={styles["nav-items"]}
+                >
+                        {paths.map((pathProps) => (
+                            <MyNavbarLink
+                                key={pathProps["path"]}
+                                {...pathProps}
+                            />
+                        ))}
+                        <ArpNavbarLink/>
+                </Navbar.Collapse>
+            </Container>
+        </Nav>
     </Navbar>
 );
 
