@@ -42,9 +42,28 @@
     background-image: url("assets/nav_toggler_icon.png") !important;
 }
 
+/****** New Year link ******/
+.newyear-link {
+    background: url("assets/surfaces/nye_pattern.jpg") !important;
+    background-size: contain !important;
+    opacity: 0.7; /* fake active nav */
+}
+
+.newyear-link:hover {
+    opacity: 0.9; /* fake active nav */
+}
+.newyear-link:global(.active) {
+    opacity: 1; /* fake active nav */
+}
+
+.newyear-link span {
+    color: white;
+    text-shadow: 0 0 3px #a429e7;
+}
+
 /****** Christmas link ******/
 .christmas-link {
-    background: url("assets/christmas_pattern.jpg") !important;
+    background: url("assets/surfaces/christmas_pattern.jpg") !important;
     background-size: contain !important;
     opacity: 0.7; /* fake active nav */
 }

@@ -14,6 +14,7 @@ import Order from './pages/order/Order';
 import OrderCheckout from 'pages/order/OrderCheckout';
 import OrderSuccess from 'pages/order/OrderSuccess';
 import Arp from './pages/arp/Arp';
+import NewYear from './pages/newyear/NewYear';
 import Christmas from './pages/christmas/Christmas';
 import Valentines from './pages/valentines/Valentines';
 import Ukraine from './pages/ukraine/Ukraine';
@@ -40,7 +41,8 @@ const ROUTES = [
 
     { path: '/arp', element: <Arp/>, nodeRef: createRef() },
 
-    { path: '/christmas', element: <Christmas/>, nodeRef: createRef() },
+    { path: '/newyear', element: <NewYear/>, nodeRef: createRef() },
+    { path: '/christmas', element: <Christmas/>, nodeRef: createRef(), disabled: true },
     { path: '/valentines', element: <Valentines/>, nodeRef: createRef(), disabled: true },
     { path: '/ukraine', element: <Ukraine/>, nodeRef: createRef(), disabled: true },
     { path: '/easter', element: <Easter/>, nodeRef: createRef(), disabled: true },

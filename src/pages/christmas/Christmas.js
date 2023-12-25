@@ -13,6 +13,7 @@ import styles from './Christmas.module.css'
 const Christmas = () => (
     <>
     <Snowfall
+        className={styles['snowfall']}
         color="white"
         snowflakeCount={200}
     />
