@@ -42,18 +42,22 @@
     background-image: url("assets/nav_toggler_icon.png") !important;
 }
 
+/****** Active highlight of nav links ******/
+.nav-container :global(.nav-link) {
+    opacity: 0.7;
+}
+
+.nav-container  :global(.nav-link):hover {
+    opacity: 0.9; /* fake active nav */
+}
+.nav-container :global(.nav-link):global(.active) {
+    opacity: 1; /* fake active nav */
+}
+
 /****** New Year link ******/
 .newyear-link {
     background: url("assets/surfaces/nye_pattern.jpg") !important;
     background-size: contain !important;
-    opacity: 0.7; /* fake active nav */
-}
-
-.newyear-link:hover {
-    opacity: 0.9; /* fake active nav */
-}
-.newyear-link:global(.active) {
-    opacity: 1; /* fake active nav */
 }
 
 .newyear-link span {
@@ -65,14 +69,6 @@
 .christmas-link {
     background: url("assets/surfaces/christmas_pattern.jpg") !important;
     background-size: contain !important;
-    opacity: 0.7; /* fake active nav */
-}
-
-.christmas-link:hover {
-    opacity: 0.9; /* fake active nav */
-}
-.christmas-link:global(.active) {
-    opacity: 1; /* fake active nav */
 }
 
 .christmas-link span {
@@ -85,14 +81,6 @@
     flex: none !important;
 
     color: unset !important; /* fake active nav */
-    opacity: 0.7;            /* fake active nav */
-}
-
-.arp-link:hover {
-    opacity: 0.9; /* fake active nav */
-}
-.arp-link:global(.active) {
-    opacity: 1; /* fake active nav */
 }
 
 .arp-link div {
