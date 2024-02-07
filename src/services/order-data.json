@@ -1,7 +1,7 @@
 [
     {
-        "header": "Rybne 🐟",
-        "header_eng": "Fish 🐟",
+        "header": "Zakąski \"Finger Food\" 🫰",
+        "header_eng": "\"Finger Food\" 🫰",
         "items": [
             {
                 "id": "1",
@@ -9,7 +9,9 @@
                 "name_eng": "Kashubian herring",
                 "desc": "Śledź po kaszubsku w pomidorach",
                 "desc_eng": "Kashubian herring in tomatoes",
-                "price": 10,
+                "price": 6,
+                "portion": "40g",
+                "min_quantity": "5 szt",
                 "img": "sledz_po_kaszubsku"
             },
             {
@@ -18,104 +20,120 @@
                 "name_eng": "Herring in cream",
                 "desc": "Śledź w śmietanie z pulkami",
                 "desc_eng": "Herring in cream with potatoes",
-                "price": 10,
+                "price": 6,
+                "portion": "70g",
+                "min_quantity": "5 szt",
                 "img": "sledz_w_smiet"
             },
             {
                 "id": "3",
-                "name": "Śledź w oleju",
-                "name_eng": "Herring in oil",
-                "desc": "Śledź w oleju z ogórkiem kiszonym i szczypiorkiem",
-                "desc_eng": "Herring in oil with pickles and chives",
-                "price": 10,
+                "name": "Śledź w oliwie",
+                "name_eng": "Herring in olive oil",
+                "desc": "Śledź w oliwie z orzechami i szuszoną śliwką",
+                "desc_eng": "Herring in olive oil with nuts and dried plum",
+                "price": 7,
+                "portion": "60g",
+                "min_quantity": "5 szt",
                 "img": "sledz_w_oleju"
             },
             {
                 "id": "4",
-                "name": "Łosoś wędzony z sosem chrzanowym",
-                "name_eng": "Smoked salmon with horseradish sauce",
-                "desc": "Łosoś wędzony z sosem chrzanowym podawany na domowym chlebie",
-                "desc_eng": "Smoked salmon with horseradish sauce served on homemade bread",
-                "price": 10,
+                "name": "Łosoś wędzony na twarożku",
+                "name_eng": "Smoked salmon on cottage cheese",
+                "desc": "Łosoś wędzony na twarożku",
+                "desc_eng": "Smoked salmon on cottage cheese",
+                "price": 8,
+                "portion": "40g",
+                "min_quantity": "5 szt",
                 "img": "losos"
             },
             {
                 "id": "5",
-                "name": "Szprotka z sosem chrzanowym",
+                "name": "Szprotka na musie chrzanowym",
                 "name_eng": "Sprat with horseradish sauce",
-                "desc": "Szprotka z sosem chrzanowym",
+                "desc": "Szprotka na musie chrzanowym",
                 "desc_eng": "Sprat with horseradish sauce",
-                "price": 10,
+                "price": 6,
+                "portion": "50g",
+                "min_quantity": "10 szt",
                 "img": "szprotka"
-            }
-        ]
-    },
-    {
-        "header": "Mięsne 🍖",
-        "header_eng": "Meats 🍖",
-        "items": [
+            },
             {
                 "id": "6",
-                "name": "Miseczki śmietanowo-porowe z boczkiem",
-                "name_eng": "Cream & leak tartelettes with bacon",
-                "desc": "Miseczki śmietanowo-porowe z boczkiem",
-                "desc_eng": "Cream & leak tartelettes with bacon",
-                "price": 10,
-                "img": "miseczki_boczek"
+                "name": "Miseczki pomidorowe",
+                "name_eng": "Tomato tartelettes",
+                "desc": "Miseczki z musem pomidorowym",
+                "desc_eng": "Tartelettes with tomato puree",
+                "price": 5,
+                "portion": "40g",
+                "min_quantity": "5 szt",
+                "img": "miseczki_pom"
             },
             {
                 "id": "7",
+                "name": "Miseczki groszkowe",
+                "name_eng": "Pea tartelettes",
+                "desc": "Miseczki z musem groszkowym",
+                "desc_eng": "Tartelettes with pea puree",
+                "price": 5,
+                "portion": "40g",
+                "min_quantity": "5 szt",
+                "img": "mus_groszek"
+            },
+            {
+                "id": "8",
+                "name": "\"Tatar\" z suszonych pomidorów",
+                "name_eng": "Dried tomato \"tartare\"",
+                "desc": "\"Tatar\" z suszonych pomidorów",
+                "desc_eng": "Dried tomato \"tartare\"",
+                "price": 5,
+                "portion": "40g",
+                "min_quantity": "5 szt",
+                "img": "tatar_susz_pom"
+            },
+            {
+                "id": "9",
+                "name": "Sałatka z pieczonego buraka i koziego sera",
+                "name_eng": "Salad with roasted beets and goat cheese",
+                "desc": "Sałatka z pieczonego buraka i koziego sera",
+                "desc_eng": "Salad with roasted beets and goat cheese",
+                "price": 7,
+                "portion": "60g",
+                "min_quantity": "10 szt",
+                "img": "salatka_burak"
+            },
+            {
+                "id": "10",
+                "name": "\"Tatar\" z pieczonych warzyw",
+                "name_eng": "\"Tartare\" with roasted vegetables",
+                "desc": "\"Tatar\" z pieczonych warzyw",
+                "desc_eng": "\"Tartare\" with roasted vegetables",
+                "price": 7,
+                "portion": "60g",
+                "min_quantity": "10 szt",
+                "img": "salatka_warzywa"
+            },
+            {
+                "id": "11",
                 "name": "Zylc z marynowaną cebulką",
                 "name_eng": "Meat jelly with marinated onion",
                 "desc": "Zylc z marynowaną cebulką na bagietce",
                 "desc_eng": "Meat jelly with marinated onion on a baguette",
-                "price": 10,
+                "price": 6,
+                "portion": "60g",
+                "min_quantity": "5 szt",
                 "img": "zylc"
             },
             {
-                "id": "8",
+                "id": "12",
                 "name": "Smalec z ogórkiem kiszonym",
                 "name_eng": "Yard with pickles",
                 "desc": "Smalec z ogórkiem kiszonym serwowany na domowym chlebie",
                 "desc_eng": "Yard with pickles served on homemade bread",
-                "price": 10,
+                "price": 5,
+                "portion": "40g",
+                "min_quantity": "5 szt",
                 "img": "smalec"
-            },
-            {
-                "id": "9",
-                "name": "Polędwiczka wędzona na musie żurawinowo-chrzanowym",
-                "name_eng": "Smoked tenderlions with cranberry & horseradish sauce",
-                "desc": "Polędwiczka wędzona na musie żurawinowo-chrzanowym na domowym chlebie",
-                "desc_eng": "Smoked chicken tenders with cranberry & horseradish sauce on homemade bread",
-                "price": 10,
-                "img": "poledwiczka_wedzona"
-            },
-            {
-                "id": "10",
-                "name": "Chrupiąca polędwiczka kurczaka",
-                "name_eng": "Crispy chicken tenders",
-                "desc": "Chrupiąca polędwiczka kurczaka z sosem żurawinowo-chrzanowym",
-                "desc_eng": "Crispy chicken tenders with cranberry & horseradish sauce",
-                "price": 10,
-                "img": "poledwiczka_kurczak"
-            },
-            {
-                "id": "11",
-                "name": "Rolada drobiowa ze szpiankiem i kozim serem",
-                "name_eng": "Chicken roulade with spinach and goat cheese",
-                "desc": "Rolada drobiowa ze szpiankiem i kozim serem",
-                "desc_eng": "Chicken roulade with spinach and goat cheese",
-                "price": 10,
-                "img": "rolada_szpinak"
-            },
-            {
-                "id": "12",
-                "name": "Rolada drobiowa z żurawiną i pistacją",
-                "name_eng": "Chicken roulade with cranberry sauce and pistachio",
-                "desc": "Rolada drobiowa z żurawiną i pistacją",
-                "desc_eng": "Chicken roulade with cranberry sauce and pistachio",
-                "price": 10,
-                "img": "rolada_zurawina"
             },
             {
                 "id": "13",
@@ -123,77 +141,348 @@
                 "name_eng": "Pâté with goose",
                 "desc": "Pasztet z gęsią",
                 "desc_eng": "Pâté with goose",
+                "price": 8,
+                "portion": "40g",
+                "min_quantity": "5 szt",
+                "img": "pasztet_z_gesi"
+            },
+            {
+                "id": "14",
+                "name": "Miseczki z boczkiem",
+                "name_eng": "Tartelettes with bacon",
+                "desc": "Miseczki śmietanowo-porowe z boczkiem",
+                "desc_eng": "Cream & leak tartelettes with bacon",
                 "price": 10,
+                "portion": "70g",
+                "min_quantity": "10 szt",
+                "img": "miseczki_boczek"
+            },
+            {
+                "id": "15",
+                "name": "Wędzona polędwiczka na musie",
+                "name_eng": "Smoked tenderlions with sauce",
+                "desc": "Wędzona polędwiczka na musie żurawinowo-chrzanowym na domowym chlebie",
+                "desc_eng": "Smoked chicken tenders with cranberry & horseradish sauce on homemade bread",
+                "price": 8,
+                "portion": "80g",
+                "min_quantity": "5 szt",
+                "img": "poledwiczka_wedzona"
+            },
+            {
+                "id": "16",
+                "name": "Rolada drobiowa ze szpiankiem",
+                "name_eng": "Chicken roulade with spinach",
+                "desc": "Rolada drobiowa ze szpiankiem i kozim serem",
+                "desc_eng": "Chicken roulade with spinach and goat cheese",
+                "price": 8,
+                "portion": "40g",
+                "min_quantity": "10 szt",
+                "img": "rolada_szpinak"
+            },
+            {
+                "id": "17",
+                "name": "Rolada drobiowa z żurawiną i pistacją",
+                "name_eng": "Chicken roulade with cranberry sauce and pistachio",
+                "desc": "Rolada drobiowa z żurawiną i pistacją",
+                "desc_eng": "Chicken roulade with cranberry sauce and pistachio",
+                "price": 9,
+                "portion": "40g",
+                "min_quantity": "10 szt",
+                "img": "rolada_zurawina"
+            },
+            {
+                "id": "18",
+                "name": "Chrupiąca polędwiczka kurczaka",
+                "name_eng": "Crispy chicken tenders",
+                "desc": "Chrupiąca polędwiczka kurczaka z sosem żurawinowo-chrzanowym",
+                "desc_eng": "Crispy chicken tenders with cranberry & horseradish sauce",
+                "price": 7,
+                "portion": "60g",
+                "min_quantity": "5 szt",
+                "img": "poledwiczka_kurczak"
+            },
+            {
+                "id": "19",
+                "name": "Deska wędzonek, wędlin i serów",
+                "name_eng": "Platter of smoked meats and cheeses",
+                "desc": "Deska naszych domowych wędzonek, wędlin i serów",
+                "desc_eng": "Selection of our homemade smoked meats and cheeses",
+                "price": 95,
+                "portion": "500g",
+                "min_quantity": "1 szt",
+                "img": "no_img"
+            }
+        ]
+    },
+    {
+        "header": "Box \"Smaki Kaszub\" 🍱",
+        "header_eng": "Box \"Taste of Kashubia\" 🍱",
+        "items": [
+            {
+                "id": "20",
+                "name": "Box dla 4 osób (24 zakąski)",
+                "name_eng": "Box for 4 (24 pieces)",
+                "desc": "Śledź w oliwie / pasztet z gęsią / miseczka groszkowa / \"tatar\" z suszonych pomidorów / smalec z ogórkiem kiszonym / chrupiąca polędwiczka z kurczaka",
+                "desc_eng": "Herring in olive oil / pâté with goose / pea tartelette / dried tomato \"tartare\" / yard with pickles / crispy chicken tenders",
+                "price": 150,
+                "portion": "1200g",
+                "min_quantity": "1 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "21",
+                "name": "Box dla 6 osób (36 zakąsek)",
+                "name_eng": "Box for 4 (36 pieces)",
+                "desc": "Śledź w oliwie / pasztet z gęsią / miseczka groszkowa / \"tatar\" z suszonych pomidorów / smalec z ogórkiem kiszonym / chrupiąca polędwiczka z kurczaka",
+                "desc_eng": "Herring in olive oil / pâté with goose / pea tartelette / dried tomato \"tartare\" / yard with pickles / crispy chicken tenders",
+                "price": 230,
+                "portion": "1800g",
+                "min_quantity": "1 szt",
+                "img": "no_img"
+            }
+        ]
+    },
+    {
+        "header": "Kaszubskie delikatesy 😋",
+        "header_eng": "Kashubian delicatessen 😋",
+        "items": [
+            {
+                "id": "22",
+                "name": "Klopsiki z dorsza",
+                "name_eng": "",
+                "desc": "Klopsiki z dorsza w occie",
+                "desc_eng": "",
+                "price": 27,
+                "portion": "300ml",
+                "min_quantity": "2 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "23",
+                "name": "Smalec z chrzanem",
+                "name_eng": "",
+                "desc": "Smalec domowy z chrzanem",
+                "desc_eng": "",
+                "price": 20,
+                "portion": "200ml",
+                "min_quantity": "2 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "24",
+                "name": "Zylc",
+                "name_eng": "",
+                "desc": "Zylc kaszubski",
+                "desc_eng": "",
+                "price": 20,
+                "portion": "200ml",
+                "min_quantity": "2 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "25",
+                "name": "Cukinia marynowana",
+                "name_eng": "",
+                "desc": "Cukinia marynowana z mietą",
+                "desc_eng": "",
+                "price": 24,
+                "portion": "300ml",
+                "min_quantity": "2 szt",
+                "img": "cukinia"
+            },
+            {
+                "id": "26",
+                "name": "Konfitura z czerwonej cebuli",
+                "name_eng": "",
+                "desc": "Konfitura z czerwonej cebuli",
+                "desc_eng": "",
+                "price": 20,
+                "portion": "200ml",
+                "min_quantity": "2 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "27",
+                "name": "Papryka marynowana",
+                "name_eng": "",
+                "desc": "Papryka z grilla marynowana",
+                "desc_eng": "",
+                "price": 20,
+                "portion": "300ml",
+                "min_quantity": "2 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "28",
+                "name": "Pasztet z gęsią",
+                "name_eng": "Pâté with goose",
+                "desc": "Pasztet z gęsią",
+                "desc_eng": "Pâté with goose",
+                "price": 60,
+                "portion": "500g",
+                "min_quantity": "2 szt",
                 "img": "pasztet_z_gesi"
             }
         ]
     },
     {
-        "header": "Wege 🌱",
-        "header_eng": "Vege 🌱",
+        "header": "Zupy 🥣",
+        "header_eng": "Soups 🥣",
         "items": [
             {
-                "id": "14",
-                "name": "Miseczki z musem pomidorowym",
-                "name_eng": "Tartelettes with tomato puree",
-                "desc": "Miseczki z musem pomidorowym",
-                "desc_eng": "Tartelettes with tomato puree",
-                "price": 10,
-                "img": "miseczki_pom"
+                "id": "29",
+                "name": "Brukwiowa",
+                "name_eng": "",
+                "desc": "Brukwiowa na gęsinie",
+                "desc_eng": "",
+                "price": 32,
+                "portion": "1l",
+                "min_quantity": "3l",
+                "img": "no_img"
             },
             {
-                "id": "15",
-                "name": "Miseczki z musem groszkowym",
-                "name_eng": "Tartelettes with tomato puree",
-                "desc": "Miseczki z musem groszkowym",
-                "desc_eng": "Tartelettes with tomato puree",
-                "price": 10,
-                "img": "mus_groszek"
+                "id": "30",
+                "name": "Żurek",
+                "name_eng": "",
+                "desc": "Żurek staropolski",
+                "desc_eng": "",
+                "price": 38,
+                "portion": "1l",
+                "min_quantity": "3l",
+                "img": "no_img"
             },
             {
-                "id": "16",
-                "name": "\"Tatar\" z suszonych pomidorów",
-                "name_eng": "Dried tomato \"tartare\"",
-                "desc": "\"Tatar\" z suszonych pomidorów",
-                "desc_eng": "Dried tomato \"tartare\"",
-                "price": 10,
-                "img": "tatar_susz_pom"
+                "id": "31",
+                "name": "Barszcz",
+                "name_eng": "",
+                "desc": "Barszcz na zakwasie",
+                "desc_eng": "",
+                "price": 26,
+                "portion": "1l",
+                "min_quantity": "3l",
+                "img": "no_img"
             },
             {
-                "id": "17",
-                "name": "Sałatka z pieczonych warzyw",
-                "name_eng": "Salad with roasted vegetables",
-                "desc": "Sałatka z pieczonych warzyw",
-                "desc_eng": "Salad with roasted vegetables",
-                "price": 10,
-                "img": "salatka_warzywa"
+                "id": "32",
+                "name": "Gulaszowa",
+                "name_eng": "",
+                "desc": "Gulaszowa",
+                "desc_eng": "",
+                "price": 40,
+                "portion": "1l",
+                "min_quantity": "3l",
+                "img": "no_img"
+            }
+        ]
+    },
+    {
+        "header": "Mięsa 🍖",
+        "header_eng": "Meats 🍖",
+        "items": [
+            {
+                "id": "33",
+                "name": "De Volaille",
+                "name_eng": "",
+                "desc": "De Volaille",
+                "desc_eng": "",
+                "price": 18,
+                "portion": "1szt",
+                "min_quantity": "6 szt",
+                "img": "no_img"
             },
             {
-                "id": "18",
-                "name": "Sałatka z pieczonego buraka i koziego sera",
-                "name_eng": "Salad with roasted beets and goat cheese",
-                "desc": "Sałatka z pieczonego buraka i koziego sera",
-                "desc_eng": "Salad with roasted beets and goat cheese",
-                "price": 10,
-                "img": "salatka_burak"
+                "id": "34",
+                "name": "Kacze udko",
+                "name_eng": "",
+                "desc": "Kacze udko",
+                "desc_eng": "",
+                "price": 24,
+                "portion": "1szt",
+                "min_quantity": "6 szt",
+                "img": "no_img"
             },
             {
-                "id": "19",
-                "name": "Grzónka",
-                "name_eng": "Kaszubian toasties",
-                "desc": "Grzanka z kozim serem i konfiturą cebulową",
-                "desc_eng": "Toasties with goat cheese and onion jam",
-                "price": 10,
-                "img": "grzanka"
+                "id": "35",
+                "name": "Wołowina szmurowana",
+                "name_eng": "",
+                "desc": "Wołowina szmurowana",
+                "desc_eng": "",
+                "price": 32,
+                "portion": "200g",
+                "min_quantity": "400g",
+                "img": "no_img"
             },
             {
-                "id": "20",
-                "name": "Marynowana cukinia",
-                "name_eng": "Marinated courgette",
-                "desc": "Marynowana cukinia",
-                "desc_eng": "Marinated courgette",
-                "price": 10,
-                "img": "cukinia"
+                "id": "36",
+                "name": "Żeberka pieczone",
+                "name_eng": "",
+                "desc": "Żeberka pieczone",
+                "desc_eng": "",
+                "price": 28,
+                "portion": "200g",
+                "min_quantity": "400g",
+                "img": "no_img"
+            }
+        ]
+    },
+    {
+        "header": "Mączne 🥟",
+        "header_eng": "Floury 🥟",
+        "items": [
+            {
+                "id": "37",
+                "name": "Pierogi z mięsem",
+                "name_eng": "Meat dumplings",
+                "desc": "Pierogi z mięsem",
+                "desc_eng": "Dumplings with meat",
+                "price": 3.5,
+                "portion": "1szt",
+                "min_quantity": "10 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "38",
+                "name": "Pierogi sezonowe",
+                "name_eng": "Seasonal dumplings",
+                "desc": "Pierogi sezonowe",
+                "desc_eng": "Seasonal dumplings",
+                "price": 3.5,
+                "portion": "1szt",
+                "min_quantity": "10 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "39",
+                "name": "Krokiety z mięsem",
+                "name_eng": "",
+                "desc": "Krokiety z mięsem",
+                "desc_eng": "",
+                "price": 14,
+                "portion": "1szt",
+                "min_quantity": "6 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "40",
+                "name": "Krokiety wege",
+                "name_eng": "",
+                "desc": "Krokiety z kapustą i grzybami",
+                "desc_eng": "",
+                "price": 12,
+                "portion": "1szt",
+                "min_quantity": "6 szt",
+                "img": "no_img"
+            },
+            {
+                "id": "41",
+                "name": "Domowy chleb",
+                "name_eng": "Homemade bread",
+                "desc": "Domowy chleb pszenno-żytni",
+                "desc_eng": "",
+                "price": 18,
+                "portion": "1kg",
+                "min_quantity": "1 szt",
+                "img": "no_img"
             }
         ]
     }

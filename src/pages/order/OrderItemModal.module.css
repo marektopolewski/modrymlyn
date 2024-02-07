@@ -20,6 +20,14 @@
     align-items: center;
 }
 
+.order-modal-extra-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .order-modal-controls svg {
     width: 16px;
     height: 16px;

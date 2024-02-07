@@ -47,7 +47,7 @@
     opacity: 0.7;
 }
 
-.nav-container  :global(.nav-link):hover {
+.nav-container :global(.nav-link):hover {
     opacity: 0.9; /* fake active nav */
 }
 .nav-container :global(.nav-link):global(.active) {
@@ -79,7 +79,6 @@
 /****** ARP/EU link ******/
 .arp-link {
     flex: none !important;
-
     color: unset !important; /* fake active nav */
 }
 

@@ -34,6 +34,10 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
             <div className={styles['order-modal-details']}>
                 <Modal.Title>{item.name}</Modal.Title>
                 <p>{item.desc}</p>
+                <div className={styles['order-modal-extra-details']}>
+                    <span>/ {item.portion} /</span>
+                    <span>(min. {item.min_quantity})</span>
+                </div>
                 {CATERING_LAUNCHED && <CartItemCount
                     itemId={item.id}
                     ref={itemCountRef}
