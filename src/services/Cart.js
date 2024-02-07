@@ -93,5 +93,6 @@ export const setCartCount = (cartItemId, newCount) => {
 
 export const clearCart = cartSlice.actions.clear;
 
+export const CATERING_LAUNCHED = false;
 
 export default store;

@@ -2,13 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import usePageBottom from 'hooks/pagebottom';
 
 import { Provider, useSelector } from 'react-redux';
-import store, { getCartCount } from 'services/Cart';
+import store, { getCartCount, CATERING_LAUNCHED } from 'services/Cart';
 import OrderData from 'services/order-data.json'
 
 import Container from 'components/Container';
 import FloatingCart from './FloatingCart';
 import LazyImage from 'components/LazyImage';
 import OrderDiagram from './OrderDiagram';
+import TempOrderDescription from './TempOrderDescription';
 import OrderItemModal from './OrderItemModal';
 import TextWithBackground from 'components/TextWithBackground';
 
@@ -44,10 +45,10 @@ const OrderItem = ({ item, onClick }) => {
                     onClick={() => onClick(item.id)}
                 >
                     <div className={styles['order-item-button-content']}>
-                        <CartLogo/>
+                        {CATERING_LAUNCHED && <CartLogo/>}
                         <span>{item.price.toFixed(2)} zł</span>
                     </div>
-                    {!!cartCount && <div className={styles['order-item-button-count']}>{cartCount}</div>}
+                    {CATERING_LAUNCHED && !!cartCount && <div className={styles['order-item-button-count']}>{cartCount}</div>}
                 </Button>
             </Col>
         </Row>
@@ -89,7 +90,7 @@ const Order = () => {
                 📆 Garmaż Modrego Młyna 🍽
             </h3>
             <br/>
-            <OrderDiagram/>
+            {CATERING_LAUNCHED ? <OrderDiagram/> : <TempOrderDescription/>}
         </TextWithBackground>
 
         <TextWithBackground>
@@ -114,10 +115,10 @@ const Order = () => {
             }}
             itemId={itemPreview?.id}
         />
-        <FloatingCart
+        {CATERING_LAUNCHED && <FloatingCart
             modalShow={basketPreview} setModalShow={setBasketPreview}
             shake={basketShake} setShake={setBasketShake}
-        />
+        />}
         </Provider>
     );
 }

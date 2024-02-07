@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import TextWithBackground from "components/TextWithBackground";
 import LazyImage from "components/LazyImage";
@@ -35,7 +35,8 @@ const ServiceFiltersData = [
     },
     {
         id: 2,
-        text: "Zamów catering online",
+        // text: "Zamów catering online", // TODO: Catering launch
+        text: "Catering",
         img: Catering,
     },
 ];
@@ -53,7 +54,7 @@ const ServiceFiltersItem = ({ text, img, active, onClick }) => (
 );
 
 const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     return (
         <div className={styles["service-filters"]}>
         {
@@ -64,8 +65,7 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
                     img={filter.img}
                     onClick={() => {
                         if (filter.id === 2) // catering
-                            // navigate('/catering')
-                            alert("Dostępne wkrótce!")
+                            navigate('/catering')
                         else
                             onActiveFilterChanged(filter.id)
                     }}

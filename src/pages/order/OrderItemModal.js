@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { setCartCount, OrderItemsMap } from 'services/Cart';
+import { setCartCount, OrderItemsMap, CATERING_LAUNCHED } from 'services/Cart';
 
 import LazyImage from 'components/LazyImage';
 import CartItemCount from './CartItemCount';
@@ -34,11 +34,11 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
             <div className={styles['order-modal-details']}>
                 <Modal.Title>{item.name}</Modal.Title>
                 <p>{item.desc}</p>
-                <CartItemCount
+                {CATERING_LAUNCHED && <CartItemCount
                     itemId={item.id}
                     ref={itemCountRef}
                     captureChange={() => setIsItemCountDirty(true)}
-                />
+                />}
                 <div className={styles['order-modal-buttons']}>
                     <Button
                         size='lg'
@@ -47,13 +47,13 @@ const OrderItemModalContent = ({ itemId, onBasket, onHide }) => {
                     >
                         Powrót
                     </Button>
-                    <Button
+                    {CATERING_LAUNCHED && <Button
                         size='lg'
                         disabled={!isItemCountDirty}
                         onClick={onConfirm}
                     >
                         Dodaj
-                    </Button>
+                    </Button>}
                 </div>
             </div>
         </Modal.Body>
