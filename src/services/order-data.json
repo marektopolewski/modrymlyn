@@ -144,7 +144,7 @@
                 "price": 8,
                 "portion": "40g",
                 "min_quantity": "5 szt",
-                "img": "pasztet_z_gesi"
+                "img": "pasztet_ges"
             },
             {
                 "id": "14",
@@ -227,7 +227,7 @@
                 "price": 150,
                 "portion": "1200g",
                 "min_quantity": "1 szt",
-                "img": "no_img"
+                "img": "catering_box"
             },
             {
                 "id": "21",
@@ -238,7 +238,7 @@
                 "price": 230,
                 "portion": "1800g",
                 "min_quantity": "1 szt",
-                "img": "no_img"
+                "img": "catering_box"
             }
         ]
     },
@@ -255,7 +255,7 @@
                 "price": 27,
                 "portion": "300ml",
                 "min_quantity": "2 szt",
-                "img": "no_img"
+                "img": "klopsy_dorsz"
             },
             {
                 "id": "23",
@@ -266,7 +266,7 @@
                 "price": 20,
                 "portion": "200ml",
                 "min_quantity": "2 szt",
-                "img": "no_img"
+                "img": "smalec_chrzan"
             },
             {
                 "id": "24",
@@ -277,7 +277,7 @@
                 "price": 20,
                 "portion": "200ml",
                 "min_quantity": "2 szt",
-                "img": "no_img"
+                "img": "zylc_kaszub"
             },
             {
                 "id": "25",
@@ -299,7 +299,7 @@
                 "price": 20,
                 "portion": "200ml",
                 "min_quantity": "2 szt",
-                "img": "no_img"
+                "img": "konfitura_cebula"
             },
             {
                 "id": "27",
@@ -310,7 +310,7 @@
                 "price": 20,
                 "portion": "300ml",
                 "min_quantity": "2 szt",
-                "img": "no_img"
+                "img": "papryka_marynowana"
             },
             {
                 "id": "28",
@@ -321,7 +321,7 @@
                 "price": 60,
                 "portion": "500g",
                 "min_quantity": "2 szt",
-                "img": "pasztet_z_gesi"
+                "img": "pasztet_ges"
             }
         ]
     },
@@ -349,7 +349,7 @@
                 "price": 38,
                 "portion": "1l",
                 "min_quantity": "3l",
-                "img": "no_img"
+                "img": "zurek"
             },
             {
                 "id": "31",
@@ -360,7 +360,7 @@
                 "price": 26,
                 "portion": "1l",
                 "min_quantity": "3l",
-                "img": "no_img"
+                "img": "barszcz"
             },
             {
                 "id": "32",
@@ -371,7 +371,7 @@
                 "price": 40,
                 "portion": "1l",
                 "min_quantity": "3l",
-                "img": "no_img"
+                "img": "gulaszowa"
             }
         ]
     },
@@ -388,7 +388,7 @@
                 "price": 18,
                 "portion": "1szt",
                 "min_quantity": "6 szt",
-                "img": "no_img"
+                "img": "de_volaille"
             },
             {
                 "id": "34",
@@ -410,7 +410,7 @@
                 "price": 32,
                 "portion": "200g",
                 "min_quantity": "400g",
-                "img": "no_img"
+                "img": "wolowina_szmur"
             },
             {
                 "id": "36",
