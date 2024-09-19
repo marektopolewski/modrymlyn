@@ -52,7 +52,7 @@ const Menu = () => {
                     <div>
                         <Image
                             key={idx}
-                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_Page_${idx + 2}.jpg`)}
+                            src={require(`assets/menu-${imgPrefix}/menu-modry-mlin-${imgPrefix}_page-000${idx + 2}.jpg`)}
                         />
                     </div>
                 ))}
