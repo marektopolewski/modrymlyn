@@ -32,7 +32,7 @@ const Christmas = () => (
                 Zapraszamy do wyboru potraw na Wasz świąteczny stół!
             </p>
             <p>
-                Zamówienia przyjmujemy do 17 grudnia, a po odbiór zapraszamy 23 grudnia 🕗
+                Zamówienia przyjmujemy <b>do czwartku 18 grudnia</b>, a po odbiór zapraszamy 23 grudnia 🕗
             </p>
             <p>
                 Zachęcamy do składania zamówień na miejscu lub telefonicznie 😊<br/>

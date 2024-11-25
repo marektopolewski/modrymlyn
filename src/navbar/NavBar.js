@@ -22,11 +22,11 @@ const ArpIcon = () => (
 
 const paths = [
     // { lgLabel: "Sylwester", smLabel: "🥳", path: "/newyear" },
-    // { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
+    { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     { lgLabel: "Oferta", smLabel: "📆", path: "/services" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
 ];
