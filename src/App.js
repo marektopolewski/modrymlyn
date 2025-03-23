@@ -43,9 +43,9 @@ const ROUTES = [
 
     { path: '/newyear', element: <NewYear/>, nodeRef: createRef(), disabled: true },
     { path: '/christmas', element: <Christmas/>, nodeRef: createRef(), disabled: true },
-    { path: '/valentines', element: <Valentines/>, nodeRef: createRef(), disabled: false },
+    { path: '/valentines', element: <Valentines/>, nodeRef: createRef(), disabled: true },
     { path: '/ukraine', element: <Ukraine/>, nodeRef: createRef(), disabled: true },
-    { path: '/easter', element: <Easter/>, nodeRef: createRef(), disabled: true },
+    { path: '/easter', element: <Easter/>, nodeRef: createRef(), disabled: false },
 
     { path: '/regulamin', element: <Rules/>, nodeRef: createRef(), },
 
