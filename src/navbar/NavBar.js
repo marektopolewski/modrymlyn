@@ -23,7 +23,7 @@ const ArpIcon = () => (
 const paths = [
     // { lgLabel: "Sylwester", smLabel: "🥳", path: "/newyear" },
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
-    { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
+    // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     // { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },

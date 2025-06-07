@@ -44,14 +44,17 @@
 
 /****** Active highlight of nav links ******/
 .nav-container :global(.nav-link) {
-    opacity: 0.7;
+    opacity: 0.7 !important;
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .nav-container :global(.nav-link):hover {
-    opacity: 0.9; /* fake active nav */
+    opacity: 0.9 !important; /* fake active nav */
+    color: rgba(0, 0, 0, 0.8) !important;
 }
 .nav-container :global(.nav-link):global(.active) {
-    opacity: 1; /* fake active nav */
+    opacity: 1 !important; /* fake active nav */
+    color: rgba(0, 0, 0, 1.0) !important;
 }
 
 /****** New Year link ******/
