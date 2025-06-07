@@ -34,6 +34,7 @@ const Menu = () => {
     const { langVersion } = useParams();
     const lang = langVersion === "en" ? "en" : "pl";
     const imgPrefix = LanguageConfig[lang].imgPrefix;
+    const pageNum = langVersion === "en" ? 7 : 5;
 
     const { width } = useWindowDimensions();
 
@@ -48,7 +49,7 @@ const Menu = () => {
                 <Image src={logo2} />
             </div>
             <div className={styles["menu-imgs"]}>
-                {[...Array(7).keys()].map(idx => (
+                {[...Array(pageNum).keys()].map(idx => (
                     <div>
                         <Image
                             key={idx}
