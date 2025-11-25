@@ -5,16 +5,19 @@
 
 .img-container {
     display: flex;
-    width: 100%;
+    flex-flow: row wrap;
+    align-content: center;
     justify-content: center;
-    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
 .img-container img {
-    margin: auto;
+    display: block;
+    height: 300px;
     width: 100%;
-    height: auto;
-    max-width: 700px;
+    object-fit: cover;
 }
 
 .hashtags {

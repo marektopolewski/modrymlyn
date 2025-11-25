@@ -6,7 +6,10 @@ import Container from 'components/Container'
 import LazyImage from 'components/LazyImage';
 import TextWithBackground from 'components/TextWithBackground'
 
-import christmasMenu from "assets/christmas.jpg";
+import christmasMenu0 from "assets/christmas/christmas_0.jpeg";
+import christmasMenu1 from "assets/christmas/christmas_1.jpeg";
+import christmasMenu2 from "assets/christmas/christmas_2.jpeg";
+import christmasMenu3 from "assets/christmas/christmas_3.jpeg";
 
 import styles from './Christmas.module.css'
 
@@ -32,16 +35,22 @@ const Christmas = () => (
                 Zapraszamy do wyboru potraw na Wasz świąteczny stół!
             </p>
             <p>
-                Zamówienia przyjmujemy <b>do czwartku 18 grudnia</b>, a po odbiór zapraszamy 23 grudnia 🕗
+                Zamówienia przyjmujemy <b>do piątku 19 grudnia</b>, a po odbiór zapraszamy 23 grudnia 🕗
             </p>
             <p>
-                Zachęcamy do składania zamówień na miejscu lub telefonicznie 😊<br/>
+                Zachęcamy do składania zamówień telefonicznie 😊<br/>
                 <a href="tel:+48733314441">(+48) 733 314 441</a>
             </p>
         </TextWithBackground>
 
         <div className={styles['img-container']}>
-            <LazyImage src={christmasMenu} />
+            <LazyImage src={christmasMenu0} />
+            <LazyImage src={christmasMenu1} />
+        </div>
+
+        <div className={styles['img-container']}>
+            <LazyImage src={christmasMenu2} />
+            <LazyImage src={christmasMenu3} />
         </div>
 
         <TextWithBackground className={[styles.text, styles.hashtags]}>
