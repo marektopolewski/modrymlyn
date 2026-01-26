@@ -39,6 +39,11 @@ const ServiceFiltersData = [
         text: "Catering",
         img: Catering,
     },
+    {
+        id: 3,
+        text: "Wynajem domku",
+        img: Catering,
+    },
 ];
 
 const ServiceFiltersItem = ({ text, img, active, onClick }) => (
