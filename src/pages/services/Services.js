@@ -17,6 +17,10 @@ import Wiata2 from 'assets/services/wiata_2.jpeg';
 import GornaSala from 'assets/services/gorna_sala.jpeg';
 import GornaSala2 from 'assets/services/gorna_sala_2.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
+import Domek1 from 'assets/services/domek1.jpeg';
+import Domek2 from 'assets/services/domek2.jpeg';
+import Domek3 from 'assets/services/domek3.jpeg';
+import Domek4 from 'assets/services/domek4.jpeg';
 import Catering from 'assets/catering/mus_groszek.jpg'
 
 import styles from './Services.module.css';
@@ -42,7 +46,7 @@ const ServiceFiltersData = [
     {
         id: 3,
         text: "Wynajem domku",
-        img: Catering,
+        img: Domek1,
     },
 ];
 
@@ -248,6 +252,77 @@ const Smoked = () => (
     </>
 );
 
+const RentHouse = () => (
+    <>
+    <TextWithBackground>
+        <h3>
+            🏡 Wynajem domku "Leśna Droga" ☀️
+        </h3>
+        <br/>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+        </p>
+
+        <br/>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Sezon letni</td>
+                    <td>od 200 zł/dobę</td>
+                </tr>
+                <tr>
+                    <td>Sezon zimowy</td>
+                    <td>od 300 zł/dobę</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Domek1}
+                    text="Imprezy okolicznościowe: wiata"
+                />
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Domek2}
+                    text="Imprezy okolicznościowe: wiata"
+                />
+            </Col>
+        </Row>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Domek3}
+                    text="Imprezy okolicznościowe: wiata"
+                />
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage
+                    src={Domek4}
+                    text="Imprezy okolicznościowe: wiata"
+                />
+            </Col>
+        </Row>
+
+        <p>
+            W sprawie rezerwacji najbardziej kaszubskiego pobutu w naszym domku,
+            prosimy o kontakt telefoniczny. 😌
+        </p>
+
+        <br/>
+        <p>
+            Sprawdź dostępność telefonicznie: <TelLink/>
+        </p>
+    </TextWithBackground>
+    </>
+);
+
 const Services = () => {
     const [activeFilter, setActiveFilter] = useState(0);
     return (
@@ -258,6 +333,7 @@ const Services = () => {
             />
             { activeFilter === 0 && <Parties/> }
             { activeFilter === 1 && <Smoked/> }
+            { activeFilter === 3 && <RentHouse/> }
         </Container>
     );
 };
