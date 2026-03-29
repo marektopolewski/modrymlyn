@@ -4,6 +4,7 @@ import LazyImage from 'components/LazyImage';
 
 import arp from "assets/arp_large.jpg";
 import arp2 from "assets/arp2_large.jpg";
+import arp3 from "assets/arp3_large.jpg";
 
 import styles from "./Arp.module.css"
 
@@ -15,6 +16,9 @@ const Arp = () => (
             </div>
             <div className={styles['image-wrap']}>
                 <LazyImage src={arp2} className={styles.image}/>
+            </div>
+            <div className={styles['image-wrap']}>
+                <LazyImage src={arp3} className={styles.image}/>
             </div>
         </div>
         
