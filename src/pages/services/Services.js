@@ -19,6 +19,7 @@ import GornaSala2 from 'assets/services/gorna_sala_2.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
 import Catering from 'assets/catering/mus_groszek.jpg'
 import Domek from 'assets/services/domek.jpg'
+import Warsztaty from 'assets/photos/photo-23.jpeg'
 
 import styles from './Services.module.css';
 
@@ -42,6 +43,11 @@ const ServiceFiltersData = [
     },
     {
         id: 3,
+        text: "Warsztaty kulinarne",
+        img: Warsztaty,
+    },
+    {
+        id: 4,
         text: "Wynajem domku",
         img: Domek,
         external: true,
@@ -77,7 +83,7 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
                     onClick={() => {
                         if (filter.id === 2) // catering
                             navigate('/catering')
-                        else if (filter.id === 3) // rental
+                        else if (filter.id === 4) // rental
                             window.open('http://domek.modrymlyn.pl', '_blank', 'noopener,noreferrer');
                         else
                             onActiveFilterChanged(filter.id)
@@ -256,6 +262,36 @@ const Smoked = () => (
     </>
 );
 
+const CulinaryWorkshops = () => (
+    <>
+    <TextWithBackground>
+        <h3>
+            👨‍🍳 Warsztaty kulinarne z degustacją 🥟
+        </h3>
+        <br/>
+        <p>
+            Zapraszamy na wyjątkowe warsztaty kulinarne, podczas których wspólnie
+            przygotujemy regionalne specjały — np. tradycyjne pierogi lepione ręcznie
+            według naszych sprawdzonych receptur! 🤲
+        </p>
+        <br/>
+        <p>
+            Wszystko, co wspólnie przygotujemy, zostanie na miejscu poddane obróbce
+            termicznej i podane do degustacji — od razu poczujesz efekty swojej pracy! 😋🍽
+        </p>
+        <br/>
+        <p>
+            Warsztaty prowadzimy również online 💻 — idealne na integrację firmową,
+            rodzinną zabawę lub prezent dla bliskich.
+        </p>
+        <br/>
+        <p>
+            Zapytaj o dostępne terminy i szczegóły: <TelLink/>
+        </p>
+    </TextWithBackground>
+    </>
+);
+
 const Services = () => {
     const [activeFilter, setActiveFilter] = useState(0);
     return (
@@ -266,6 +302,7 @@ const Services = () => {
             />
             { activeFilter === 0 && <Parties/> }
             { activeFilter === 1 && <Smoked/> }
+            { activeFilter === 3 && <CulinaryWorkshops/> }
         </Container>
     );
 };
