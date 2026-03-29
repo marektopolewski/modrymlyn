@@ -18,6 +18,7 @@ import GornaSala from 'assets/services/gorna_sala.jpeg';
 import GornaSala2 from 'assets/services/gorna_sala_2.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
 import Catering from 'assets/catering/mus_groszek.jpg'
+import Domek from 'assets/services/domek.jpg'
 
 import styles from './Services.module.css';
 
@@ -39,19 +40,23 @@ const ServiceFiltersData = [
         text: "Catering",
         img: Catering,
     },
-    // {
-    //     id: 3,
-    //     text: "Wynajem domku",
-    //     img: Catering,
-    // },
+    {
+        id: 3,
+        text: "Wynajem domku",
+        img: Domek,
+        external: true,
+    },
 ];
 
-const ServiceFiltersItem = ({ text, img, active, onClick }) => (
+const ServiceFiltersItem = ({ text, img, active, onClick, external }) => (
     <Card
         className={`${styles["service-filters-item"]} ${active ? styles["service-filter-active"] : ""}`}
         onClick={onClick}
     >
-        <Card.Img variant="top" src={img}/>
+        <div className={styles["card-img-wrapper"]}>
+            <Card.Img variant="top" src={img}/>
+            {external && <span className={styles["external-icon"]}>↗</span>}
+        </div>
         <Button variant="light" disabled={active}>
             <span>{text}</span>
         </Button>
@@ -68,9 +73,12 @@ const ServiceFilters = ({ activeFilter, onActiveFilterChanged }) => {
                     key={filter.id}
                     text={filter.text}
                     img={filter.img}
+                    external={filter.external}
                     onClick={() => {
                         if (filter.id === 2) // catering
                             navigate('/catering')
+                        else if (filter.id === 3) // rental
+                            window.open('http://domek.modrymlyn.pl', '_blank', 'noopener,noreferrer');
                         else
                             onActiveFilterChanged(filter.id)
                     }}
