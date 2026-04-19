@@ -27,7 +27,12 @@ const TempOrderDescription = () => (
         <br/>
         Złóż zamówienie telefonicznie: <TelLink/>
     </p>
-    <p><i>Wkrótce zamówisz online!</i></p>
+    <p>
+        <small>
+            Ceny mają charakter orientacyjny i mogą ulec zmianie — aktualny cennik
+            potwierdzamy telefonicznie.
+        </small>
+    </p>
     </>
 );
 
