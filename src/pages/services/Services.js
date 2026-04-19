@@ -19,7 +19,11 @@ import GornaSala2 from 'assets/services/gorna_sala_2.jpeg';
 import Wedzoniki from 'assets/services/wedzonki.jpeg';
 import Catering from 'assets/catering/mus_groszek.jpg'
 import Domek from 'assets/services/domek.jpg'
-import Warsztaty from 'assets/photos/photo-23.jpeg'
+import Warsztaty1 from 'assets/services/warsztaty_1.jpg'
+import Warsztaty2 from 'assets/services/warsztaty_2.jpg'
+import Warsztaty3 from 'assets/services/warsztaty_3.jpg'
+import Warsztaty4 from 'assets/services/warsztaty_4.jpg'
+import Warsztaty5 from 'assets/services/warsztaty_5.jpg'
 
 import styles from './Services.module.css';
 
@@ -44,7 +48,7 @@ const ServiceFiltersData = [
     {
         id: 3,
         text: "Warsztaty kulinarne",
-        img: Warsztaty,
+        img: Warsztaty1,
     },
     {
         id: 4,
@@ -110,6 +114,14 @@ const TelLink = () => (
     <a href="tel:+48733314441">
         <span className={styles["service-tel"]}>
             <b>(+48) 733 314 441</b>
+        </span>
+    </a>
+);
+
+const EmailLink = () => (
+    <a href="mailto:biuro@mlynmodry.pl">
+        <span className={styles["service-tel"]}>
+            <b>biuro@mlynmodry.pl</b>
         </span>
     </a>
 );
@@ -266,27 +278,91 @@ const CulinaryWorkshops = () => (
     <>
     <TextWithBackground>
         <h3>
-            👨‍🍳 Warsztaty kulinarne z degustacją 🥟
+            👨‍🍳 Warsztaty „Lepimy pierogi” 🥟
         </h3>
         <br/>
         <p>
-            Zapraszamy na wyjątkowe warsztaty kulinarne, podczas których wspólnie
-            przygotujemy regionalne specjały — np. tradycyjne pierogi lepione ręcznie
-            według naszych sprawdzonych receptur! 🤲
+            Zapraszamy na niezwykłe warsztaty, podczas których uczestnicy nauczą się
+            sztuki lepienia tradycyjnych polskich pierogów — od zagniatania ciasta,
+            przez wałkowanie i wykrajanie, aż po wypełnianie farszem, zaklejanie
+            i gotowanie. 🤲
+        </p>
+        <br/>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage src={Warsztaty1} text="Warsztaty kulinarne: lepienie pierogów"/>
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage src={Warsztaty2} text="Warsztaty kulinarne: lepienie pierogów"/>
+            </Col>
+        </Row>
+        <br/>
+        <p>
+            Aby zagwarantować każdemu pełne zaangażowanie, przygotowujemy 4 odrębne
+            stanowiska dla grup 6-8 osobowych. Każda grupa przechodzi przez wszystkie
+            etapy produkcji pod okiem naszych doświadczonych instruktorów. 👨‍🍳
         </p>
         <br/>
         <p>
-            Wszystko, co wspólnie przygotujemy, zostanie na miejscu poddane obróbce
-            termicznej i podane do degustacji — od razu poczujesz efekty swojej pracy! 😋🍽
+            Warsztaty odbywają się w wydzielonej salce, a stoły do biesiadowania
+            ustawiamy na górnej sali lub w altance — jest gdzie wspólnie zasiąść
+            do przygotowanych potraw. 🍽
+        </p>
+        <br/>
+        <Row>
+            <Col xs="12" sm="6">
+                <ServiceImage src={Warsztaty3} text="Warsztaty kulinarne: degustacja"/>
+            </Col>
+            <Col xs="12" sm="6">
+                <ServiceImage src={Warsztaty4} text="Warsztaty kulinarne: degustacja"/>
+            </Col>
+        </Row>
+        <br/>
+        <p>
+            <b>Czas trwania:</b> 3 godziny<br/>
+            <b>Liczba uczestników:</b> 20-50 osób<br/>
+            <b>Termin:</b> dowolny, po wcześniejszej rezerwacji<br/>
+            <b>Miejsce:</b> Restauracja „Modry Młyn”, Rumia, ul. Mickiewicza 19a
         </p>
         <br/>
         <p>
-            Warsztaty prowadzimy również online 💻 — idealne na integrację firmową,
-            rodzinną zabawę lub prezent dla bliskich.
+            W ramach warsztatów zapewniamy poczęstunek w formie szwedzkiego bufetu.
+            Do wyboru jeden z trzech pakietów:
+        </p>
+        <br/>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Pakiet A — pierogi 1 rodzaj (5 szt./os.), woda z miętą i cytryną</td>
+                    <td>60 zł/os.</td>
+                </tr>
+                <tr>
+                    <td>Pakiet B — zupa, pierogi 2 rodzaje (6 szt./os.), woda z miętą i cytryną</td>
+                    <td>80 zł/os.</td>
+                </tr>
+                <tr>
+                    <td>Pakiet C — czekadełko, zupa, pierogi 3 rodzaje (8 szt./os.), surówka, woda z miętą i cytryną</td>
+                    <td>120 zł/os.</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <p>
+            <small>
+                Przy każdych 10 uczestnikach 1 opiekun otrzymuje udział gratis.<br/>
+                Ceny mają charakter orientacyjny i mogą ulec zmianie — aktualny cennik
+                potwierdzamy telefonicznie lub mailowo.
+            </small>
+        </p>
+        <br/>
+        <ServiceImage src={Warsztaty5} text="Warsztaty kulinarne: efekt końcowy"/>
+        <br/>
+        <p>
+            W przypadku grup międzynarodowych zapewniamy instruktaż w języku angielskim. 🇬🇧
         </p>
         <br/>
         <p>
-            Zapytaj o dostępne terminy i szczegóły: <TelLink/>
+            Zapisy i szczegóły: <TelLink/> lub <EmailLink/>
         </p>
     </TextWithBackground>
     </>
