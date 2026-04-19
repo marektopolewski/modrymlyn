@@ -255,7 +255,14 @@ const Smoked = () => (
             </tbody>
         </table>
         <br/>
-            
+        <p>
+            <small>
+                Ceny mają charakter orientacyjny i mogą ulec zmianie — aktualny cennik
+                potwierdzamy telefonicznie.
+            </small>
+        </p>
+        <br/>
+
         <ServiceImage
             src={Wedzoniki}
             text="Imprezy okolicznościowe: wiata"
