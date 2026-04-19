@@ -27,6 +27,7 @@ const paths = [
     // { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
     // { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
+    { lgLabel: "Lato", smLabel: "☀️", path: "/lato" },
     { lgLabel: "Oferta", smLabel: "📆", path: "/services" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
 ];
