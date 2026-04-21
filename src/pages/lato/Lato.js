@@ -4,12 +4,10 @@ import Container from 'components/Container';
 import LazyImage from 'components/LazyImage';
 import TextWithBackground from 'components/TextWithBackground';
 
-import Scenery1 from 'assets/lato/lato_scenery_1.jpg';
-import Scenery2 from 'assets/lato/lato_scenery_2.jpg';
-import Drinks1 from 'assets/lato/lato_drinks_1.jpg';
-import Drinks2 from 'assets/lato/lato_drinks_2.jpg';
-import Grill1 from 'assets/lato/lato_grill_1.jpg';
-import Grill2 from 'assets/lato/lato_grill_2.jpg';
+import Scenery from 'assets/lato/scenery.jpg';
+import Drinks1 from 'assets/lato/drinks_1.jpg';
+import Drinks2 from 'assets/lato/drinks_2.jpg';
+import Menu1 from 'assets/lato/menu_lato_1.jpg';
 
 import styles from './Lato.module.css';
 
@@ -29,8 +27,8 @@ const Lato = () => (
         </TextWithBackground>
 
         <div className={styles['img-container']}>
-            <LazyImage src={Scenery1} />
-            <LazyImage src={Scenery2} />
+            <LazyImage src={Scenery} />
+            <LazyImage src={Drinks1} />
         </div>
 
         <TextWithBackground>
@@ -44,21 +42,8 @@ const Lato = () => (
         </TextWithBackground>
 
         <div className={styles['img-container']}>
-            <LazyImage src={Drinks1} />
             <LazyImage src={Drinks2} />
-        </div>
-
-        <TextWithBackground>
-            <p>
-                Prosto z grilla 🔥 serwujemy <b>świeże wyroby</b> 🍢
-                przygotowywane na miejscu — aromatyczne, chrupiące, gotowe
-                do złapania w biegu albo zjedzenia w naszym ogródku 🌿
-            </p>
-        </TextWithBackground>
-
-        <div className={styles['img-container']}>
-            <LazyImage src={Grill1} />
-            <LazyImage src={Grill2} />
+            <LazyImage src={Menu1} />
         </div>
 
         <TextWithBackground>
