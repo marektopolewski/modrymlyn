@@ -48,6 +48,14 @@ const Lato = () => (
 
         <TextWithBackground>
             <p>
+                Prosto z grilla 🔥 serwujemy <b>świeże wyroby</b> 🍢
+                przygotowywane na miejscu — aromatyczne, chrupiące, gotowe
+                do złapania w biegu albo zjedzenia w naszym ogródku 🌿
+            </p>
+        </TextWithBackground>
+
+        <TextWithBackground>
+            <p>
                 Otwarcie stoiska uzależnione jest od pogody ⛅ — aby
                 potwierdzić dostępność, prosimy o kontakt telefoniczny 📞
                 <br/>
