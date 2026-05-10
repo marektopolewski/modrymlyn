@@ -1,3 +1,12 @@
+.hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
 .header {
     display: flex;
     flex: 1;

@@ -16,6 +16,7 @@ import interior from "assets/photos/photo-6.jpeg";
 import pfr from "assets/pfr.jpg";
 import arp from "assets/arp.jpg";
 import arp2 from "assets/arp2.jpg";
+import arp3 from "assets/arp3.jpg";
 import googlemaps from "assets/icons/googlemaps.png";
 
 import styles from './Home.module.css';
@@ -83,22 +84,6 @@ const Home = () => (
             </Col>
         </Row>
 
-        <Row className="justify-content-center">
-            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
-                <LazyImage src={pfr} className={styles["funding-image"]} />
-            </Col>
-            <Col xs="auto" sm="auto" md="auto" lg="auto">
-                <a href="/arp">
-                    <LazyImage src={arp} className={styles["funding-image"]} />
-                </a>
-            </Col>
-            <Col xs="auto" sm="auto" md="auto" lg="auto">
-                <a href="/arp">
-                    <LazyImage src={arp2} className={styles["funding-image"]} />
-                </a>
-            </Col>
-        </Row>
-
         <TextWithBackground>
             <Row>
                 <Col className={styles["content-col"]}>
@@ -122,6 +107,33 @@ const Home = () => (
                 <a href="/regulamin">Polityka Prywatności</a>
             </div>
         </TextWithBackground>
+
+        <Row className="justify-content-center">
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
+                <LazyImage src={pfr} className={styles["funding-image"]} />
+            </Col>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
+                <a href="/arp">
+                    <LazyImage src={arp} className={styles["funding-image"]} />
+                </a>
+            </Col>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
+                <a href="/arp">
+                    <LazyImage src={arp2} className={styles["funding-image"]} />
+                </a>
+            </Col>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
+                <a href="/arp">
+                    <LazyImage src={arp3} className={styles["funding-image"]} />
+                </a>
+            </Col>
+            <Col className={styles["content-col"]} xs="auto" sm="auto" md="auto" lg="auto">
+                <div className={styles["funding-hashtags"]}>
+                    <span>#FunduszeEuropejskie</span>
+                    <span>#NextGenerationEU</span>
+                </div>
+            </Col>
+        </Row>
     </Container>
 );
 

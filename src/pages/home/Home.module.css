@@ -20,6 +20,17 @@
     height: 150px;
 }
 
+.funding-hashtags {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
 .phone-header {
     font-variant-caps: small-caps;
     text-align: center;

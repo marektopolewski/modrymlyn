@@ -10,6 +10,10 @@ import styles from "./Arp.module.css"
 
 const Arp = () => (
     <Container>
+        <div className={styles.hashtags}>
+            <span>#FunduszeEuropejskie</span>
+            <span>#NextGenerationEU</span>
+        </div>
         <div className={styles.header}>
             <div className={styles['image-wrap']}>
                 <LazyImage src={arp} className={styles.image}/>
