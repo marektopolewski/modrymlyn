@@ -10,11 +10,11 @@ import styles from "./Arp.module.css"
 
 const Arp = () => (
     <Container>
-        <div className={styles.hashtags}>
-            <span>#FunduszeEuropejskie</span>
-            <span>#NextGenerationEU</span>
-        </div>
+
         <div className={styles.description}>
+            <p>
+                <strong>Nasza firma realizuje przedsięwzięcie:</strong>
+            </p>
             <p>
                 <strong>Tytuł projektu:</strong> Dywersyfikacja działalności VIVA Sylwia Topolewska
                 prowadzonej w regionie 1 w województwie pomorskim poprzez wprowadzenie nowych usług,
@@ -42,6 +42,10 @@ const Arp = () => (
                     koktajle bezalkoholowe.
                 </li>
             </ol>
+        </div>
+        <div className={styles.hashtags}>
+            <span>#FunduszeEuropejskie</span>
+            <span>#NextGenerationEU</span>
         </div>
         <div className={styles.header}>
             <div className={styles['image-wrap']}>
