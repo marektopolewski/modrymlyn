@@ -34,7 +34,7 @@ const Menu = () => {
     const { langVersion } = useParams();
     const lang = langVersion === "en" ? "en" : "pl";
     const imgPrefix = LanguageConfig[lang].imgPrefix;
-    const pageNum = langVersion === "en" ? 7 : 5;
+    const pageNum = langVersion === "en" ? 3 : 3;
 
     const { width } = useWindowDimensions();
 

@@ -25,9 +25,9 @@ const paths = [
     // { lgLabel: "Ukraina", smLabel: "🇺🇦", path: "/ukraine" },
     // { lgLabel: "Wilekanoc", smLabel: "🐣", path: "/easter" },
     // { lgLabel: "Święta", smLabel: "🎅", path: "/christmas" },
-    // { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     // { lgLabel: "Walentynki", smLabel: "❤️", path: "/valentines" },
     { lgLabel: "Lato", smLabel: "☀️", path: "/lato" },
+    { lgLabel: "Menu", smLabel: "🍽", path: "/menu" },
     { lgLabel: "Oferta", smLabel: "📆", path: "/services" },
     { lgLabel: "Zdjęcia", smLabel: "📷", path: "/photos" },
 ];

@@ -29,7 +29,7 @@ import './App.css';
 const ROUTES = [
     { path: '/', element: <Home/>, nodeRef: createRef() },
 
-    { path: '/menu/:langVersion?', element: <MenuLegacy/>, nodeRef: createRef(), disabled: true },
+    { path: '/menu/:langVersion?', element: <MenuLegacy/>, nodeRef: createRef(), disabled: false },
     { path: '/menu_new', element: <Menu/>, nodeRef: createRef(), disabled: true },
 
     { path: '/photos', element: <Photos/>, nodeRef: createRef() },
